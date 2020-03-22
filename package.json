@@ -19,7 +19,8 @@
     "react-native-gesture-handler": "^1.6.1",
     "react-native-reanimated": "^1.7.0",
     "react-native-safe-area-context": "^0.7.3",
-    "react-native-screens": "^2.4.0"
+    "react-native-screens": "^2.4.0",
+    "reactotron-react-native": "^4.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
