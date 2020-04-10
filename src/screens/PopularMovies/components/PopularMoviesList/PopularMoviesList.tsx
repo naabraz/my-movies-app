@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { MovieView, MoviePoster } from './styles';
+import { MovieView, MoviePoster } from './PopularMoviesList.styles';
 
 type Movie = {
   movie: {
