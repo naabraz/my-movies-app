@@ -2,7 +2,7 @@ import React from 'react';
 import { ScrollView } from 'react-native';
 
 import { PopularMoviesList } from './components';
-import { PopularMoviesScreenView } from './styles';
+import { PopularMoviesScreenView } from './PopularMoviesScreen.styles';
 
 type Movies = {
   movies: {
