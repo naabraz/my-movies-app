@@ -12,7 +12,7 @@ type Movies = {
   }[];
 };
 
-const PopularMoviesScreen = ({ movies }: Movies) => {
+const PopularMoviesScreen: React.FC<Movies> = ({ movies }: Movies) => {
   const moviesList = movies.map(movie => (
     <PopularMoviesList movie={movie} key={movie.id} />
   ));
