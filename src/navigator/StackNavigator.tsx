@@ -5,7 +5,7 @@ import { PopularMoviesContainer } from '../screens/';
 
 const Stack = createStackNavigator();
 
-const StackNavigator = () => (
+const StackNavigator: React.FC = () => (
   <Stack.Navigator initialRouteName="Details">
     <Stack.Screen name="Popular Movies" component={PopularMoviesContainer} />
   </Stack.Navigator>

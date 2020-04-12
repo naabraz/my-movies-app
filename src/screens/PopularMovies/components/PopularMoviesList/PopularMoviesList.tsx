@@ -10,7 +10,7 @@ type Movie = {
   };
 };
 
-const PopularMoviesList = ({ movie }: Movie) => {
+const PopularMoviesList: React.FC<Movie> = ({ movie }: Movie) => {
   const { posterPath } = movie;
   return (
     <MovieView>

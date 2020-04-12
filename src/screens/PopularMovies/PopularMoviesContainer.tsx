@@ -6,7 +6,7 @@ import PopularMoviesScreen from './PopularMoviesScreen';
 import { PopularMoviesData } from './interfaces/PopularMoviesInterface';
 import { POPULAR_MOVIES } from './PopularMovies.graphql';
 
-const PopularMoviesContainer = () => {
+const PopularMoviesContainer: React.FC = () => {
   const { loading, data } = useQuery<PopularMoviesData>(POPULAR_MOVIES);
 
   if (loading) {
@@ -17,9 +17,13 @@ const PopularMoviesContainer = () => {
     );
   }
 
-  return data 
-  ? (<PopularMoviesScreen movies={data?.popularMovies} />)
-  : (<View><Text>No Movies Found</Text></View>)
+  return data ? (
+    <PopularMoviesScreen movies={data?.popularMovies} />
+  ) : (
+    <View>
+      <Text>No Movies Found</Text>
+    </View>
+  );
 };
 
 export default PopularMoviesContainer;

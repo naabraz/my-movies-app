@@ -1,11 +1,6 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { AsyncStorage } from 'react-native';
 import Reactotron from 'reactotron-react-native';
-
-declare global {
-  interface Console {
-    tron: any;
-  }
-}
 
 const reactotronConfig = () => {
   if (Reactotron.setAsyncStorageHandler) {

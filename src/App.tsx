@@ -6,7 +6,7 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import client from './apollo/ApolloClient';
 import { StackNavigator } from './navigator';
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <>
       <ApolloProvider client={client}>
