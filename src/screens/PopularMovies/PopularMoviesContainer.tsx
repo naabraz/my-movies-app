@@ -17,7 +17,9 @@ const PopularMoviesContainer = () => {
     );
   }
 
-  return data && (<PopularMoviesScreen movies={data?.popularMovies} />);
+  return data 
+  ? (<PopularMoviesScreen movies={data?.popularMovies} />)
+  : (<View><Text>No Movies Found</Text></View>)
 };
 
 export default PopularMoviesContainer;
