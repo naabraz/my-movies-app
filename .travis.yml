@@ -3,6 +3,7 @@ stages:
     if: type = pull_request OR branch = master
 jobs:
   include:
+  #iOS Test
     - stage: test
       language: objective-c
       os: osx
@@ -19,3 +20,46 @@ jobs:
         - pod install
       script:
         - yarn bundle-ios
+
+    #Android Test
+    - stage: test
+      language: android
+      dist: trusty
+      os: linux
+      jdk: oraclejdk8
+      before_install:
+        - nvm install v12.14.1
+        - nvm alias default v12.14.1
+        - nvm use v12.14.1
+        - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.22.4
+        - export PATH="$HOME/.yarn/bin:$PATH"
+        - sdkmanager --list || true
+        - echo yes | sdkmanager "tools"
+        - echo yes | sdkmanager "platforms;android-28"
+        - echo yes | sdkmanager "extras;android;m2repository"
+        - echo yes | sdkmanager "extras;google;m2repository"
+        - echo yes | sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2"
+        - echo yes | sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.2"
+        - sdkmanager --list || true
+      install:
+        - yarn install
+      licenses:
+        - 'android-sdk-preview-license-.+'
+        - 'android-sdk-license-.+'
+        - 'google-gdk-license-.+'
+        - '.+'
+      android:
+        components:
+        # The BuildTools version used by your project
+        - build-tools-28.0.3
+
+        # The SDK version used to compile your project
+        - android-28
+
+        # Additional components
+        - extra-google-google_play_services
+        - extra-google-m2repository
+        - extra-android-m2repository
+        - sys-img-x86-android-28
+      script:
+        - yarn bundle-android
