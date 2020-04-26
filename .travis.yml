@@ -1,0 +1,15 @@
+stages:
+  - name: test
+    if: type = pull_request OR branch = master
+jobs:
+  include:
+    - stage: test
+      language: objective-c
+      os: osx
+      osx_image: xcode11.4
+      install:
+        - yarn
+        - cd ios
+        - pod install
+      script:
+        - yarn bundle-ios
