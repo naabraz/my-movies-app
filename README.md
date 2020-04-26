@@ -2,6 +2,10 @@
 
 This is an app where you can find the newest and more popular movies.
 
+
+## CI Status
+[![Build Status](https://travis-ci.org/naabraz/my-movies-app.svg?branch=master)](https://travis-ci.org/naabraz/my-movies-app)
+
 ## Installation
 
 - Run `yarn install` to install all dependencies
