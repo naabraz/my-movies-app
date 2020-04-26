@@ -7,9 +7,13 @@
     "ios": "react-native run-ios --simulator='iPhone SE'",
     "start": "react-native start --reset-cache",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "prepush": "yarn run lint",
-    "precommit": "yarn run lint"
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx"
+  },
+  "husky":{
+    "hooks":{
+      "pre-push": "yarn run lint",
+      "pre-commit": "yarn run lint"
+    }
   },
   "dependencies": {
     "@apollo/react-hooks": "^3.1.3",
