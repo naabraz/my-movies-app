@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { AsyncStorage } from 'react-native';
 import Reactotron from 'reactotron-react-native';
 
