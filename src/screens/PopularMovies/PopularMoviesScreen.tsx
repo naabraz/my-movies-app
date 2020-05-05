@@ -1,8 +1,7 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
 
 import { PopularMoviesList } from './components';
-import { PopularMoviesScreenView } from './PopularMoviesScreen.styles';
+import * as Styled from './PopularMoviesScreen.styles';
 
 type Movies = {
   movies: {
@@ -18,9 +17,9 @@ const PopularMoviesScreen: React.FC<Movies> = ({ movies }: Movies) => {
   ));
 
   return (
-    <ScrollView>
-      <PopularMoviesScreenView>{moviesList}</PopularMoviesScreenView>
-    </ScrollView>
+    <Styled.Container>
+      <Styled.Movies>{moviesList}</Styled.Movies>
+    </Styled.Container>
   );
 };
 

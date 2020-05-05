@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { MovieView, MoviePoster } from './PopularMoviesList.styles';
+import * as Styled from './PopularMoviesList.styles';
 
 type Movie = {
   movie: {
@@ -13,9 +13,9 @@ type Movie = {
 const PopularMoviesList: React.FC<Movie> = ({ movie }: Movie) => {
   const { posterPath } = movie;
   return (
-    <MovieView>
-      <MoviePoster source={{ uri: posterPath }} />
-    </MovieView>
+    <Styled.Container>
+      <Styled.Poster source={{ uri: posterPath }} />
+    </Styled.Container>
   );
 };
 
