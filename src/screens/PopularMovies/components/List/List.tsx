@@ -12,11 +12,7 @@ type Movie = {
 
 const PopularMoviesList: React.FC<Movie> = ({ movie }: Movie) => {
   const { posterPath } = movie;
-  return (
-    <Styled.Container>
-      <Styled.Poster source={{ uri: posterPath }} />
-    </Styled.Container>
-  );
+  return <Styled.Poster source={{ uri: posterPath }} resizeMode="contain" />;
 };
 
 export default PopularMoviesList;
