@@ -1,6 +1,6 @@
 import React from 'react';
 
-import * as Styled from './PopularMoviesList.styles';
+import * as Styled from './List.styles';
 
 type Movie = {
   movie: {

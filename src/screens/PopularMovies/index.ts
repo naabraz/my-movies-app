@@ -1,3 +1,3 @@
-import PopularMoviesContainer from './PopularMoviesContainer';
+import PopularMoviesContainer from './Container';
 
 export default PopularMoviesContainer;

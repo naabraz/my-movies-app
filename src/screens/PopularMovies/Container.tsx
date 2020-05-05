@@ -2,8 +2,8 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { useQuery } from '@apollo/react-hooks';
 
-import PopularMoviesScreen from './PopularMoviesScreen';
-import { PopularMoviesData } from './interfaces/PopularMoviesInterface';
+import PopularMoviesScreen from './Screen';
+import { PopularMoviesData } from './interfaces/Interface';
 import { POPULAR_MOVIES } from './PopularMovies.graphql.js';
 
 const PopularMoviesContainer: React.FC = () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { PopularMoviesList } from './components';
-import * as Styled from './PopularMoviesScreen.styles';
+import { List } from './components';
+import * as Styled from './Screen.style';
 
 type Movies = {
   movies: {
@@ -12,9 +12,7 @@ type Movies = {
 };
 
 const PopularMoviesScreen: React.FC<Movies> = ({ movies }: Movies) => {
-  const moviesList = movies.map(movie => (
-    <PopularMoviesList movie={movie} key={movie.id} />
-  ));
+  const moviesList = movies.map(movie => <List movie={movie} key={movie.id} />);
 
   return (
     <Styled.Container>
