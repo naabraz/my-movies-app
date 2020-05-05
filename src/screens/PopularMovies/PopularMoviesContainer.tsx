@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/react-hooks';
 
 import PopularMoviesScreen from './PopularMoviesScreen';
 import { PopularMoviesData } from './interfaces/PopularMoviesInterface';
-import { POPULAR_MOVIES } from './PopularMovies.graphql';
+import { POPULAR_MOVIES } from './PopularMovies.graphql.js';
 
 const PopularMoviesContainer: React.FC = () => {
   const { loading, data } = useQuery<PopularMoviesData>(POPULAR_MOVIES);
