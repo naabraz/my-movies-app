@@ -1,6 +1,10 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.ScrollView``;
+import * as colors from '../../style/colors';
+
+export const Container = styled.ScrollView`
+  background-color: ${colors.ebonyClay};
+`;
 
 export const Movies = styled.View`
   flex-wrap: wrap;

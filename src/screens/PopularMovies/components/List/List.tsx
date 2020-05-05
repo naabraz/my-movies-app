@@ -1,18 +1,19 @@
 import React from 'react';
 
+import { Movie } from './List.types';
 import * as Styled from './List.styles';
-
-type Movie = {
-  movie: {
-    id: number;
-    title: string;
-    posterPath: string;
-  };
-};
 
 const PopularMoviesList: React.FC<Movie> = ({ movie }: Movie) => {
   const { posterPath } = movie;
-  return <Styled.Poster source={{ uri: posterPath }} resizeMode="contain" />;
+  return (
+    <Styled.Container>
+      <Styled.Poster
+        source={{ uri: posterPath }}
+        resizeMode="cover"
+        borderRadius={10}
+      />
+    </Styled.Container>
+  );
 };
 
 export default PopularMoviesList;

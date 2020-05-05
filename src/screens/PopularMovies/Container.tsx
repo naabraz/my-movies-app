@@ -3,11 +3,11 @@ import { View, Text } from 'react-native';
 import { useQuery } from '@apollo/react-hooks';
 
 import PopularMoviesScreen from './Screen';
-import { PopularMoviesData } from './interfaces/Interface';
-import { POPULAR_MOVIES } from './PopularMovies.graphql.js';
+import { PopularMovies } from './Container.types';
+import { POPULAR_MOVIES } from './PopularMovies.graphql';
 
 const PopularMoviesContainer: React.FC = () => {
-  const { loading, data } = useQuery<PopularMoviesData>(POPULAR_MOVIES);
+  const { loading, data } = useQuery<PopularMovies>(POPULAR_MOVIES);
 
   if (loading) {
     return (
