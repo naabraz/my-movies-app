@@ -1,3 +1,3 @@
-import { PopularMoviesData } from './PopularMoviesInterface';
+import { PopularMoviesData } from './Interface';
 
 export default PopularMoviesData;
