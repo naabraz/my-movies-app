@@ -1,12 +1,12 @@
 import styled from 'styled-components/native';
 
-export const MovieView = styled.View`
+export const Container = styled.View`
   border-radius: 5px;
   margin-vertical: 10px;
   margin-horizontal: 10px;
 `;
 
-export const MoviePoster = styled.Image`
+export const Poster = styled.Image`
   width: 185px;
   height: 277px;
   border-radius: 10px;
