@@ -1,3 +1,1 @@
-import reactotronStart from './reactotronConfig';
-
-export default { reactotronStart };
+export { reactotronStart } from './reactotronConfig';

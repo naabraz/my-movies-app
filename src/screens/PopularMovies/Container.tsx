@@ -6,7 +6,7 @@ import { PopularMoviesScreen } from './Screen';
 import { PopularMovies } from './Container.types';
 import { POPULAR_MOVIES } from './PopularMovies.graphql';
 
-const PopularMoviesContainer: React.FC = () => {
+export const PopularMoviesContainer: React.FC = () => {
   const { loading, data } = useQuery<PopularMovies>(POPULAR_MOVIES);
 
   if (loading) return <Loading />;
@@ -17,5 +17,3 @@ const PopularMoviesContainer: React.FC = () => {
     <Error />
   );
 };
-
-export default PopularMoviesContainer;

@@ -1,11 +1,13 @@
 import React from 'react';
 
-import { List } from './components';
-import * as Styled from './Screen.style';
+import { PopularMoviesList } from './components';
 import { Movies } from './Screen.types';
+import * as Styled from './Screen.style';
 
 export const PopularMoviesScreen: React.FC<Movies> = ({ movies }: Movies) => {
-  const moviesList = movies.map(movie => <List movie={movie} key={movie.id} />);
+  const moviesList = movies.map(movie => (
+    <PopularMoviesList movie={movie} key={movie.id} />
+  ));
 
   return (
     <Styled.Container>
