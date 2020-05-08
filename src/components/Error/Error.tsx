@@ -1,11 +1,11 @@
 import React from 'react';
 
-import * as Styled from './Loading.style';
+import * as Styled from './Error.style';
 
-export const Loading: React.FC = () => (
+export const Error: React.FC = () => (
   <Styled.Container>
     <Styled.Animation
-      source={require('../../../assets/lottie/loading.json')}
+      source={require('../../../assets/lottie/error.json')}
       autoPlay
       loop
       hardwareAccelerationAndroid
