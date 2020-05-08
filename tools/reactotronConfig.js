@@ -12,10 +12,8 @@ const reactotronConfig = () => {
   console.tron = Reactotron;
 };
 
-const reactotronStart = () => {
+export const reactotronStart = () => {
   if (__DEV__) {
     return reactotronConfig();
   }
 };
-
-export default reactotronStart;

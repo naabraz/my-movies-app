@@ -1,1 +1,1 @@
-export { default as PopularMoviesContainer } from './PopularMovies';
+export { PopularMoviesContainer } from './PopularMovies';

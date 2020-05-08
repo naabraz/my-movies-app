@@ -1,3 +1,1 @@
-import PopularMoviesList from './List';
-
-export default PopularMoviesList;
+export { PopularMoviesList } from './List';

@@ -3,20 +3,16 @@ import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { ApolloProvider } from '@apollo/react-hooks';
 
-import client from './apollo/ApolloClient';
+import { apolloClient } from './apollo/ApolloClient';
 import { StackNavigator } from './navigator';
 
-const App: React.FC = () => {
-  return (
-    <>
-      <ApolloProvider client={client}>
-        <NavigationContainer>
-          <StatusBar barStyle="dark-content" />
-          <StackNavigator />
-        </NavigationContainer>
-      </ApolloProvider>
-    </>
-  );
-};
-
-export default App;
+export const App: React.FC = () => (
+  <>
+    <ApolloProvider client={apolloClient}>
+      <NavigationContainer>
+        <StatusBar barStyle="dark-content" />
+        <StackNavigator />
+      </NavigationContainer>
+    </ApolloProvider>
+  </>
+);
