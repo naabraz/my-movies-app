@@ -5,17 +5,12 @@ import { useQuery } from '@apollo/react-hooks';
 import PopularMoviesScreen from './Screen';
 import { PopularMovies } from './Container.types';
 import { POPULAR_MOVIES } from './PopularMovies.graphql';
+import { Loading } from '../../components';
 
 const PopularMoviesContainer: React.FC = () => {
   const { loading, data } = useQuery<PopularMovies>(POPULAR_MOVIES);
 
-  if (loading) {
-    return (
-      <View>
-        <Text>Loading...</Text>
-      </View>
-    );
-  }
+  if (loading) return <Loading />;
 
   return data ? (
     <PopularMoviesScreen movies={data?.popularMovies} />
