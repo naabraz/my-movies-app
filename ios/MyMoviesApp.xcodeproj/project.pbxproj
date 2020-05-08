@@ -18,6 +18,7 @@
 		2DCD954D1E0B4F2C00145EB5 /* MyMoviesAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MyMoviesAppTests.m */; };
 		4169926E8B03D0351A9C2ABA /* libPods-MyMoviesApp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7AADB0AA2BD7FEE8BCDF11 /* libPods-MyMoviesApp-tvOS.a */; };
 		871355042D093295BF251D03 /* libPods-MyMoviesApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51AB214E60A7EF4C51B26215 /* libPods-MyMoviesApp.a */; };
+		9CE225D62464C66E00B94FB8 /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE225D52464C66E00B94FB8 /* Bridge.swift */; };
 		AB5844B08E35787850AC3901 /* libPods-MyMoviesApp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F104343CA91B601A554B4972 /* libPods-MyMoviesApp-tvOSTests.a */; };
 		C3968BF6E80C81E83169414D /* libPods-MyMoviesAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57CB40CC0F0D5925EE8B5196 /* libPods-MyMoviesAppTests.a */; };
 /* End PBXBuildFile section */
@@ -60,6 +61,8 @@
 		6A1F407FC24724661ACCA06A /* Pods-MyMoviesAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMoviesAppTests.release.xcconfig"; path = "Target Support Files/Pods-MyMoviesAppTests/Pods-MyMoviesAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		74A1DF97182E0532B5C92B65 /* Pods-MyMoviesApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMoviesApp.release.xcconfig"; path = "Target Support Files/Pods-MyMoviesApp/Pods-MyMoviesApp.release.xcconfig"; sourceTree = "<group>"; };
 		892F1BCF393ECA5D33A31321 /* Pods-MyMoviesAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMoviesAppTests.debug.xcconfig"; path = "Target Support Files/Pods-MyMoviesAppTests/Pods-MyMoviesAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9CE225D22464C65100B94FB8 /* MyMoviesApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyMoviesApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		9CE225D52464C66E00B94FB8 /* Bridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bridge.swift; sourceTree = "<group>"; };
 		C87F3FFFAEA8E785F701EB07 /* Pods-MyMoviesApp-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMoviesApp-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-MyMoviesApp-tvOSTests/Pods-MyMoviesApp-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D0710C29D5447577048B4E85 /* Pods-MyMoviesApp-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMoviesApp-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-MyMoviesApp-tvOS/Pods-MyMoviesApp-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		DD7AADB0AA2BD7FEE8BCDF11 /* libPods-MyMoviesApp-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyMoviesApp-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,12 +177,14 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				9CE225D52464C66E00B94FB8 /* Bridge.swift */,
 				13B07FAE1A68108700A75B9A /* MyMoviesApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* MyMoviesAppTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				075136C57A1AA858CD078B01 /* Pods */,
+				9CE225D22464C65100B94FB8 /* MyMoviesApp-Bridging-Header.h */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -293,6 +298,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = W7MJH52X64;
+						LastSwiftMigration = 1140;
 						ProvisioningStyle = Automatic;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -532,6 +538,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CE225D62464C66E00B94FB8 /* Bridge.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
@@ -586,6 +593,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 892F1BCF393ECA5D33A31321 /* Pods-MyMoviesAppTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -609,6 +617,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6A1F407FC24724661ACCA06A /* Pods-MyMoviesAppTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = MyMoviesAppTests/Info.plist;
@@ -630,6 +639,7 @@
 			baseConfigurationReference = 55959FABCA3D5CB8A1CAFFC4 /* Pods-MyMoviesApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
@@ -645,6 +655,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.nataliabraz.MyMoviesApp;
 				PRODUCT_NAME = MyMoviesApp;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyMoviesApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -654,6 +667,7 @@
 			baseConfigurationReference = 74A1DF97182E0532B5C92B65 /* Pods-MyMoviesApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Natalia Braz (W7MJH52X64)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 6;
@@ -668,6 +682,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.nataliabraz.MyMoviesApp;
 				PRODUCT_NAME = MyMoviesApp;
 				PROVISIONING_PROFILE_SPECIFIER = MyMoviesApp;
+				SWIFT_OBJC_BRIDGING_HEADER = "MyMoviesApp-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
