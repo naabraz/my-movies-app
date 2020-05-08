@@ -4,7 +4,7 @@ import { List } from './components';
 import * as Styled from './Screen.style';
 import { Movies } from './Screen.types';
 
-const PopularMoviesScreen: React.FC<Movies> = ({ movies }: Movies) => {
+export const PopularMoviesScreen: React.FC<Movies> = ({ movies }: Movies) => {
   const moviesList = movies.map(movie => <List movie={movie} key={movie.id} />);
 
   return (
@@ -13,5 +13,3 @@ const PopularMoviesScreen: React.FC<Movies> = ({ movies }: Movies) => {
     </Styled.Container>
   );
 };
-
-export default PopularMoviesScreen;
