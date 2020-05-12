@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 
-import { Loading, Error } from '../../components';
+import { Loading, Error } from 'components';
 import { PopularMoviesScreen } from './Screen';
 import { PopularMovies } from './Container.types';
 import { POPULAR_MOVIES } from './PopularMovies.graphql';

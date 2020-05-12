@@ -3,7 +3,7 @@ import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { ApolloProvider } from '@apollo/react-hooks';
 
-import { apolloClient } from './apollo/ApolloClient';
+import { apolloClient } from 'apollo';
 import { StackNavigator } from './navigator';
 
 export const App: React.FC = () => (
