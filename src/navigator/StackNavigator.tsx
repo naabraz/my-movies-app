@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { PopularMoviesContainer } from '../screens/';
+import { PopularMoviesContainer } from 'screens';
 import * as Styles from './StackNavigator.style.js';
 
 const Stack = createStackNavigator();

@@ -1,4 +1,4 @@
-import * as colors from '../style/colors';
+import * as colors from 'style/colors';
 
 export const screenOptions = {
   headerStyle: {
