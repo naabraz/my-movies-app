@@ -1,6 +1,6 @@
 module.exports = {
   preset: 'react-native',
-  testMatch: ['**/*.test.tsx', '**/*.test.ts'],
+  testMatch: ['**/*.test.tsx', '**/*.test.ts', '**/*.test.js'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   collectCoverageFrom: [
     'src/**/*.{ts,tsx,js}',
