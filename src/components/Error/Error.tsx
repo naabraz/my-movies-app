@@ -9,6 +9,7 @@ export const Error: React.FC = () => (
       autoPlay
       loop
       hardwareAccelerationAndroid
+      testID="ErrorAnimation"
     />
   </Styled.Container>
 );
