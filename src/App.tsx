@@ -1,7 +1,7 @@
 import React from 'react';
 import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { ApolloProvider } from '@apollo/react-hooks';
+import { ApolloProvider } from 'react-apollo';
 
 import { apolloClient } from 'apollo';
 import { StackNavigator } from 'navigator';

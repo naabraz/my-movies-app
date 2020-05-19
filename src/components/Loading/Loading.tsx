@@ -9,6 +9,7 @@ export const Loading: React.FC = () => (
       autoPlay
       loop
       hardwareAccelerationAndroid
+      testID="LoadingAnimation"
     />
   </Styled.Container>
 );

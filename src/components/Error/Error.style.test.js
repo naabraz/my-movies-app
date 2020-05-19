@@ -1,6 +1,7 @@
 import 'jest-styled-components/native';
 import React from 'react';
 import renderer from 'react-test-renderer';
+
 import * as Styled from './Error.style';
 
 describe('Given Error component style', () => {
