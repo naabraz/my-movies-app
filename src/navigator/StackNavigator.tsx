@@ -3,8 +3,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import { PopularMoviesContainer, MovieDetailsScreen } from 'screens';
 import * as Styles from './StackNavigator.style.js';
+import { AppStackParamList } from './index';
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<AppStackParamList>();
 
 export const StackNavigator: React.FC = () => (
   <Stack.Navigator
