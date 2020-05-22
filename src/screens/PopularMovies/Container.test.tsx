@@ -18,11 +18,13 @@ describe('Given PopularMovies Container component', () => {
             id: 1,
             title: 'movieTitleOne',
             posterPath: 'posterPathOne',
+            backdropPath: 'fooBackdropPathOne',
           },
           {
             id: 2,
             title: 'movieTitleTwo',
             posterPath: 'posterPathTwo',
+            backdropPath: 'fooBackdropPathTwo',
           },
         ],
       },
