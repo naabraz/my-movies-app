@@ -6,6 +6,7 @@ export const POPULAR_MOVIES = gql`
       id
       title
       posterPath
+      backdropPath
     }
   }
 `;

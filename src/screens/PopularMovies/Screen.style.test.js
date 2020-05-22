@@ -7,7 +7,7 @@ import * as Styled from './Screen.style';
 describe('Given Screen component style', () => {
   it('Should render Container component correctly', () => {
     const containerComponent = renderer.create(<Styled.Container />).toJSON();
-    expect(containerComponent).toHaveStyleRule('background-color', '#eeeeee');
+    expect(containerComponent).toHaveStyleRule('background-color', '#eee');
   });
 
   it('Should render Movies view component correctly', () => {
