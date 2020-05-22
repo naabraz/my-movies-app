@@ -3,5 +3,6 @@ export type Movies = {
     id: number;
     title: string;
     posterPath: string;
+    backdropPath: string;
   }[];
 };
