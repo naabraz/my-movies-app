@@ -10,11 +10,13 @@ describe('Given Popular Movies Screen component', () => {
         id: 1,
         title: 'movieTitleOne',
         posterPath: 'posterPathOne',
+        backdropPath: 'backdropPathOne',
       },
       {
         id: 2,
         title: 'movieTitleTwo',
         posterPath: 'posterPathTwo',
+        backdropPath: 'backdropPathTwo',
       },
     ];
 
