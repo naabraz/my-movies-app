@@ -4,7 +4,7 @@ import { MockedProvider } from '@apollo/react-testing';
 import wait from 'waait';
 
 import { PopularMoviesContainer } from './Container';
-import { POPULAR_MOVIES } from './PopularMovies.graphql';
+import { POPULAR_MOVIES } from '../PopularMovies.graphql';
 
 describe('Given PopularMovies Container component', () => {
   const mocks = {

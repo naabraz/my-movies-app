@@ -3,5 +3,6 @@ export type PopularMovies = {
     id: number;
     title: string;
     posterPath: string;
+    backdropPath: string;
   }[];
 };

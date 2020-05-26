@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { PopularMoviesList } from './components';
+import { PopularMoviesList } from '../components';
 import { Movies } from './Screen.types';
 import * as Styled from './Screen.style';
 
