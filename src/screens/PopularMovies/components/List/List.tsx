@@ -12,10 +12,10 @@ type ListNavigationProp = StackNavigationProp<
 >;
 
 export const PopularMoviesList: React.FC<Movie> = ({ movie }: Movie) => {
-  const navigation = useNavigation<ListNavigationProp>();
+  const { navigate } = useNavigation<ListNavigationProp>();
   const { backdropPath } = movie;
 
-  const goToDetailsScreen = (): void => navigation.navigate('Movie Details');
+  const goToDetailsScreen = (): void => navigate('Movie Details', { movie });
 
   return (
     <Styled.Button onPress={goToDetailsScreen}>

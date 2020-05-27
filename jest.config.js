@@ -1,6 +1,7 @@
 module.exports = {
   preset: 'react-native',
   setupFiles: ['./node_modules/react-native-gesture-handler/jestSetup.js'],
+  setupFilesAfterEnv: ['./jest-mock-bootstrap'],
   testMatch: ['**/*.test.tsx', '**/*.test.ts', '**/*.test.js'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   transformIgnorePatterns: [

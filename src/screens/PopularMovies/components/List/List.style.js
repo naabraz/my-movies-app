@@ -12,7 +12,7 @@ export const Container = styled.View`
   margin-vertical: 4px;
   border-radius: 10px;
   background-color: ${colors.ebonyClay};
-  box-shadow: 5px 5px 5px #ccc;
+  box-shadow: 2px 2px 2px #ccc;
 `;
 
 export const Poster = styled.Image`

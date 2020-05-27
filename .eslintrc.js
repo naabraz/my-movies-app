@@ -1,6 +1,9 @@
 module.exports = {
   root: true,
   parser: "@typescript-eslint/parser", 
+  globals: {
+    jest: true,
+  },
   extends: [
     '@react-native-community',
     'plugin:@typescript-eslint/recommended',
