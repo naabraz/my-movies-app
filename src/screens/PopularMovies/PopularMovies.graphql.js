@@ -7,6 +7,9 @@ export const POPULAR_MOVIES = gql`
       title
       posterPath
       backdropPath
+      overview
+      releaseDate
+      voteAverage
     }
   }
 `;
