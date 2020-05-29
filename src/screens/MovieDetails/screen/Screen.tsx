@@ -3,6 +3,7 @@ import React from 'react';
 import * as Styled from './Screen.style';
 import { MovieDetails } from './Screen.types';
 import { Rating } from '../components';
+import Calendar from 'assets/icons/calendar.svg';
 
 export const MovieDetailsScreen: React.FC<MovieDetails> = ({
   route,
@@ -19,10 +20,12 @@ export const MovieDetailsScreen: React.FC<MovieDetails> = ({
         <Styled.Image source={{ uri: backdropPath }} borderRadius={10} />
         <Styled.Details>
           <Styled.Title>{title}</Styled.Title>
-          <Styled.Text>
-            {releaseDate} | <Rating voteAverage={voteAverage} />
-          </Styled.Text>
-          <Styled.Text>{overview}</Styled.Text>
+          <Styled.Info>
+            <Calendar width={20} height={20} />
+            <Styled.Date>{releaseDate}</Styled.Date>
+            <Rating voteAverage={voteAverage} />
+          </Styled.Info>
+          <Styled.Overview>{overview}</Styled.Overview>
         </Styled.Details>
       </Styled.Container>
     </>
