@@ -11,6 +11,10 @@ export const Details = styled.View`
   margin-horizontal: 24px;
 `;
 
+export const Info = styled.View`
+  flex-direction: row;
+`;
+
 export const Title = styled.Text`
   font-size: 16px;
   font-weight: 600;
@@ -20,6 +24,13 @@ export const Title = styled.Text`
 
 export const Text = styled.Text`
   color: ${colors.ebonyClay};
+`;
+
+export const Date = styled(Text)`
+  margin-horizontal: 12px;
+`;
+
+export const Overview = styled(Text)`
   margin-vertical: 12px;
 `;
 
