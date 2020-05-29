@@ -2,6 +2,7 @@ import React from 'react';
 
 import * as Styled from './Screen.style';
 import { MovieDetails } from './Screen.types';
+import { Rating } from '../components';
 
 export const MovieDetailsScreen: React.FC<MovieDetails> = ({
   route,
@@ -18,8 +19,9 @@ export const MovieDetailsScreen: React.FC<MovieDetails> = ({
         <Styled.Image source={{ uri: backdropPath }} borderRadius={10} />
         <Styled.Details>
           <Styled.Title>{title}</Styled.Title>
-          <Styled.Text>Release Date: {releaseDate}</Styled.Text>
-          <Styled.Text>Rating: {voteAverage}</Styled.Text>
+          <Styled.Text>
+            {releaseDate} | <Rating voteAverage={voteAverage} />
+          </Styled.Text>
           <Styled.Text>{overview}</Styled.Text>
         </Styled.Details>
       </Styled.Container>
