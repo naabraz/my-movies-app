@@ -1,9 +1,8 @@
 import React from 'react';
 
+import { Rating } from '../components';
 import * as Styled from './Screen.style';
 import { MovieDetails } from './Screen.types';
-import { Rating } from '../components';
-import Calendar from 'assets/icons/calendar.svg';
 
 export const MovieDetailsScreen: React.FC<MovieDetails> = ({
   route,
@@ -17,13 +16,20 @@ export const MovieDetailsScreen: React.FC<MovieDetails> = ({
   return (
     <>
       <Styled.Container>
-        <Styled.Image source={{ uri: backdropPath }} borderRadius={10} />
         <Styled.Details>
           <Styled.Title>{title}</Styled.Title>
+          <Styled.Poster source={{ uri: backdropPath }} borderRadius={10} />
           <Styled.Info>
-            <Calendar width={20} height={20} />
-            <Styled.Date>{releaseDate}</Styled.Date>
             <Rating voteAverage={voteAverage} />
+            <Styled.Date>
+              <Styled.Year>
+                {releaseDate.substr(0, releaseDate.indexOf('-'))}
+              </Styled.Year>
+            </Styled.Date>
+            <Styled.GenreInfo>
+              <Styled.Genre>Drama</Styled.Genre>
+              <Styled.Genre>Romance</Styled.Genre>
+            </Styled.GenreInfo>
           </Styled.Info>
           <Styled.Overview>{overview}</Styled.Overview>
         </Styled.Details>
