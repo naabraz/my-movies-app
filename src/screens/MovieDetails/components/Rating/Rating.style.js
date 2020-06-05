@@ -1,11 +1,22 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
+export const Rating = styled.View`
   flex-direction: row;
-  align-self: center;
+  border-right-width: 1px;
 `;
 
-export const Rating = styled.Image`
-  width: 15px;
-  height: 15px;
+export const RatingStar = styled.Image`
+  width: 16px;
+  height: 16px;
+`;
+
+export const RatingInfo = styled.View`
+  margin-horizontal: 8px;
+  flex-direction: row;
+`;
+
+export const VoteAverage = styled.Text``;
+
+export const RatingLimit = styled.Text`
+  font-size: 10px;
 `;

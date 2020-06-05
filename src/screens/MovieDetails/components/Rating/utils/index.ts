@@ -1,1 +1,0 @@
-export { getRating } from './getRating';
