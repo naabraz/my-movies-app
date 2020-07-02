@@ -26,8 +26,8 @@ export const MovieDetailsScreen: React.FC<MovieDetails> = ({
                 {releaseDate.substr(0, releaseDate.indexOf('-'))}
               </Styled.Year>
             </Styled.Date>
-            <MovieGenresList id={id} />
           </Styled.Info>
+          <MovieGenresList id={id} />
           <Styled.Overview>{overview}</Styled.Overview>
         </Styled.Details>
       </Styled.Container>

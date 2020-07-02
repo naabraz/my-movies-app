@@ -1,14 +1,25 @@
 import styled from 'styled-components/native';
 
+import * as colors from 'style/colors';
+
 export const GenreInfo = styled.View`
-  justify-content: center;
   flex-direction: row;
-  align-items: center;
-  border-right-width: 1px;
+  margin-vertical: 12px;
+  align-self: flex-start;
 `;
 
-export const Genre = styled.Text`
-  margin-horizontal: 8px;
+export const GenreButton = styled.TouchableOpacity`
+  padding: 8px;
+  border-radius: 8px;
+  background-color: ${colors.ebonyClay};
+  margin-right: 12px;
+`;
+
+export const GenreTitle = styled.Text`
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: ${colors.gallery};
 `;
 
 export const LoadingContainer = styled.View``;
