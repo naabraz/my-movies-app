@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Rating } from '../components';
+import { Rating, MovieGenresList } from '../components';
 import * as Styled from './Screen.style';
 import { MovieDetails } from './Screen.types';
 
@@ -11,7 +11,7 @@ export const MovieDetailsScreen: React.FC<MovieDetails> = ({
     params: { movie },
   } = route;
 
-  const { title, overview, backdropPath, releaseDate, voteAverage } = movie;
+  const { id, title, overview, backdropPath, releaseDate, voteAverage } = movie;
 
   return (
     <>
@@ -26,10 +26,7 @@ export const MovieDetailsScreen: React.FC<MovieDetails> = ({
                 {releaseDate.substr(0, releaseDate.indexOf('-'))}
               </Styled.Year>
             </Styled.Date>
-            <Styled.GenreInfo>
-              <Styled.Genre>Drama</Styled.Genre>
-              <Styled.Genre>Romance</Styled.Genre>
-            </Styled.GenreInfo>
+            <MovieGenresList id={id} />
           </Styled.Info>
           <Styled.Overview>{overview}</Styled.Overview>
         </Styled.Details>

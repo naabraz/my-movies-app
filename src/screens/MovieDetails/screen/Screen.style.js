@@ -39,17 +39,6 @@ export const Overview = styled(Text)`
   margin-vertical: 12px;
 `;
 
-export const GenreInfo = styled.View`
-  justify-content: center;
-  flex-direction: row;
-  align-items: center;
-  border-right-width: 1px;
-`;
-
-export const Genre = styled.Text`
-  margin-horizontal: 8px;
-`;
-
 export const Poster = styled.Image`
   width: 300px;
   height: 169px;
