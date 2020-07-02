@@ -27,11 +27,13 @@ export const Text = styled.Text`
 `;
 
 export const Date = styled.View`
+  flex: 1;
+  align-items: flex-end;
   justify-content: center;
-  border-right-width: 1px;
 `;
 
 export const Year = styled(Text)`
+  font-size: 12px;
   margin-horizontal: 12px;
 `;
 

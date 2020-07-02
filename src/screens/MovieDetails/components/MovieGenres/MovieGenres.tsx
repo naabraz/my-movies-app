@@ -20,7 +20,9 @@ export const MovieGenresList: React.FC<{ id: string }> = ({ id }) => {
   return (
     <Styled.GenreInfo>
       {data?.movieGenres.map(({ id: genreId, name }) => (
-        <Styled.Genre key={genreId}>{name}</Styled.Genre>
+        <Styled.GenreButton key={genreId}>
+          <Styled.GenreTitle>{name}</Styled.GenreTitle>
+        </Styled.GenreButton>
       ))}
     </Styled.GenreInfo>
   );

@@ -2,7 +2,6 @@ import styled from 'styled-components/native';
 
 export const Rating = styled.View`
   flex-direction: row;
-  border-right-width: 1px;
 `;
 
 export const RatingStar = styled.Image`
@@ -15,7 +14,9 @@ export const RatingInfo = styled.View`
   flex-direction: row;
 `;
 
-export const VoteAverage = styled.Text``;
+export const VoteAverage = styled.Text`
+  font-size: 12px;
+`;
 
 export const RatingLimit = styled.Text`
   font-size: 10px;
