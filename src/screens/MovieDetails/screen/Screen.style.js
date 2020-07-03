@@ -19,6 +19,7 @@ export const Info = styled.View`
 export const Title = styled.Text`
   font-size: 16px;
   font-weight: 600;
+  text-transform: uppercase;
   color: ${colors.ebonyClay};
 `;
 

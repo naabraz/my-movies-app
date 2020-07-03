@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Rating, MovieGenresList } from '../components';
+import { Rating, MovieGenresList, SimilarMoviesList } from '../components';
 import * as Styled from './Screen.style';
 import { MovieDetails } from './Screen.types';
 
@@ -30,6 +30,7 @@ export const MovieDetailsScreen: React.FC<MovieDetails> = ({
           <MovieGenresList id={id} />
           <Styled.Overview>{overview}</Styled.Overview>
         </Styled.Details>
+        <SimilarMoviesList id={id} />
       </Styled.Container>
     </>
   );
