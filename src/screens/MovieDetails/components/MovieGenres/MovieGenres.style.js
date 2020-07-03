@@ -6,6 +6,7 @@ export const GenreInfo = styled.View`
   flex-direction: row;
   margin-vertical: 12px;
   align-self: flex-start;
+  flex-wrap: wrap;
 `;
 
 export const GenreButton = styled.TouchableOpacity`
@@ -13,6 +14,7 @@ export const GenreButton = styled.TouchableOpacity`
   border-radius: 8px;
   background-color: ${colors.ebonyClay};
   margin-right: 12px;
+  margin-bottom: 12px;
 `;
 
 export const GenreTitle = styled.Text`

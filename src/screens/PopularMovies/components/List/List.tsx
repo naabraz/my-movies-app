@@ -1,18 +1,11 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
 
 import { Movie } from './List.types';
 import * as Styled from './List.style.js';
-import { AppStackParamList } from 'navigator';
-
-type ListNavigationProp = StackNavigationProp<
-  AppStackParamList,
-  'Movie Details'
->;
 
 export const PopularMoviesList: React.FC<Movie> = ({ movie }: Movie) => {
-  const { navigate } = useNavigation<ListNavigationProp>();
+  const { navigate } = useNavigation();
   const { backdropPath } = movie;
 
   const goToDetailsScreen = (): void => navigate('Movie Details', { movie });
