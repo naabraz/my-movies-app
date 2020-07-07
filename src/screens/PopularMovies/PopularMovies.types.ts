@@ -1,5 +1,5 @@
 export type Movies = {
-  movies: {
+  popularMovies: {
     id: number;
     title: string;
     posterPath: string;

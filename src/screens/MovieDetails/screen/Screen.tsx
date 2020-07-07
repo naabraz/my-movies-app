@@ -2,11 +2,9 @@ import React from 'react';
 
 import { Rating, MovieGenresList, SimilarMoviesList } from '../components';
 import * as Styled from './Screen.style';
-import { MovieDetails } from './Screen.types';
+import { Details } from './Screen.types';
 
-export const MovieDetailsScreen: React.FC<MovieDetails> = ({
-  route,
-}: MovieDetails) => {
+export const MovieDetails: React.FC<Details> = ({ route }: Details) => {
   const {
     params: { movie },
   } = route;

@@ -1,2 +1,2 @@
-export { PopularMoviesContainer } from './PopularMovies';
-export { MovieDetailsScreen } from './MovieDetails';
+export { PopularMovies } from './PopularMovies';
+export { MovieDetails } from './MovieDetails';
