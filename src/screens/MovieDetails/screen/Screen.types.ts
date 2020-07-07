@@ -1,4 +1,4 @@
-export type MovieDetails = {
+export type Details = {
   route: {
     params: {
       movie: {

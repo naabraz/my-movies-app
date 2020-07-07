@@ -1,1 +1,1 @@
-export { PopularMoviesContainer } from './container';
+export { PopularMovies } from './PopularMovies';

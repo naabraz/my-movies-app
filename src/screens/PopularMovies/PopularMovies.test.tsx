@@ -3,8 +3,8 @@ import { render } from 'react-native-testing-library';
 import { MockedProvider } from '@apollo/react-testing';
 import wait from 'waait';
 
-import { PopularMoviesContainer } from './Container';
-import { POPULAR_MOVIES } from '../PopularMovies.graphql';
+import { PopularMovies } from './PopularMovies';
+import { POPULAR_MOVIES } from './PopularMovies.graphql';
 
 describe('Given PopularMovies Container component', () => {
   const mocks = {
@@ -40,7 +40,7 @@ describe('Given PopularMovies Container component', () => {
   it('Should render Loading component when data is not ready', async () => {
     const { getByTestId } = render(
       <MockedProvider mocks={[mocks]} addTypename={false}>
-        <PopularMoviesContainer />
+        <PopularMovies />
       </MockedProvider>,
     );
 
@@ -57,7 +57,7 @@ describe('Given PopularMovies Container component', () => {
 
     const { getByTestId } = render(
       <MockedProvider mocks={[localMock]} addTypename={false}>
-        <PopularMoviesContainer />
+        <PopularMovies />
       </MockedProvider>,
     );
 
@@ -69,7 +69,7 @@ describe('Given PopularMovies Container component', () => {
   it('Should render Movies list when data is ready', async () => {
     const { queryAllByTestId } = render(
       <MockedProvider mocks={[mocks]} addTypename={false}>
-        <PopularMoviesContainer />
+        <PopularMovies />
       </MockedProvider>,
     );
 

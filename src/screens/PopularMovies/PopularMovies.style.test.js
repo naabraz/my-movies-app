@@ -2,7 +2,7 @@ import 'jest-styled-components/native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import * as Styled from './Screen.style';
+import * as Styled from './PopularMovies.style';
 
 describe('Given Screen component style', () => {
   it('Should render Container component correctly', () => {
