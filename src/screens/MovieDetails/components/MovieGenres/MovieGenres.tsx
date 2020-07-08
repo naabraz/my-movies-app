@@ -7,15 +7,25 @@ import { MOVIE_GENRES } from './MovieGenres.graphql.js';
 
 export const MovieGenresList: React.FC<{ id: string }> = ({ id }) => {
   const variables = { movieId: id };
-  const { loading, data } = useQuery<MovieGenres>(MOVIE_GENRES, { variables });
+  const { loading, data, error } = useQuery<MovieGenres>(MOVIE_GENRES, {
+    variables,
+  });
 
   const loadingComponent = (
-    <Styled.LoadingContainer>
+    <Styled.LoadingContainer testID="Loading">
       <Styled.LoadingText>...</Styled.LoadingText>
     </Styled.LoadingContainer>
   );
 
+  const errorComponent = (
+    <Styled.ErrorContainer testID="Error">
+      <Styled.ErrorText>-</Styled.ErrorText>
+    </Styled.ErrorContainer>
+  );
+
   if (loading) return loadingComponent;
+
+  if (error) return errorComponent;
 
   return (
     <Styled.GenreInfo>
