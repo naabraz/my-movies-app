@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Rating, MovieGenresList, SimilarMoviesList } from '../components';
-import * as Styled from './Screen.style';
-import { Details } from './Screen.types';
+import { Rating, MovieGenresList, SimilarMoviesList } from './components';
+import * as Styled from './MovieDetails.style';
+import { Details } from './MovieDetails.types';
 
 export const MovieDetails: React.FC<Details> = ({ route }: Details) => {
   const {
