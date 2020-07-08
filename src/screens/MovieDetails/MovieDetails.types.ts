@@ -7,7 +7,7 @@ export type Details = {
         backdropPath: string;
         overview: string;
         releaseDate: string;
-        voteAverage: Float32Array;
+        voteAverage: number;
       };
     };
   };
