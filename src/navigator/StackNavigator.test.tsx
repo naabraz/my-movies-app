@@ -5,8 +5,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { StackNavigator } from './';
 
 jest.mock('screens', () => ({
-  PopularMoviesContainer: 'PopularMoviesContainer',
-  MovieDetailsScreen: 'MovieDetailsScreen',
+  PopularMovies: 'PopularMovies',
+  MovieDetails: 'MovieDetails',
 }));
 
 describe('Given navigator component', () => {
