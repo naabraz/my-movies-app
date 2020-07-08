@@ -11,17 +11,25 @@ export const SimilarMoviesList: React.FC<{ id: string }> = ({ id }) => {
 
   const variables = { movieId: id };
 
-  const { loading, data } = useQuery<SimilarMovies>(SIMILAR_MOVIES, {
+  const { loading, data, error } = useQuery<SimilarMovies>(SIMILAR_MOVIES, {
     variables,
   });
 
   const loadingComponent = (
-    <Styled.LoadingContainer>
+    <Styled.LoadingContainer testID="Loading">
       <Styled.LoadingText>...</Styled.LoadingText>
     </Styled.LoadingContainer>
   );
 
+  const errorComponent = (
+    <Styled.ErrorContainer testID="Error">
+      <Styled.ErrorText>-</Styled.ErrorText>
+    </Styled.ErrorContainer>
+  );
+
   if (loading) return loadingComponent;
+
+  if (error) return errorComponent;
 
   const goToMovieDetail = (movie): Function => (): void =>
     navigate('Movie Details', { movie });
@@ -31,7 +39,11 @@ export const SimilarMoviesList: React.FC<{ id: string }> = ({ id }) => {
       <Styled.Title>Similar Movies</Styled.Title>
       <Styled.List horizontal showsHorizontalScrollIndicator={false}>
         {data?.similarMovies.map(movie => (
-          <Styled.Button key={movie.id} onPress={goToMovieDetail(movie)}>
+          <Styled.Button
+            key={movie.id}
+            onPress={goToMovieDetail(movie)}
+            testID="Button"
+          >
             <Styled.Poster
               key={movie.id}
               source={{ uri: movie.posterPath }}

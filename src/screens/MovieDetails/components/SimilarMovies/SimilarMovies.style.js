@@ -25,3 +25,7 @@ export const Button = styled.TouchableWithoutFeedback``;
 export const LoadingContainer = styled.View``;
 
 export const LoadingText = styled.Text``;
+
+export const ErrorContainer = styled.View``;
+
+export const ErrorText = styled.Text``;
