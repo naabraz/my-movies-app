@@ -6,7 +6,10 @@ import * as Styled from './Rating.style.js';
 export const Rating: React.FC<RatingTypes> = ({ voteAverage }) => {
   return (
     <Styled.Rating>
-      <Styled.RatingStar source={require('assets/icons/star-filled.png')} />
+      <Styled.RatingStar
+        source={require('assets/icons/star-filled.png')}
+        testID="RatingStar"
+      />
       <Styled.RatingInfo>
         <Styled.VoteAverage>{voteAverage}</Styled.VoteAverage>
         <Styled.RatingLimit>/10</Styled.RatingLimit>
