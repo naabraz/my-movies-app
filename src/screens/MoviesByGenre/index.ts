@@ -1,0 +1,1 @@
+export { MoviesByGenre } from './MoviesByGenre';
