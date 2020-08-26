@@ -1,15 +1,20 @@
 import React from 'react';
 import { useQuery } from 'react-apollo';
+import { useNavigation } from '@react-navigation/native';
 
 import * as Styled from './MovieGenres.style';
 import { MovieGenres } from './MovieGenres.types';
 import { MOVIE_GENRES } from './MovieGenres.graphql.js';
 
 export const MovieGenresList: React.FC<{ id: string }> = ({ id }) => {
+  const { navigate } = useNavigation();
   const variables = { movieId: id };
   const { loading, data, error } = useQuery<MovieGenres>(MOVIE_GENRES, {
     variables,
   });
+
+  const goToMoviesByGenreScreen = (): void =>
+    navigate('Movie By Genre', { id });
 
   const loadingComponent = (
     <Styled.LoadingContainer testID="Loading">
@@ -30,7 +35,7 @@ export const MovieGenresList: React.FC<{ id: string }> = ({ id }) => {
   return (
     <Styled.GenreInfo>
       {data?.movieGenres.map(({ id: genreId, name }) => (
-        <Styled.GenreButton key={genreId}>
+        <Styled.GenreButton key={genreId} onPress={goToMoviesByGenreScreen}>
           <Styled.GenreTitle>{name}</Styled.GenreTitle>
         </Styled.GenreButton>
       ))}
