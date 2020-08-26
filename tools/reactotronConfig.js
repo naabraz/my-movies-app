@@ -1,4 +1,4 @@
-import { AsyncStorage } from 'react-native';
+import { AsyncStorage } from '@react-native-community/async-storage';
 import Reactotron from 'reactotron-react-native';
 
 const reactotronConfig = () => {
