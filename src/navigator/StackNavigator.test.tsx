@@ -7,6 +7,7 @@ import { StackNavigator } from './';
 jest.mock('screens', () => ({
   PopularMovies: 'PopularMovies',
   MovieDetails: 'MovieDetails',
+  MoviesByGenre: 'MoviesByGenre',
 }));
 
 describe('Given navigator component', () => {
