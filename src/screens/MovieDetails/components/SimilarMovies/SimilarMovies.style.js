@@ -29,3 +29,5 @@ export const LoadingText = styled.Text``;
 export const ErrorContainer = styled.View``;
 
 export const ErrorText = styled.Text``;
+
+export const NoSimilarMovies = styled.Text``;
