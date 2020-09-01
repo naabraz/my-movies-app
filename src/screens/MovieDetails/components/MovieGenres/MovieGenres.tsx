@@ -13,8 +13,8 @@ export const MovieGenresList: React.FC<{ id: string }> = ({ id }) => {
     variables,
   });
 
-  const goToMoviesByGenreScreen = (): void =>
-    navigate('Movie By Genre', { id });
+  const goToMoviesByGenreScreen = genreId => (): void =>
+    navigate('Movie By Genre', { id: genreId });
 
   const loadingComponent = (
     <Styled.LoadingContainer testID="Loading">
@@ -35,7 +35,10 @@ export const MovieGenresList: React.FC<{ id: string }> = ({ id }) => {
   return (
     <Styled.GenreInfo>
       {data?.movieGenres.map(({ id: genreId, name }) => (
-        <Styled.GenreButton key={genreId} onPress={goToMoviesByGenreScreen}>
+        <Styled.GenreButton
+          key={genreId}
+          onPress={goToMoviesByGenreScreen(genreId)}
+        >
           <Styled.GenreTitle>{name}</Styled.GenreTitle>
         </Styled.GenreButton>
       ))}
