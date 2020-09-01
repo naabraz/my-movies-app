@@ -1,10 +1,17 @@
 import React from 'react';
-import { render, act } from 'react-native-testing-library';
+import { render, act, fireEvent } from 'react-native-testing-library';
 import { MockedProvider } from '@apollo/react-testing';
 import wait from 'waait';
+import { useNavigation } from '@react-navigation/native';
 
 import { MOVIE_GENRES } from './MovieGenres.graphql';
 import { MovieGenresList } from './MovieGenres';
+
+jest.mock('@react-navigation/native', () => ({
+  useNavigation: jest.fn().mockReturnValue({
+    navigate: jest.fn(),
+  }),
+}));
 
 describe('Given Movie Genres component', () => {
   const mocks = {
@@ -70,5 +77,22 @@ describe('Given Movie Genres component', () => {
 
     expect(getByText('genreOne')).toBeTruthy();
     expect(getByText('genreTwo')).toBeTruthy();
+  });
+
+  it('Should navigate to Movies By Genre screen when poster is clicked', async () => {
+    const { getByText } = render(
+      <MockedProvider mocks={[mocks]} addTypename={false}>
+        <MovieGenresList id="1" />
+      </MockedProvider>,
+    );
+
+    await act(() => wait(0));
+
+    fireEvent.press(getByText('genreOne'));
+
+    expect(useNavigation().navigate).toHaveBeenCalledWith('Movie By Genre', {
+      id: 1,
+      name: 'genreOne',
+    });
   });
 });
