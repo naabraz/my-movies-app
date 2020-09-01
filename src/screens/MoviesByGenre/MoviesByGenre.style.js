@@ -1,5 +1,9 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View``;
+export const Container = styled.ScrollView``;
 
-export const Text = styled.Text``;
+export const Movies = styled.View`
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+`;
