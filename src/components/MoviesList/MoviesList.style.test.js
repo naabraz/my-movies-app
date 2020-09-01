@@ -2,7 +2,7 @@ import 'jest-styled-components/native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import * as Styled from './List.style.js';
+import * as Styled from './MoviesList.style.js';
 
 describe('Given List component style', () => {
   it('Should render List component correctly', () => {
