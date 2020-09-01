@@ -1,8 +1,7 @@
 import React from 'react';
 import { useQuery } from 'react-apollo';
 
-import { Loading, Error } from 'components';
-import { PopularMoviesList } from './components';
+import { Loading, Error, MoviesList } from 'components';
 import { POPULAR_MOVIES } from './PopularMovies.graphql';
 import { Movies } from './PopularMovies.types';
 import * as Styled from './PopularMovies.style';
@@ -15,7 +14,7 @@ export const PopularMovies: React.FC = () => {
   if (error) return <Error />;
 
   const moviesList = data?.popularMovies.map(movie => (
-    <PopularMoviesList movie={movie} key={movie.id} />
+    <MoviesList movie={movie} key={movie.id} />
   ));
 
   return (
