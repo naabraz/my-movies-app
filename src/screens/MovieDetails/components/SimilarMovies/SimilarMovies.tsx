@@ -34,28 +34,40 @@ export const SimilarMoviesList: React.FC<{ id: string }> = ({ id }) => {
   const goToMovieDetail = (movie): Function => (): void =>
     navigate('Movie Details', { movie });
 
+  const emptySimilarMovies = !data?.similarMovies.length;
+
+  const EmptySimilarMoviesComponent = (
+    <Styled.NoSimilarMovies>No similar movies found :(</Styled.NoSimilarMovies>
+  );
+
+  const SimilarMoviesComponent = (
+    <Styled.List horizontal showsHorizontalScrollIndicator={false}>
+      {data?.similarMovies.map(movie => (
+        <Styled.Button
+          key={movie.id}
+          onPress={goToMovieDetail(movie)}
+          testID="Button"
+        >
+          <Styled.Poster
+            key={movie.id}
+            source={{ uri: movie.posterPath }}
+            borderTopLeftRadius={10}
+            borderTopRightRadius={10}
+            borderBottomLeftRadius={10}
+            borderBottomRightRadius={10}
+            testID="MoviePoster"
+          />
+        </Styled.Button>
+      ))}
+    </Styled.List>
+  );
+
   return (
     <Styled.Container>
       <Styled.Title>Similar Movies</Styled.Title>
-      <Styled.List horizontal showsHorizontalScrollIndicator={false}>
-        {data?.similarMovies.map(movie => (
-          <Styled.Button
-            key={movie.id}
-            onPress={goToMovieDetail(movie)}
-            testID="Button"
-          >
-            <Styled.Poster
-              key={movie.id}
-              source={{ uri: movie.posterPath }}
-              borderTopLeftRadius={10}
-              borderTopRightRadius={10}
-              borderBottomLeftRadius={10}
-              borderBottomRightRadius={10}
-              testID="MoviePoster"
-            />
-          </Styled.Button>
-        ))}
-      </Styled.List>
+      {emptySimilarMovies
+        ? EmptySimilarMoviesComponent
+        : SimilarMoviesComponent}
     </Styled.Container>
   );
 };
