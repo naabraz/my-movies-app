@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-native-testing-library';
+import { render, act } from 'react-native-testing-library';
 import { MockedProvider } from '@apollo/react-testing';
 import wait from 'waait';
 
@@ -54,7 +54,7 @@ describe('Given Movie Genres component', () => {
       </MockedProvider>,
     );
 
-    await wait(0);
+    await act(() => wait(0));
 
     expect(getByTestId('Error')).toBeTruthy();
   });
@@ -66,7 +66,7 @@ describe('Given Movie Genres component', () => {
       </MockedProvider>,
     );
 
-    await wait(0);
+    await act(() => wait(0));
 
     expect(getByText('genreOne')).toBeTruthy();
     expect(getByText('genreTwo')).toBeTruthy();

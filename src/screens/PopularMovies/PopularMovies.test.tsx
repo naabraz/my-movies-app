@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-native-testing-library';
+import { render, act } from 'react-native-testing-library';
 import { MockedProvider } from '@apollo/react-testing';
 import wait from 'waait';
 
@@ -61,7 +61,7 @@ describe('Given PopularMovies Container component', () => {
       </MockedProvider>,
     );
 
-    await wait(0);
+    await act(() => wait(0));
 
     expect(getByTestId('ErrorAnimation')).toBeTruthy();
   });
@@ -73,7 +73,7 @@ describe('Given PopularMovies Container component', () => {
       </MockedProvider>,
     );
 
-    await wait(0);
+    await act(() => wait(0));
 
     expect(queryAllByTestId('MoviePoster')?.length).toEqual(2);
   });

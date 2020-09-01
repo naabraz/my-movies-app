@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from 'react-native-testing-library';
+import { render, fireEvent, act } from 'react-native-testing-library';
 import { MockedProvider } from '@apollo/react-testing';
 import wait from 'waait';
 import { useNavigation } from '@react-navigation/native';
@@ -71,7 +71,7 @@ describe('Given Similar Movies component', () => {
       </MockedProvider>,
     );
 
-    await wait(0);
+    await act(() => wait(0));
 
     expect(getByTestId('Error')).toBeTruthy();
   });
@@ -83,7 +83,7 @@ describe('Given Similar Movies component', () => {
       </MockedProvider>,
     );
 
-    await wait(0);
+    await act(() => wait(0));
 
     expect(queryAllByTestId('Button')?.length).toEqual(2);
   });
@@ -95,7 +95,7 @@ describe('Given Similar Movies component', () => {
       </MockedProvider>,
     );
 
-    await wait(0);
+    await act(() => wait(0));
 
     fireEvent.press(getAllByTestId('Button')[0]);
 
