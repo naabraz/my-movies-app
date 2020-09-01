@@ -1,10 +1,9 @@
 import React from 'react';
 import { useQuery } from 'react-apollo';
 
-import { Loading, Error } from 'components';
+import { Loading, Error, MoviesList } from 'components';
 import { Genre, Movies } from './MoviesByGenre.types';
 import { MOVIES_BY_GENRE } from './MoviesByGenre.graphql';
-import { PopularMoviesList } from '../PopularMovies/components/List';
 import * as Styled from './MoviesByGenre.style';
 
 export const MoviesByGenre: React.FC<Genre> = ({ route }: Genre) => {
@@ -22,7 +21,7 @@ export const MoviesByGenre: React.FC<Genre> = ({ route }: Genre) => {
   if (error) return <Error />;
 
   const moviesList = data?.moviesByGenre.map(movie => (
-    <PopularMoviesList movie={movie} key={movie.id} />
+    <MoviesList movie={movie} key={movie.id} />
   ));
 
   return (
