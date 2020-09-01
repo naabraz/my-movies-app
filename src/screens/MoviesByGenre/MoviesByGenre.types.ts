@@ -1,7 +1,7 @@
 export type Genre = {
   route: {
     params: {
-      id: string;
+      id: number;
     };
   };
 };
