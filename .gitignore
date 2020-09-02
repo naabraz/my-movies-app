@@ -57,6 +57,8 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
+/ios/MyMoviesApp.app.dSYM.zip
+/ios/src/assets
 
 # Coverage
 coverage

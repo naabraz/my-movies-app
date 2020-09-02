@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "MyMoviesApp.app"
+               BuildableName = "My Movies.app"
                BlueprintName = "MyMoviesApp"
                ReferencedContainer = "container:MyMoviesApp.xcodeproj">
             </BuildableReference>
@@ -28,16 +28,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "MyMoviesAppTests.xctest"
-               BlueprintName = "MyMoviesAppTests"
-               ReferencedContainer = "container:MyMoviesApp.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -55,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "MyMoviesApp.app"
+            BuildableName = "My Movies.app"
             BlueprintName = "MyMoviesApp"
             ReferencedContainer = "container:MyMoviesApp.xcodeproj">
          </BuildableReference>
@@ -72,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "MyMoviesApp.app"
+            BuildableName = "My Movies.app"
             BlueprintName = "MyMoviesApp"
             ReferencedContainer = "container:MyMoviesApp.xcodeproj">
          </BuildableReference>
