@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, act } from 'react-native-testing-library';
+import { render, act } from '@testing-library/react-native';
 import { MockedProvider } from '@apollo/react-testing';
 import wait from 'waait';
 
