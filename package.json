@@ -62,7 +62,7 @@
     "metro-react-native-babel-preset": "^0.59.0",
     "prettier": "^1.19.1",
     "react-native-svg-transformer": "^0.14.3",
-    "react-native-testing-library": "^1.13.2",
+    "@testing-library/react-native": "^7.0.2",
     "react-test-renderer": "16.13.1",
     "tslint": "^6.0.0",
     "tslint-config-prettier": "^1.18.0",

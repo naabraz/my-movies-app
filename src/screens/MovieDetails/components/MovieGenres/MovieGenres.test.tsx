@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, act, fireEvent } from 'react-native-testing-library';
+import { render, act, fireEvent } from '@testing-library/react-native';
 import { MockedProvider } from '@apollo/react-testing';
 import wait from 'waait';
 import { useNavigation } from '@react-navigation/native';
