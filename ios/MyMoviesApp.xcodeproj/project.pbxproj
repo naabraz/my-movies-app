@@ -17,8 +17,6 @@
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		008FA60B9E0B9F7D7CECA50D /* libPods-MyMoviesApp-MyMoviesAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyMoviesApp-MyMoviesAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* MyMoviesAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMoviesAppTests.m; sourceTree = "<group>"; };
 		09D29E40AC3D8217F55FFE13 /* Pods-MyMoviesApp-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMoviesApp-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-MyMoviesApp-tvOSTests/Pods-MyMoviesApp-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		0A91C5C53E2391768A84E7B4 /* Pods-MyMoviesApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMoviesApp.release.xcconfig"; path = "Target Support Files/Pods-MyMoviesApp/Pods-MyMoviesApp.release.xcconfig"; sourceTree = "<group>"; };
 		13862986CE4B062F2E4352B1 /* libPods-MyMoviesApp-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyMoviesApp-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,23 +51,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* MyMoviesAppTests */ = {
-			isa = PBXGroup;
-			children = (
-				00E356F21AD99517003FC87E /* MyMoviesAppTests.m */,
-				00E356F01AD99517003FC87E /* Supporting Files */,
-			);
-			path = MyMoviesAppTests;
-			sourceTree = "<group>";
-		};
-		00E356F01AD99517003FC87E /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				00E356F11AD99517003FC87E /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		13B07FAE1A68108700A75B9A /* MyMoviesApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,7 +90,6 @@
 			children = (
 				13B07FAE1A68108700A75B9A /* MyMoviesApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* MyMoviesAppTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				F2F36129198982F7561991A9 /* Pods */,
