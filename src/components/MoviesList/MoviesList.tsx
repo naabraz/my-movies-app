@@ -11,7 +11,7 @@ export const MoviesList: React.FC<Movie> = ({ movie }: Movie) => {
   const goToDetailsScreen = (): void => navigate('Movie Details', { movie });
 
   return (
-    <Styled.Button onPress={goToDetailsScreen} testID="Button">
+    <Styled.Button onPress={goToDetailsScreen}>
       <Styled.Container>
         <Styled.Poster
           source={{ uri: backdropPath }}
