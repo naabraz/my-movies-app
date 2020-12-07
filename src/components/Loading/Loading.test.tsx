@@ -1,22 +1,23 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
 
-import { Loading } from './';
+import { Loading } from './index';
 
 jest.mock('./Loading.style', () => ({
   Container: 'Container',
   Animation: 'Animation',
 }));
+jest.mock('assets/lottie/loading.json', () => 'LoadingLottie');
 
 describe('Given Loading component', () => {
   it('Should render animation component correctly', () => {
-    const { getAllByTestId } = render(<Loading />);
-    expect(getAllByTestId('LoadingAnimation')).toBeTruthy();
+    const { getByTestId } = render(<Loading />);
+    expect(getByTestId('LoadingAnimation')).toBeTruthy();
   });
 
   it('Should render animation component with source', () => {
-    const { getAllByTestId } = render(<Loading />);
-    const { source } = getAllByTestId('LoadingAnimation')[0].props;
-    expect(source).toBeInstanceOf(Object);
+    const { getByTestId } = render(<Loading />);
+    const { source } = getByTestId('LoadingAnimation').props;
+    expect(source).toEqual('LoadingLottie');
   });
 });
