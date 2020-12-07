@@ -2,7 +2,7 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import { MoviesList } from '.';
+import { MoviesList } from './index';
 
 jest.mock('@react-navigation/native', () => ({
   useNavigation: jest.fn().mockReturnValue({
@@ -19,15 +19,15 @@ describe('Given MoviesList component', () => {
   };
 
   it('Should render component correctly', () => {
-    const { getAllByTestId } = render(<MoviesList movie={movie} />);
+    const { getByTestId } = render(<MoviesList movie={movie} />);
 
-    expect(getAllByTestId('MoviePoster')).toBeTruthy();
+    expect(getByTestId('MoviePoster')).toBeTruthy();
   });
 
   it('Should navigate to Movie Details screen when poster is clicked', () => {
-    const { getByTestId } = render(<MoviesList movie={movie} />);
+    const { getByText } = render(<MoviesList movie={movie} />);
 
-    fireEvent.press(getByTestId('Button'));
+    fireEvent.press(getByText('movieTitle'));
 
     expect(useNavigation().navigate).toHaveBeenCalledWith('Movie Details', {
       movie,
