@@ -1,6 +1,6 @@
 import ApolloClient from 'apollo-boost';
 
-import { apolloClient } from './';
+import { apolloClient } from './index';
 
 jest.mock('apollo-boost');
 
