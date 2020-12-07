@@ -1,22 +1,23 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
 
-import { Error } from './';
+import { Error } from './index';
 
 jest.mock('./Error.style', () => ({
   Container: 'Container',
   Animation: 'Animation',
 }));
+jest.mock('assets/lottie/error.json', () => 'ErrorLottie');
 
 describe('Given Error component', () => {
   it('Should render animation component correctly', () => {
-    const { getAllByTestId } = render(<Error />);
-    expect(getAllByTestId('ErrorAnimation')).toBeTruthy();
+    const { getByTestId } = render(<Error />);
+    expect(getByTestId('ErrorAnimation')).toBeTruthy();
   });
 
   it('Should render animation component with source', () => {
-    const { getAllByTestId } = render(<Error />);
-    const { source } = getAllByTestId('ErrorAnimation')[0].props;
-    expect(source).toBeInstanceOf(Object);
+    const { getByTestId } = render(<Error />);
+    const { source } = getByTestId('ErrorAnimation').props;
+    expect(source).toEqual('ErrorLottie');
   });
 });
