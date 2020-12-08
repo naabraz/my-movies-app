@@ -1,7 +1,6 @@
 import React from 'react';
-import { render, act } from '@testing-library/react-native';
+import { render, waitFor } from '@testing-library/react-native';
 import { MockedProvider } from '@apollo/react-testing';
-import wait from 'waait';
 
 import { PopularMovies } from './PopularMovies';
 import { POPULAR_MOVIES } from './PopularMovies.graphql';
@@ -61,20 +60,18 @@ describe('Given PopularMovies Container component', () => {
       </MockedProvider>,
     );
 
-    await act(() => wait(0));
-
-    expect(getByTestId('ErrorAnimation')).toBeTruthy();
+    await waitFor(() => expect(getByTestId('ErrorAnimation')).toBeTruthy());
   });
 
   it('Should render Movies list when data is ready', async () => {
-    const { queryAllByTestId } = render(
+    const { getAllByLabelText } = render(
       <MockedProvider mocks={[mocks]} addTypename={false}>
         <PopularMovies />
       </MockedProvider>,
     );
 
-    await act(() => wait(0));
+    const labelText = 'Go to movie details';
 
-    expect(queryAllByTestId('MoviePoster')?.length).toEqual(2);
+    await waitFor(() => expect(getAllByLabelText(labelText).length).toEqual(2));
   });
 });

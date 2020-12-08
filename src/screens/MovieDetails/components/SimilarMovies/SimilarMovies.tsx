@@ -55,7 +55,6 @@ export const SimilarMoviesList: React.FC<{ id: string }> = ({ id }) => {
             borderTopRightRadius={10}
             borderBottomLeftRadius={10}
             borderBottomRightRadius={10}
-            testID="MoviePoster"
           />
         </Styled.Button>
       ))}

@@ -11,13 +11,16 @@ export const MoviesList: React.FC<Movie> = ({ movie }: Movie) => {
   const goToDetailsScreen = (): void => navigate('Movie Details', { movie });
 
   return (
-    <Styled.Button onPress={goToDetailsScreen}>
+    <Styled.Button
+      onPress={goToDetailsScreen}
+      accessibilityLabel="Go to movie details"
+      accessibilityHint="Goes to movie details screen"
+    >
       <Styled.Container>
         <Styled.Poster
           source={{ uri: backdropPath }}
           borderTopLeftRadius={10}
           borderTopRightRadius={10}
-          testID="MoviePoster"
         />
         <Styled.MovieInfoContainer>
           <Styled.MovieTitle>{movie.title}</Styled.MovieTitle>

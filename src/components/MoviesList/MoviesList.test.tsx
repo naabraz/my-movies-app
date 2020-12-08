@@ -18,12 +18,6 @@ describe('Given MoviesList component', () => {
     backdropPath: 'fooBackdropPath',
   };
 
-  it('Should render component correctly', () => {
-    const { getByTestId } = render(<MoviesList movie={movie} />);
-
-    expect(getByTestId('MoviePoster')).toBeTruthy();
-  });
-
   it('Should navigate to Movie Details screen when poster is clicked', () => {
     const { getByText } = render(<MoviesList movie={movie} />);
 
