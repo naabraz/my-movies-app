@@ -16,21 +16,21 @@ export const MovieGenresList: React.FC<{ id: string }> = ({ id }) => {
   const goToMoviesByGenreScreen = (genreId, name) => (): void =>
     navigate('Movie By Genre', { id: genreId, name });
 
-  const loadingComponent = (
-    <Styled.LoadingContainer testID="Loading">
+  const LoadingComponent = (
+    <Styled.LoadingContainer>
       <Styled.LoadingText>...</Styled.LoadingText>
     </Styled.LoadingContainer>
   );
 
-  const errorComponent = (
-    <Styled.ErrorContainer testID="Error">
-      <Styled.ErrorText>-</Styled.ErrorText>
+  const ErrorComponent = (
+    <Styled.ErrorContainer>
+      <Styled.ErrorText>There was an error</Styled.ErrorText>
     </Styled.ErrorContainer>
   );
 
-  if (loading) return loadingComponent;
+  if (loading) return LoadingComponent;
 
-  if (error) return errorComponent;
+  if (error) return ErrorComponent;
 
   return (
     <Styled.GenreInfo>
