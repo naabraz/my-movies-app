@@ -15,21 +15,21 @@ export const SimilarMoviesList: React.FC<{ id: string }> = ({ id }) => {
     variables,
   });
 
-  const loadingComponent = (
-    <Styled.LoadingContainer testID="Loading">
+  const LoadingComponent = (
+    <Styled.LoadingContainer>
       <Styled.LoadingText>...</Styled.LoadingText>
     </Styled.LoadingContainer>
   );
 
-  const errorComponent = (
-    <Styled.ErrorContainer testID="Error">
-      <Styled.ErrorText>-</Styled.ErrorText>
+  const ErrorComponent = (
+    <Styled.ErrorContainer>
+      <Styled.ErrorText>There was an error</Styled.ErrorText>
     </Styled.ErrorContainer>
   );
 
-  if (loading) return loadingComponent;
+  if (loading) return LoadingComponent;
 
-  if (error) return errorComponent;
+  if (error) return ErrorComponent;
 
   const goToMovieDetail = (movie): Function => (): void =>
     navigate('Movie Details', { movie });
@@ -46,7 +46,7 @@ export const SimilarMoviesList: React.FC<{ id: string }> = ({ id }) => {
         <Styled.Button
           key={movie.id}
           onPress={goToMovieDetail(movie)}
-          testID="Button"
+          accessibilityLabel="Go to movie details"
         >
           <Styled.Poster
             key={movie.id}
