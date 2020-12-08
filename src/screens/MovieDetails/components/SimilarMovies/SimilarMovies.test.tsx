@@ -1,7 +1,6 @@
 import React from 'react';
-import { render, fireEvent, act } from '@testing-library/react-native';
+import { render, fireEvent, waitFor } from '@testing-library/react-native';
 import { MockedProvider } from '@apollo/react-testing';
-import wait from 'waait';
 import { useNavigation } from '@react-navigation/native';
 
 import { SIMILAR_MOVIES } from './SimilarMovies.graphql';
@@ -48,13 +47,13 @@ describe('Given Similar Movies component', () => {
   };
 
   it('Should render Similar Movies according with received id', () => {
-    const { getByTestId } = render(
+    const { getByText } = render(
       <MockedProvider mocks={[mocks]} addTypename={false}>
         <SimilarMoviesList id="1" />
       </MockedProvider>,
     );
 
-    expect(getByTestId('Loading')).toBeTruthy();
+    expect(getByText('...')).toBeTruthy();
   });
 
   it('Should render Error component when there is an error', async () => {
@@ -65,39 +64,37 @@ describe('Given Similar Movies component', () => {
       error: new Error('Default error'),
     };
 
-    const { getByTestId } = render(
+    const { getByText } = render(
       <MockedProvider mocks={[localMock]} addTypename={false}>
         <SimilarMoviesList id="1" />
       </MockedProvider>,
     );
 
-    await act(() => wait(0));
-
-    expect(getByTestId('Error')).toBeTruthy();
+    await waitFor(() => expect(getByText('There was an error')).toBeTruthy());
   });
 
   it('Should render Similar Movies list when data is ready', async () => {
-    const { queryAllByTestId } = render(
+    const { getAllByLabelText } = render(
       <MockedProvider mocks={[mocks]} addTypename={false}>
         <SimilarMoviesList id="1" />
       </MockedProvider>,
     );
 
-    await act(() => wait(0));
+    const label = 'Go to movie details';
 
-    expect(queryAllByTestId('Button')?.length).toEqual(2);
+    await waitFor(() => expect(getAllByLabelText(label).length).toEqual(2));
   });
 
   it('Should navigate to Movie Details when poster is clicked', async () => {
-    const { getAllByTestId } = render(
+    const { getAllByLabelText } = render(
       <MockedProvider mocks={[mocks]} addTypename={false}>
         <SimilarMoviesList id="1" />
       </MockedProvider>,
     );
 
-    await act(() => wait(0));
+    const label = 'Go to movie details';
 
-    fireEvent.press(getAllByTestId('Button')[0]);
+    await waitFor(() => fireEvent.press(getAllByLabelText(label)[0]));
 
     expect(useNavigation().navigate).toHaveBeenCalledWith('Movie Details', {
       movie: {
