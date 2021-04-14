@@ -1,1 +1,0 @@
-export { SimilarMoviesList } from './SimilarMovies';

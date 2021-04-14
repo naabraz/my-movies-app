@@ -1,1 +1,0 @@
-export { StackNavigator } from './StackNavigator';

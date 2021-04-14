@@ -1,5 +1,5 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { render } from '@testing-library/react-native';
 
 import { App } from './App';
 
@@ -14,6 +14,6 @@ jest.mock('./navigator', () => ({
   StackNavigator: jest.fn().mockImplementation(() => 'StackNavigator'),
 }));
 
-it('renders correctly', () => {
-  renderer.create(<App />);
+test('renders correctly', () => {
+  render(<App />);
 });

@@ -5,7 +5,7 @@ module.exports = {
   testMatch: ['**/*.test.tsx', '**/*.test.ts', '**/*.test.js'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   transformIgnorePatterns: [
-    'node_modules/(?!(jest-)?react-native|@react-native-community|@react-navigation)',
+    'node_modules/(?!(jest-)?react-native|@react-native|@react-native-community|@react-navigation)',
   ],
   collectCoverageFrom: [
     'src/**/*.{ts,tsx,js}',
