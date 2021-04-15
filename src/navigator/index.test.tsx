@@ -12,13 +12,12 @@ jest.mock('screens', () => ({
   MoviesByGenre: 'MoviesByGenre',
 }));
 
-test('Should render Stack Navigator with Popular Movies screen', () => {
+test('should render Stack Navigator with Popular Movies screen', () => {
   const { getByText } = render(
     <NavigationContainer>
       <StackNavigator />
     </NavigationContainer>,
   );
 
-  const popularMovies = getByText('Popular Movies');
-  expect(popularMovies).toBeTruthy();
+  expect(getByText('Popular Movies')).toBeTruthy();
 });
