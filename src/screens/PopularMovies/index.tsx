@@ -3,11 +3,11 @@ import { useQuery } from '@apollo/client';
 
 import { Loading, Error, MoviesList } from 'components';
 import { POPULAR_MOVIES } from './index.graphql';
-import { Movies } from './types';
-import * as Styled from './styles';
+import { Movies as MoviesType } from './types';
+import { Container, Movies } from './styles';
 
 const PopularMovies: React.FC = () => {
-  const { loading, data, error } = useQuery<Movies>(POPULAR_MOVIES);
+  const { loading, data, error } = useQuery<MoviesType>(POPULAR_MOVIES);
 
   if (loading) return <Loading />;
 
@@ -18,9 +18,9 @@ const PopularMovies: React.FC = () => {
   ));
 
   return (
-    <Styled.Container>
-      <Styled.Movies>{moviesList}</Styled.Movies>
-    </Styled.Container>
+    <Container>
+      <Movies>{moviesList}</Movies>
+    </Container>
   );
 };
 

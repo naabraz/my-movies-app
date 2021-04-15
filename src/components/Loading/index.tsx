@@ -1,17 +1,17 @@
 import React from 'react';
 
-import * as Styled from './styles';
+import { Container, Animation } from './styles';
 
 const Loading: React.FC = () => (
-  <Styled.Container>
-    <Styled.Animation
+  <Container>
+    <Animation
       source={require('assets/lottie/loading.json')}
       autoPlay
       loop
       hardwareAccelerationAndroid
       testID="LoadingAnimation"
     />
-  </Styled.Container>
+  </Container>
 );
 
 export default Loading;
