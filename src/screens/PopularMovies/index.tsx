@@ -1,5 +1,5 @@
 import React from 'react';
-import { useQuery } from 'react-apollo';
+import { useQuery } from '@apollo/client';
 
 import { Loading, Error, MoviesList } from 'components';
 import { POPULAR_MOVIES } from './index.graphql';

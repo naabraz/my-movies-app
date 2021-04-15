@@ -13,7 +13,15 @@
     "baseUrl": "./",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "paths": {
+      "apollo": ["./src/apollo"],
+      "assets": ["./src/assets"],
+      "components": ["./src/components"],
+      "navigator": ["./src/navigator"],
+      "screens": ["./src/screens"],
+      "style": ["./src/style"]
+    }
   },
   "exclude": [
     "node_modules",

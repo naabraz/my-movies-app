@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { useQuery } from 'react-apollo';
+import { useQuery } from '@apollo/client';
 
 import { Container, Title, List, Poster } from './styles';
 import { SimilarMovies } from './types';

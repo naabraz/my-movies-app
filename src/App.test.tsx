@@ -10,7 +10,7 @@ jest.mock('@react-navigation/native', () => ({
 }));
 
 jest.mock('apollo', () => ({ apolloClient: jest.fn() }));
-jest.mock('./navigator', () => ({
+jest.mock('navigator', () => ({
   StackNavigator: jest.fn().mockImplementation(() => 'StackNavigator'),
 }));
 

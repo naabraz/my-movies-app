@@ -1,4 +1,4 @@
-import gql from 'graphql-tag';
+import { gql } from '@apollo/client';
 
 export const MOVIES_BY_GENRE = gql`
   query moviesByGenre($genreId: ID!) {

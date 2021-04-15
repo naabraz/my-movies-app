@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { useQuery } from 'react-apollo';
+import { useQuery } from '@apollo/client';
 import { useNavigation } from '@react-navigation/native';
 
 import { GenreInfo, GenreButton, GenreTitle } from './styles';
