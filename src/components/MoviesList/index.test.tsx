@@ -4,14 +4,6 @@ import { useNavigation } from '@react-navigation/native';
 
 import MoviesList from './index';
 
-jest.mock('@react-navigation/native', () => ({
-  useNavigation: jest.fn().mockReturnValue({
-    navigate: jest.fn(),
-  }),
-}));
-
-jest.mock('@react-navigation/native');
-
 const movie = {
   id: 1,
   title: 'movieTitle',

@@ -6,12 +6,6 @@ import { useNavigation } from '@react-navigation/native';
 import { MOVIE_GENRES } from './index.graphql';
 import MovieGenresList from './index';
 
-jest.mock('@react-navigation/native', () => ({
-  useNavigation: jest.fn().mockReturnValue({
-    navigate: jest.fn(),
-  }),
-}));
-
 const mocks = {
   request: {
     query: MOVIE_GENRES,

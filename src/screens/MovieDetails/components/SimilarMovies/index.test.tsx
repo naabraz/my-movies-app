@@ -6,12 +6,6 @@ import { useNavigation } from '@react-navigation/native';
 import { SIMILAR_MOVIES } from './index.graphql';
 import SimilarMoviesList from './index';
 
-jest.mock('@react-navigation/native', () => ({
-  useNavigation: jest.fn().mockReturnValue({
-    navigate: jest.fn(),
-  }),
-}));
-
 const mocks = {
   request: {
     query: SIMILAR_MOVIES,
