@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 
+import { firebase } from 'services';
+
 import { Movie } from './types';
 import {
   Container,
@@ -14,7 +16,10 @@ const MoviesList: React.FC<Movie> = ({ movie }: Movie) => {
   const { navigate } = useNavigation();
   const { backdropPath } = movie;
 
-  const goToDetailsScreen = (): void => navigate('Movie Details', { movie });
+  const goToDetailsScreen = (): void => {
+    navigate('Movie Details', { movie });
+    firebase.sendEvent('go_to_movie_details', { movie });
+  };
 
   return (
     <Button
