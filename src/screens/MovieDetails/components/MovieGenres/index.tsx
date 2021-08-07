@@ -3,6 +3,8 @@ import { View, Text } from 'react-native';
 import { useQuery } from '@apollo/client';
 import { useNavigation } from '@react-navigation/native';
 
+import { firebase } from 'services';
+
 import { GenreInfo, GenreButton, GenreTitle } from './styles';
 import { MovieGenres } from './types';
 import { MOVIE_GENRES } from './index.graphql.js';
@@ -14,8 +16,14 @@ const MovieGenresList: React.FC<{ id: string }> = ({ id }) => {
     variables,
   });
 
-  const goToMoviesByGenreScreen = (genreId, name) => (): void =>
+  const goToMoviesByGenreScreen = (genreId, name) => (): void => {
+    firebase.sendEvent('filter_by_genre', {
+      genreId,
+      genreName: name,
+    });
+
     navigate('Movie By Genre', { id: genreId, name });
+  };
 
   if (loading)
     return (

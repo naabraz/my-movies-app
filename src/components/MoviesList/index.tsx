@@ -17,8 +17,12 @@ const MoviesList: React.FC<Movie> = ({ movie }: Movie) => {
   const { backdropPath } = movie;
 
   const goToDetailsScreen = (): void => {
+    firebase.sendEvent('go_to_movie_details', {
+      id: movie.id,
+      movieTitle: movie.title,
+    });
+
     navigate('Movie Details', { movie });
-    firebase.sendEvent('go_to_movie_details', { movie });
   };
 
   return (
