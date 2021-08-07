@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "700865575538",
+    "project_id": "my-movies-production",
+    "storage_bucket": "my-movies-production.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:700865575538:android:e036681bde6ea9dc4320eb",
+        "android_client_info": {
+          "package_name": "com.mymoviesapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "700865575538-a4i14k6853geiomm107tqgf1cm08n8ek.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUl1crHFeG_h397FMwtDEb9fTddjBOwqs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "700865575538-a4i14k6853geiomm107tqgf1cm08n8ek.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "700865575538-t3p2hei8be0hl8tgpri7iccq151aj508.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "br.com.nataliabraz.MyMoviesApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
