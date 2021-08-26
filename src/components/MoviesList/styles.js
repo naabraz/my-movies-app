@@ -2,8 +2,6 @@ import styled from 'styled-components/native';
 
 import * as colors from 'style/colors';
 
-export const Button = styled.TouchableWithoutFeedback``;
-
 export const Container = styled.View`
   width: 300px;
   flex-direction: row;

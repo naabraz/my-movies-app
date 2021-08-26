@@ -5,8 +5,6 @@ export const Container = styled.View`
   margin-bottom: 24px;
 `;
 
-export const List = styled.ScrollView``;
-
 export const Title = styled.Text`
   font-size: 14px;
   font-weight: 600;

@@ -2,8 +2,7 @@ import styled from 'styled-components/native';
 
 import * as colors from 'style/colors';
 
-export const Container = styled.ScrollView`
-  background-color: ${colors.gallery};
+export const List = styled.ScrollView`
   margin-horizontal: 16px;
   margin-vertical: 16px;
 `;

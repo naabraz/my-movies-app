@@ -9,7 +9,7 @@ export const GenreInfo = styled.View`
   flex-wrap: wrap;
 `;
 
-export const GenreButton = styled.TouchableOpacity`
+export const GenreButton = styled.TouchableHighlight`
   padding: 8px;
   border-radius: 8px;
   background-color: ${colors.ebonyClay};
