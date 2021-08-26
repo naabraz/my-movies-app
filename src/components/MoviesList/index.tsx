@@ -1,16 +1,11 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
+import { TouchableWithoutFeedback } from 'react-native';
 
 import { firebase } from 'services';
 
 import { Movie } from './types';
-import {
-  Container,
-  Button,
-  Poster,
-  MovieInfoContainer,
-  MovieTitle,
-} from './styles';
+import { Container, Poster, MovieInfoContainer, MovieTitle } from './styles';
 
 const MoviesList: React.FC<Movie> = ({ movie }: Movie) => {
   const { navigate } = useNavigation();
@@ -26,7 +21,7 @@ const MoviesList: React.FC<Movie> = ({ movie }: Movie) => {
   };
 
   return (
-    <Button
+    <TouchableWithoutFeedback
       onPress={goToDetailsScreen}
       accessibilityLabel="Go to movie details"
       accessibilityHint="Goes to movie details screen"
@@ -41,7 +36,7 @@ const MoviesList: React.FC<Movie> = ({ movie }: Movie) => {
           <MovieTitle>{movie.title}</MovieTitle>
         </MovieInfoContainer>
       </Container>
-    </Button>
+    </TouchableWithoutFeedback>
   );
 };
 

@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client';
 import { Loading, Error, MoviesList } from 'components';
 import { Genre, Movies as MoviesType } from './types';
 import { MOVIES_BY_GENRE } from './index.graphql';
-import { Container, Movies } from './styles';
+import { Movies, List } from './styles';
 
 const MoviesByGenre: React.FC<Genre> = ({ route }: Genre) => {
   const {
@@ -21,13 +21,13 @@ const MoviesByGenre: React.FC<Genre> = ({ route }: Genre) => {
   if (error) return <Error />;
 
   return (
-    <Container>
+    <List showsVerticalScrollIndicator={false}>
       <Movies>
         {data?.moviesByGenre.map(movie => (
           <MoviesList movie={movie} key={movie.id} />
         ))}
       </Movies>
-    </Container>
+    </List>
   );
 };
 

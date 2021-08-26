@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Text, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, ScrollView, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useQuery } from '@apollo/client';
 
-import { Container, Title, List, Poster } from './styles';
+import { Container, Title, Poster } from './styles';
 import { SimilarMovies } from './types';
 import { SIMILAR_MOVIES } from './index.graphql.js';
 
@@ -40,7 +40,7 @@ const SimilarMoviesList: React.FC<{ id: string }> = ({ id }) => {
   const EmptySimilarMoviesComponent = <Text>No similar movies found 😢</Text>;
 
   const SimilarMoviesComponent = (
-    <List horizontal showsHorizontalScrollIndicator={false}>
+    <ScrollView horizontal showsHorizontalScrollIndicator={false}>
       {data?.similarMovies.map(movie => (
         <TouchableWithoutFeedback
           key={movie.id}
@@ -57,7 +57,7 @@ const SimilarMoviesList: React.FC<{ id: string }> = ({ id }) => {
           />
         </TouchableWithoutFeedback>
       ))}
-    </List>
+    </ScrollView>
   );
 
   return (
