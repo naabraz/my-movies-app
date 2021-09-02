@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 
-import { Loading, Error, MoviesList } from 'components';
+import { Loading, Error, MoviesList } from 'src/components';
 import { Genre, Movies as MoviesType } from './types';
 import { MOVIES_BY_GENRE } from './index.graphql';
 import { Movies, List } from './styles';

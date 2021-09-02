@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-import * as colors from 'style/colors';
+import * as colors from 'src/style/colors';
 
 export const Container = styled.View`
   width: 300px;

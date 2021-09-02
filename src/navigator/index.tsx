@@ -4,7 +4,7 @@ import {
   StackNavigationOptions,
 } from '@react-navigation/stack';
 
-import { PopularMovies, MovieDetails, MoviesByGenre } from 'screens';
+import { PopularMovies, MovieDetails, MoviesByGenre } from 'src/screens';
 import { RootStackParamList } from './types';
 import { screenOptions } from './styles.js';
 
