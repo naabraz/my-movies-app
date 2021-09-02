@@ -2,7 +2,7 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 import { getBuildNumber } from 'react-native-device-info';
 
-import { Loading, Error, MoviesList } from 'components';
+import { Loading, Error, MoviesList } from 'src/components';
 import { POPULAR_MOVIES } from './index.graphql';
 import { Movies as MoviesType } from './types';
 import { List, Movies, Version } from './styles';

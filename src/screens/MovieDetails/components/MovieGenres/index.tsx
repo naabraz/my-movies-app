@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { useQuery } from '@apollo/client';
 import { useNavigation } from '@react-navigation/native';
 
-import { firebase } from 'services';
+import { firebase } from 'src/services';
 
 import { GenreInfo, GenreButton, GenreTitle } from './styles';
 import { MovieGenres } from './types';

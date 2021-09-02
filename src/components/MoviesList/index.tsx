@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { TouchableWithoutFeedback } from 'react-native';
 
-import { firebase } from 'services';
+import { firebase } from 'src/services';
 
 import { Movie } from './types';
 import { Container, Poster, MovieInfoContainer, MovieTitle } from './styles';
