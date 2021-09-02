@@ -14,15 +14,11 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "paths": {
-      "apollo": ["./src/apollo"],
-      "assets": ["./src/assets"],
-      "components": ["./src/components"],
-      "navigator": ["./src/navigator"],
-      "screens": ["./src/screens"],
-      "style": ["./src/style"],
-      "services": ["./src/services"]
-    }
+      "paths": {
+        "src/*": [
+          "./src/*"
+        ],
+      }
   },
   "exclude": [
     "node_modules",
