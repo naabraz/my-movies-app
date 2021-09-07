@@ -3,9 +3,10 @@ import { View, Text } from 'react-native';
 import { useQuery } from '@apollo/client';
 import { useNavigation } from '@react-navigation/native';
 
+import { GenreButton } from 'src/components';
 import { firebase } from 'src/services';
 
-import { GenreInfo, GenreButton, GenreTitle } from './styles';
+import { GenreInfo } from './styles';
 import { MovieGenres } from './types';
 import { MOVIE_GENRES } from './index.graphql.js';
 
@@ -44,10 +45,9 @@ const MovieGenresList: React.FC<{ id: string }> = ({ id }) => {
       {data?.movieGenres.map(({ id: genreId, name }) => (
         <GenreButton
           key={genreId}
+          title={name}
           onPress={goToMoviesByGenreScreen(genreId, name)}
-        >
-          <GenreTitle>{name}</GenreTitle>
-        </GenreButton>
+        />
       ))}
     </GenreInfo>
   );
