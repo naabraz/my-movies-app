@@ -4,7 +4,12 @@ import {
   StackNavigationOptions,
 } from '@react-navigation/stack';
 
-import { PopularMovies, MovieDetails, MoviesByGenre } from 'src/screens';
+import {
+  PopularMovies,
+  MovieDetails,
+  MoviesByGenre,
+  GenreList,
+} from 'src/screens';
 import { RootStackParamList } from './types';
 import { screenOptions } from './styles.js';
 
@@ -24,6 +29,7 @@ const StackNavigator: React.FC = () => (
         title: `${route.params.name} Movies`,
       })}
     />
+    <Stack.Screen name="Genre List" component={GenreList} />
   </Stack.Navigator>
 );
 
