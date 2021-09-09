@@ -3,6 +3,7 @@ import {
   createStackNavigator,
   StackNavigationOptions,
 } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import {
   PopularMovies,
@@ -14,13 +15,21 @@ import { RootStackParamList } from './types';
 import { screenOptions } from './styles.js';
 
 const Stack = createStackNavigator<RootStackParamList>();
+const Tab = createBottomTabNavigator<RootStackParamList>();
+
+const Home: React.FC = () => (
+  <Tab.Navigator>
+    <Tab.Screen name="Popular Movies" component={PopularMovies} />
+    <Tab.Screen name="Genre List" component={GenreList} />
+  </Tab.Navigator>
+);
 
 const StackNavigator: React.FC = () => (
   <Stack.Navigator
     initialRouteName="Popular Movies"
     screenOptions={{ ...screenOptions, headerBackTitleVisible: false }}
   >
-    <Stack.Screen name="Popular Movies" component={PopularMovies} />
+    <Stack.Screen name="Popular Movies" component={Home} />
     <Stack.Screen name="Movie Details" component={MovieDetails} />
     <Stack.Screen
       name="Movie By Genre"
