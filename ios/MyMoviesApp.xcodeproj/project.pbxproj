@@ -12,6 +12,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		9C29A8482625279A00AC1CCA /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C29A8472625279A00AC1CCA /* Bridge.swift */; };
+		9C595E1F26F1321A00D92621 /* KeychainStorage .swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C595E1E26F1321A00D92621 /* KeychainStorage .swift */; };
 		F1853ABC7C542CC8534F4CDD /* libPods-MyMoviesApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCD2D0F88B6F157F87E29CC /* libPods-MyMoviesApp.a */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		9C29A8472625279A00AC1CCA /* Bridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bridge.swift; sourceTree = "<group>"; };
 		9C406FB326BB691700773317 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9C406FB526BB691700773317 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9C595E1E26F1321A00D92621 /* KeychainStorage .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeychainStorage .swift"; sourceTree = "<group>"; };
 		A5C90F60A18F6D0D9EFD5A2D /* Pods-MyMoviesApp-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMoviesApp-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-MyMoviesApp-tvOSTests/Pods-MyMoviesApp-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ACA717F0BA1A9004D9A24785 /* Pods-MyMoviesApp-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMoviesApp-tvOS.release.xcconfig"; path = "Target Support Files/Pods-MyMoviesApp-tvOS/Pods-MyMoviesApp-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		CC9038420FAA6A4C001A1761 /* Pods-MyMoviesApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMoviesApp.debug.xcconfig"; path = "Target Support Files/Pods-MyMoviesApp/Pods-MyMoviesApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 		13B07FAE1A68108700A75B9A /* MyMoviesApp */ = {
 			isa = PBXGroup;
 			children = (
+				9C595E1D26F131CE00D92621 /* NativeModules */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -67,6 +70,7 @@
 				9C29A8472625279A00AC1CCA /* Bridge.swift */,
 				9C29A8462625279A00AC1CCA /* MyMoviesApp-Bridging-Header.h */,
 				9C406FB126BB691700773317 /* Firebase */,
+				9C595E1E26F1321A00D92621 /* KeychainStorage .swift */,
 			);
 			name = MyMoviesApp;
 			sourceTree = "<group>";
@@ -137,6 +141,13 @@
 				9C406FB526BB691700773317 /* GoogleService-Info.plist */,
 			);
 			path = Production;
+			sourceTree = "<group>";
+		};
+		9C595E1D26F131CE00D92621 /* NativeModules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NativeModules;
 			sourceTree = "<group>";
 		};
 		F2F36129198982F7561991A9 /* Pods */ = {
@@ -371,6 +382,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				9C595E1F26F1321A00D92621 /* KeychainStorage .swift in Sources */,
 				9C29A8482625279A00AC1CCA /* Bridge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
