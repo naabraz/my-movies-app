@@ -1,5 +1,5 @@
-import React from 'react';
-import { ScrollView } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { ScrollView, NativeModules } from 'react-native';
 import { useQuery } from '@apollo/client';
 
 import { GenreButton, Loading, Error } from 'src/components';
@@ -10,11 +10,40 @@ import { Genres, List, Title, Button, Text } from './styles';
 
 const GenreList: React.FC = () => {
   const { loading, data, error } = useQuery<GenreListType>(GENRES);
+  const [list, setList] = useState<Genre[]>([]);
+  const { SecureStorage } = NativeModules;
 
-  const favoriteGenres: Genre[] = [];
+  const saveFavoriteGenres: unknown = async () => {
+    try {
+      await SecureStorage.setValue('FAVORITE_GENRES', JSON.stringify(list));
+    } catch (e) {
+      console.log('setFavoriteGenres error', e);
+    }
+  };
+
+  useEffect(() => {
+    const getFavoriteGenres: any = async () => {
+      try {
+        const favoriteGenres = await SecureStorage.getValue('FAVORITE_GENRES');
+
+        console.log('favoriteGenres', favoriteGenres);
+      } catch (e) {
+        console.log('getFavoriteGenres error', e);
+      }
+    };
+
+    getFavoriteGenres();
+  }, [SecureStorage]);
+
+  const removeItem = (genre: Genre): void =>
+    setList((prevList: Genre[]) =>
+      prevList.filter(item => item.id !== genre.id),
+    );
 
   const onPress = (genre: Genre): void => {
-    favoriteGenres.push(genre);
+    list.includes(genre)
+      ? removeItem(genre)
+      : setList((prevState: Genre[]) => [...prevState, genre]);
   };
 
   if (loading) return <Loading />;
@@ -35,7 +64,7 @@ const GenreList: React.FC = () => {
             />
           ))}
         </List>
-        <Button>
+        <Button onPress={saveFavoriteGenres} disabled={!list.length}>
           <Text>Save</Text>
         </Button>
       </Genres>
