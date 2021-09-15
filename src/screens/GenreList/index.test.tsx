@@ -6,12 +6,28 @@ import GenreList from './';
 
 const useQueryMock = jest.spyOn(APOLLO, 'useQuery');
 
+const queryResultMock = {
+  client: new APOLLO.ApolloClient({
+    uri: '',
+    cache: new APOLLO.InMemoryCache(),
+  }),
+  networkStatus: 1,
+  refetch: jest.fn(),
+  startPolling: jest.fn(),
+  stopPolling: jest.fn(),
+  subscribeToMore: jest.fn(),
+  updateQuery: jest.fn(),
+  variables: null,
+  fetchMore: jest.fn(),
+};
+
 test('should render Loading component when data is not ready', () => {
-  useQueryMock.mockImplementation((): any => ({
+  useQueryMock.mockReturnValue({
+    ...queryResultMock,
+    data: undefined,
     loading: true,
-    error: false,
-    data: null,
-  }));
+    called: true,
+  });
 
   const { getByTestId } = render(<GenreList />);
 
@@ -19,11 +35,13 @@ test('should render Loading component when data is not ready', () => {
 });
 
 test('should render Error component when there is an error', () => {
-  useQueryMock.mockImplementation((): any => ({
+  useQueryMock.mockReturnValue({
+    ...queryResultMock,
+    data: undefined,
     loading: false,
-    error: true,
-    data: null,
-  }));
+    error: new APOLLO.ApolloError({}),
+    called: true,
+  });
 
   const { getByTestId } = render(<GenreList />);
 
@@ -48,11 +66,12 @@ test('should render genre list', () => {
     ],
   };
 
-  useQueryMock.mockImplementation((): any => ({
-    loading: false,
-    error: false,
+  useQueryMock.mockReturnValue({
+    ...queryResultMock,
     data,
-  }));
+    loading: false,
+    called: true,
+  });
 
   const { getByText } = render(<GenreList />);
   const genre = getByText('Action');
