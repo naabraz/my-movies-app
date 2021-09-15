@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { ScrollView, NativeModules } from 'react-native';
 import { useQuery } from '@apollo/client';
 
@@ -10,40 +10,29 @@ import { Genres, List, Title, Button, Text } from './styles';
 
 const GenreList: React.FC = () => {
   const { loading, data, error } = useQuery<GenreListType>(GENRES);
-  const [list, setList] = useState<Genre[]>([]);
+  const [favoriteGenres, setFavoriteGenres] = useState<number[]>([]);
+
   const { SecureStorage } = NativeModules;
 
-  const saveFavoriteGenres: unknown = async () => {
+  const saveFavoriteGenres: Function = () => {
     try {
-      await SecureStorage.setValue('FAVORITE_GENRES', JSON.stringify(list));
+      SecureStorage.setValue('FAVORITE_GENRES', JSON.stringify(favoriteGenres));
     } catch (e) {
       console.log('setFavoriteGenres error', e);
     }
   };
 
-  useEffect(() => {
-    const getFavoriteGenres: any = async () => {
-      try {
-        const favoriteGenres = await SecureStorage.getValue('FAVORITE_GENRES');
-
-        console.log('favoriteGenres', favoriteGenres);
-      } catch (e) {
-        console.log('getFavoriteGenres error', e);
-      }
-    };
-
-    getFavoriteGenres();
-  }, [SecureStorage]);
-
-  const removeItem = (genre: Genre): void =>
-    setList((prevList: Genre[]) =>
-      prevList.filter(item => item.id !== genre.id),
+  const removeItem = (genreId: number): void =>
+    setFavoriteGenres((prevList: number[]) =>
+      prevList.filter(id => id !== genreId),
     );
 
   const onPress = (genre: Genre): void => {
-    list.includes(genre)
-      ? removeItem(genre)
-      : setList((prevState: Genre[]) => [...prevState, genre]);
+    const { id } = genre;
+
+    favoriteGenres.includes(id)
+      ? removeItem(id)
+      : setFavoriteGenres((prevState: number[]) => [...prevState, id]);
   };
 
   if (loading) return <Loading />;
@@ -64,7 +53,7 @@ const GenreList: React.FC = () => {
             />
           ))}
         </List>
-        <Button onPress={saveFavoriteGenres} disabled={!list.length}>
+        <Button onPress={saveFavoriteGenres} disabled={!favoriteGenres.length}>
           <Text>Save</Text>
         </Button>
       </Genres>
