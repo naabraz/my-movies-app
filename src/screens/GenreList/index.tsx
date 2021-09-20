@@ -10,7 +10,7 @@ import { Genres, List, Title, Button, Text } from './styles';
 
 const GenreList: React.FC = () => {
   const { loading, data, error } = useQuery<GenreListType>(GENRES);
-  const [favoriteGenres, setFavoriteGenres] = useState<number[]>([]);
+  const [favoriteGenres, setFavoriteGenres] = useState<Genre[]>([]);
 
   const { SecureStorage } = NativeModules;
 
@@ -22,17 +22,15 @@ const GenreList: React.FC = () => {
     }
   };
 
-  const removeItem = (genreId: number): void =>
-    setFavoriteGenres((prevList: number[]) =>
-      prevList.filter(id => id !== genreId),
+  const removeItem = (genre: Genre): void =>
+    setFavoriteGenres((prevList: Genre[]) =>
+      prevList.filter(prevGenreId => prevGenreId.id !== genre.id),
     );
 
   const onPress = (genre: Genre): void => {
-    const { id } = genre;
-
-    favoriteGenres.includes(id)
-      ? removeItem(id)
-      : setFavoriteGenres((prevState: number[]) => [...prevState, id]);
+    favoriteGenres.includes(genre)
+      ? removeItem(genre)
+      : setFavoriteGenres((prevState: Genre[]) => [...prevState, genre]);
   };
 
   if (loading) return <Loading />;
