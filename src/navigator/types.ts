@@ -3,4 +3,5 @@ export type RootStackParamList = {
   'Movie Details': undefined;
   'Movie By Genre': { name: string };
   'Genre List': undefined;
+  'Favorite Genres': undefined;
 };

@@ -10,6 +10,7 @@ import {
   MovieDetails,
   MoviesByGenre,
   GenreList,
+  FavoriteGenres,
 } from 'src/screens';
 import { RootStackParamList } from './types';
 import { screenOptions } from './styles.js';
@@ -21,6 +22,7 @@ const Home: React.FC = () => (
   <Tab.Navigator>
     <Tab.Screen name="Popular Movies" component={PopularMovies} />
     <Tab.Screen name="Genre List" component={GenreList} />
+    <Tab.Screen name="Favorite Genres" component={FavoriteGenres} />
   </Tab.Navigator>
 );
 
