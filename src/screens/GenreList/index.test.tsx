@@ -1,10 +1,13 @@
 import React from 'react';
+import { NativeModules } from 'react-native';
+
 import { render, fireEvent } from '@testing-library/react-native';
 import * as APOLLO from '@apollo/client';
 
 import GenreList from './';
 
 const useQueryMock = jest.spyOn(APOLLO, 'useQuery');
+jest.spyOn(global.console, 'log');
 
 const queryResultMock = {
   client: new APOLLO.ApolloClient({
@@ -20,6 +23,27 @@ const queryResultMock = {
   variables: null,
   fetchMore: jest.fn(),
 };
+
+const data = {
+  genreList: [
+    {
+      id: 28,
+      name: 'Action',
+    },
+    {
+      id: 12,
+      name: 'Adventure',
+    },
+    {
+      id: 16,
+      name: 'Animation',
+    },
+  ],
+};
+
+beforeEach(() => {
+  jest.clearAllMocks();
+});
 
 test('should render Loading component when data is not ready', () => {
   useQueryMock.mockReturnValue({
@@ -49,23 +73,6 @@ test('should render Error component when there is an error', () => {
 });
 
 test('should render genre list', () => {
-  const data = {
-    genreList: [
-      {
-        id: 28,
-        name: 'Action',
-      },
-      {
-        id: 12,
-        name: 'Adventure',
-      },
-      {
-        id: 16,
-        name: 'Animation',
-      },
-    ],
-  };
-
   useQueryMock.mockReturnValue({
     ...queryResultMock,
     data,
@@ -79,4 +86,46 @@ test('should render genre list', () => {
   fireEvent.press(genre);
 
   expect(genre).toBeTruthy();
+});
+
+test('should call secure storage save value method', () => {
+  const { SecureStorage } = NativeModules;
+
+  useQueryMock.mockReturnValue({
+    ...queryResultMock,
+    data,
+    loading: false,
+    called: true,
+  });
+
+  const { getByText } = render(<GenreList />);
+
+  fireEvent.press(getByText('Action'));
+  fireEvent.press(getByText('Save'));
+
+  expect(SecureStorage.setValue).toHaveBeenCalled();
+});
+
+test('should remove genre if clicked twice', () => {
+  const { SecureStorage } = NativeModules;
+
+  useQueryMock.mockReturnValue({
+    ...queryResultMock,
+    data,
+    loading: false,
+    called: true,
+  });
+
+  const { getByText } = render(<GenreList />);
+  const [, genre] = data.genreList;
+
+  fireEvent.press(getByText('Animation'));
+  fireEvent.press(getByText('Animation'));
+  fireEvent.press(getByText('Adventure'));
+  fireEvent.press(getByText('Save'));
+
+  expect(SecureStorage.setValue).toHaveBeenCalledWith(
+    'FAVORITE_GENRES',
+    JSON.stringify([genre]),
+  );
 });

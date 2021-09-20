@@ -1,3 +1,5 @@
+import * as ReactNative from 'react-native';
+
 jest.mock('@react-navigation/native', () => ({
   ...jest.requireActual('@react-navigation/native'),
   useNavigation: jest.fn().mockReturnValue({
@@ -14,3 +16,17 @@ jest.mock('services', () => ({
     sendEvent: jest.fn(),
   },
 }));
+
+jest.doMock('react-native', () => {
+  return Object.setPrototypeOf(
+    {
+      NativeModules: {
+        ...ReactNative.NativeModules,
+        SecureStorage: {
+          setValue: jest.fn(),
+        },
+      },
+    },
+    ReactNative,
+  );
+});
