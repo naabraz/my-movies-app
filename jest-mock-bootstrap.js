@@ -24,6 +24,7 @@ jest.doMock('react-native', () => {
         ...ReactNative.NativeModules,
         SecureStorage: {
           setValue: jest.fn(),
+          getValue: jest.fn(),
         },
       },
     },

@@ -11,6 +11,7 @@ jest.mock('screens', () => ({
   MovieDetails: 'MovieDetails',
   MoviesByGenre: 'MoviesByGenre',
   GenreList: 'GenreList',
+  FavoriteGenres: 'FavoriteGenres',
 }));
 
 test('should render Stack Navigator with Popular Movies screen', () => {
