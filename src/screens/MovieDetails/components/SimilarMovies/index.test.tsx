@@ -1,93 +1,111 @@
 import React from 'react';
-import { render, fireEvent, waitFor } from '@testing-library/react-native';
-import { MockedProvider } from '@apollo/client/testing';
+import { render, fireEvent } from '@testing-library/react-native';
 import { useNavigation } from '@react-navigation/native';
+import * as APOLLO from '@apollo/client';
 
-import { SIMILAR_MOVIES } from './index.graphql';
 import SimilarMoviesList from './index';
 
-const mocks = {
-  request: {
-    query: SIMILAR_MOVIES,
-    variables: {
-      movieId: '1',
+const useQueryMock = jest.spyOn(APOLLO, 'useQuery');
+
+const data = {
+  similarMovies: [
+    {
+      id: 1,
+      title: 'movieTitleOne',
+      posterPath: 'posterPathOne',
+      backdropPath: 'fooBackdropPathOne',
+      voteAverage: 7,
+      overview: 'fooOverviewOne',
+      releaseDate: '2020-02-02',
     },
-  },
-  result: {
-    data: {
-      similarMovies: [
-        {
-          id: 1,
-          title: 'movieTitleOne',
-          posterPath: 'posterPathOne',
-          backdropPath: 'fooBackdropPathOne',
-          voteAverage: 7,
-          overview: 'fooOverviewOne',
-          releaseDate: '2020-02-02',
-        },
-        {
-          id: 2,
-          title: 'movieTitleTwo',
-          posterPath: 'posterPathTwo',
-          backdropPath: 'fooBackdropPathTwo',
-          voteAverage: 8.1,
-          overview: 'fooOverviewTwo',
-          releaseDate: '2019-02-02',
-        },
-      ],
+    {
+      id: 2,
+      title: 'movieTitleTwo',
+      posterPath: 'posterPathTwo',
+      backdropPath: 'fooBackdropPathTwo',
+      voteAverage: 8.1,
+      overview: 'fooOverviewTwo',
+      releaseDate: '2019-02-02',
     },
-  },
+  ],
 };
 
+const queryResultMock = {
+  client: new APOLLO.ApolloClient({
+    uri: '',
+    cache: new APOLLO.InMemoryCache(),
+  }),
+  networkStatus: 1,
+  refetch: jest.fn(),
+  startPolling: jest.fn(),
+  stopPolling: jest.fn(),
+  subscribeToMore: jest.fn(),
+  updateQuery: jest.fn(),
+  variables: null,
+  fetchMore: jest.fn(),
+};
+
+beforeEach(() => {
+  jest.clearAllMocks();
+});
+
 test('should render Similar Movies according with received id', () => {
-  const { getByText } = render(
-    <MockedProvider mocks={[mocks]} addTypename={false}>
-      <SimilarMoviesList id="1" />
-    </MockedProvider>,
-  );
+  useQueryMock.mockReturnValue({
+    ...queryResultMock,
+    data: undefined,
+    loading: true,
+    called: true,
+  });
+
+  const { getByText } = render(<SimilarMoviesList id="1" />);
 
   expect(getByText('...')).toBeTruthy();
 });
 
-test('should render Error component when there is an error', async () => {
-  const localMock = {
-    request: {
-      query: SIMILAR_MOVIES,
-    },
-    error: new Error('Default error'),
-  };
+test('should render Error component when there is an error', () => {
+  useQueryMock.mockReturnValue({
+    ...queryResultMock,
+    data: undefined,
+    loading: false,
+    error: new APOLLO.ApolloError({}),
+    called: true,
+  });
 
-  const { getByText } = render(
-    <MockedProvider mocks={[localMock]} addTypename={false}>
-      <SimilarMoviesList id="1" />
-    </MockedProvider>,
-  );
+  const { getByText } = render(<SimilarMoviesList id="1" />);
 
-  await waitFor(() => expect(getByText('There was an error')).toBeTruthy());
+  expect(getByText('There was an error')).toBeTruthy();
 });
 
-test('should render Similar Movies list when data is ready', async () => {
-  const { getAllByLabelText } = render(
-    <MockedProvider mocks={[mocks]} addTypename={false}>
-      <SimilarMoviesList id="1" />
-    </MockedProvider>,
-  );
+test('should render Similar Movies list when data is ready', () => {
+  useQueryMock.mockReturnValue({
+    ...queryResultMock,
+    data,
+    loading: false,
+    error: undefined,
+    called: true,
+  });
+
+  const { getAllByLabelText } = render(<SimilarMoviesList id="1" />);
 
   const label = 'Go to movie details';
 
-  await waitFor(() => expect(getAllByLabelText(label).length).toEqual(2));
+  expect(getAllByLabelText(label).length).toEqual(2);
 });
 
-test('should navigate to Movie Details when poster is clicked', async () => {
-  const { getAllByLabelText } = render(
-    <MockedProvider mocks={[mocks]} addTypename={false}>
-      <SimilarMoviesList id="1" />
-    </MockedProvider>,
-  );
+test('should navigate to Movie Details when poster is clicked', () => {
+  useQueryMock.mockReturnValue({
+    ...queryResultMock,
+    data,
+    loading: false,
+    error: undefined,
+    called: true,
+  });
+
+  const { getAllByLabelText } = render(<SimilarMoviesList id="1" />);
 
   const label = 'Go to movie details';
 
-  await waitFor(() => fireEvent.press(getAllByLabelText(label)[0]));
+  fireEvent.press(getAllByLabelText(label)[0]);
 
   expect(useNavigation().navigate).toHaveBeenCalledWith('Movie Details', {
     movie: {

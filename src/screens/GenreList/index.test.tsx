@@ -7,7 +7,6 @@ import * as APOLLO from '@apollo/client';
 import GenreList from './';
 
 const useQueryMock = jest.spyOn(APOLLO, 'useQuery');
-jest.spyOn(global.console, 'log');
 
 const queryResultMock = {
   client: new APOLLO.ApolloClient({

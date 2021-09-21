@@ -1,81 +1,98 @@
 import React from 'react';
-import { render, fireEvent, waitFor } from '@testing-library/react-native';
-import { MockedProvider } from '@apollo/client/testing';
+import { render, fireEvent } from '@testing-library/react-native';
 import { useNavigation } from '@react-navigation/native';
+import * as APOLLO from '@apollo/client';
 
-import { MOVIE_GENRES } from './index.graphql';
 import MovieGenresList from './index';
 
-const mocks = {
-  request: {
-    query: MOVIE_GENRES,
-    variables: {
-      movieId: '1',
+const useQueryMock = jest.spyOn(APOLLO, 'useQuery');
+
+const data = {
+  movieGenres: [
+    {
+      id: 1,
+      name: 'genreOne',
     },
-  },
-  result: {
-    data: {
-      movieGenres: [
-        {
-          id: 1,
-          name: 'genreOne',
-        },
-        {
-          id: 2,
-          name: 'genreTwo',
-        },
-      ],
+    {
+      id: 2,
+      name: 'genreTwo',
     },
-  },
+  ],
 };
 
+const queryResultMock = {
+  client: new APOLLO.ApolloClient({
+    uri: '',
+    cache: new APOLLO.InMemoryCache(),
+  }),
+  networkStatus: 1,
+  refetch: jest.fn(),
+  startPolling: jest.fn(),
+  stopPolling: jest.fn(),
+  subscribeToMore: jest.fn(),
+  updateQuery: jest.fn(),
+  variables: null,
+  fetchMore: jest.fn(),
+};
+
+beforeEach(() => {
+  jest.clearAllMocks();
+});
+
 test('should render Loading component when data is not ready', () => {
-  const { getByText } = render(
-    <MockedProvider mocks={[mocks]} addTypename={false}>
-      <MovieGenresList id="1" />
-    </MockedProvider>,
-  );
+  useQueryMock.mockReturnValue({
+    ...queryResultMock,
+    data: undefined,
+    loading: true,
+    error: undefined,
+    called: true,
+  });
+
+  const { getByText } = render(<MovieGenresList id="1" />);
 
   expect(getByText('...')).toBeTruthy();
 });
 
-test('should render Error component when there is an error', async () => {
-  const localMock = {
-    request: {
-      query: MOVIE_GENRES,
-    },
-    error: new Error('Default error'),
-  };
+test('should render Error component when there is an error', () => {
+  useQueryMock.mockReturnValue({
+    ...queryResultMock,
+    data: undefined,
+    loading: false,
+    error: new APOLLO.ApolloError({}),
+    called: true,
+  });
 
-  const { getByText } = render(
-    <MockedProvider mocks={[localMock]} addTypename={false}>
-      <MovieGenresList id="1" />
-    </MockedProvider>,
-  );
+  const { getByText } = render(<MovieGenresList id="1" />);
 
-  await waitFor(() => expect(getByText('There was an error')).toBeTruthy());
+  expect(getByText('There was an error')).toBeTruthy();
 });
 
-test('should render Movie Genres list when data is ready', async () => {
-  const { getByText } = render(
-    <MockedProvider mocks={[mocks]} addTypename={false}>
-      <MovieGenresList id="1" />
-    </MockedProvider>,
-  );
+test('should render Movie Genres list when data is ready', () => {
+  useQueryMock.mockReturnValue({
+    ...queryResultMock,
+    data,
+    loading: false,
+    called: true,
+  });
 
-  await waitFor(() => expect(getByText('genreOne')).toBeTruthy());
+  const { getByText } = render(<MovieGenresList id="1" />);
+
+  expect(getByText('genreOne')).toBeTruthy();
 
   expect(getByText('genreTwo')).toBeTruthy();
 });
 
-test('should navigate to Movies By Genre screen when poster is clicked', async () => {
-  const { getByText } = render(
-    <MockedProvider mocks={[mocks]} addTypename={false}>
-      <MovieGenresList id="1" />
-    </MockedProvider>,
-  );
+test('should navigate to Movies By Genre screen when poster is clicked', () => {
+  useQueryMock.mockReturnValue({
+    ...queryResultMock,
+    data,
+    loading: false,
+    called: true,
+  });
 
-  await waitFor(() => fireEvent.press(getByText('genreOne')));
+  const { getByText } = render(<MovieGenresList id="1" />);
+
+  fireEvent.press(getByText('genreOne'));
 
   expect(useNavigation().navigate).toHaveBeenCalledWith('Movie By Genre', {
     id: 1,
