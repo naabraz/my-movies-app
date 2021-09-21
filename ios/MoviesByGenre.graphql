@@ -1,0 +1,11 @@
+query moviesByGenre($genreId: Int!) {
+  moviesByGenre(genreId: $genreId) {
+    id
+    title
+    posterPath
+    backdropPath
+    overview
+    releaseDate
+    voteAverage
+  }
+}
