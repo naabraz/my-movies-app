@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import StackNavigator from './index';
 
-jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
+jest.useFakeTimers();
 
 jest.mock('screens', () => ({
   PopularMovies: 'PopularMovies',
