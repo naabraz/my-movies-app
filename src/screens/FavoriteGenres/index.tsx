@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { NativeModules, ScrollView } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 
@@ -10,15 +10,16 @@ const FavoriteGenres: React.FC = () => {
   const [favoriteGenres, setFavoriteGenres] = useState<Genre[]>([]);
   const { SecureStorage } = NativeModules;
 
-  useFocusEffect(() => {
-    const getFavoriteGenres = async (): Promise<void> => {
-      const genres = await SecureStorage.getValue('FAVORITE_GENRES');
+  useFocusEffect(
+    useCallback(() => {
+      const getFavoriteGenres = async (): Promise<void> => {
+        const genres = await SecureStorage.getValue('FAVORITE_GENRES');
+        setFavoriteGenres(JSON.parse(genres));
+      };
 
-      setFavoriteGenres(JSON.parse(genres));
-    };
-
-    getFavoriteGenres();
-  });
+      getFavoriteGenres();
+    }, [SecureStorage]),
+  );
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
