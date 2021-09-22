@@ -17,6 +17,10 @@
 		9C3D4B6426FBA86C0046718C /* MoviesByGenre.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 9C3D4B6126FBA86C0046718C /* MoviesByGenre.graphql */; };
 		9C3D4B7B26FBAB420046718C /* SecureStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D4B7926FBAB420046718C /* SecureStorage.m */; };
 		9C3D4B7C26FBAB420046718C /* SecureStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D4B7A26FBAB420046718C /* SecureStorage.swift */; };
+		9C3D4B7F26FBAF0C0046718C /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D4B7E26FBAF0C0046718C /* Network.swift */; };
+		9C3D4B8126FBAF530046718C /* NetworkInterceptorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D4B8026FBAF530046718C /* NetworkInterceptorProvider.swift */; };
+		9C3D4B8326FBAF7A0046718C /* RequestLoggingInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D4B8226FBAF7A0046718C /* RequestLoggingInterceptor.swift */; };
+		9C3D4B8526FBAFBE0046718C /* UserManagementInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D4B8426FBAFBE0046718C /* UserManagementInterceptor.swift */; };
 		9C595E1F26F1321A00D92621 /* KeychainStorage .swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C595E1E26F1321A00D92621 /* KeychainStorage .swift */; };
 		F1853ABC7C542CC8534F4CDD /* libPods-MyMoviesApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCD2D0F88B6F157F87E29CC /* libPods-MyMoviesApp.a */; };
 /* End PBXBuildFile section */
@@ -38,6 +42,10 @@
 		9C3D4B6126FBA86C0046718C /* MoviesByGenre.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MoviesByGenre.graphql; sourceTree = "<group>"; };
 		9C3D4B7926FBAB420046718C /* SecureStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecureStorage.m; sourceTree = "<group>"; };
 		9C3D4B7A26FBAB420046718C /* SecureStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureStorage.swift; sourceTree = "<group>"; };
+		9C3D4B7E26FBAF0C0046718C /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		9C3D4B8026FBAF530046718C /* NetworkInterceptorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInterceptorProvider.swift; sourceTree = "<group>"; };
+		9C3D4B8226FBAF7A0046718C /* RequestLoggingInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestLoggingInterceptor.swift; sourceTree = "<group>"; };
+		9C3D4B8426FBAFBE0046718C /* UserManagementInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagementInterceptor.swift; sourceTree = "<group>"; };
 		9C406FB326BB691700773317 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9C406FB526BB691700773317 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9C595E1E26F1321A00D92621 /* KeychainStorage .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeychainStorage .swift"; sourceTree = "<group>"; };
@@ -61,6 +69,7 @@
 		13B07FAE1A68108700A75B9A /* MyMoviesApp */ = {
 			isa = PBXGroup;
 			children = (
+				9C3D4B7D26FBAE490046718C /* ApolloClient */,
 				9C3D4B7726FBAB420046718C /* NativeModules */,
 				9C3D4B5E26FBA86C0046718C /* MoviesByGenre */,
 				9C406FB126BB691700773317 /* Firebase */,
@@ -143,6 +152,17 @@
 				9C3D4B7A26FBAB420046718C /* SecureStorage.swift */,
 			);
 			path = SecureStorage;
+			sourceTree = "<group>";
+		};
+		9C3D4B7D26FBAE490046718C /* ApolloClient */ = {
+			isa = PBXGroup;
+			children = (
+				9C3D4B7E26FBAF0C0046718C /* Network.swift */,
+				9C3D4B8026FBAF530046718C /* NetworkInterceptorProvider.swift */,
+				9C3D4B8226FBAF7A0046718C /* RequestLoggingInterceptor.swift */,
+				9C3D4B8426FBAFBE0046718C /* UserManagementInterceptor.swift */,
+			);
+			path = ApolloClient;
 			sourceTree = "<group>";
 		};
 		9C406FB126BB691700773317 /* Firebase */ = {
@@ -398,9 +418,13 @@
 			files = (
 				9C3D4B6326FBA86C0046718C /* Types.graphql.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				9C3D4B8126FBAF530046718C /* NetworkInterceptorProvider.swift in Sources */,
 				9C3D4B7C26FBAB420046718C /* SecureStorage.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				9C3D4B8526FBAFBE0046718C /* UserManagementInterceptor.swift in Sources */,
+				9C3D4B8326FBAF7A0046718C /* RequestLoggingInterceptor.swift in Sources */,
 				9C3D4B6226FBA86C0046718C /* MoviesByGenre.graphql.swift in Sources */,
+				9C3D4B7F26FBAF0C0046718C /* Network.swift in Sources */,
 				9C3D4B7B26FBAB420046718C /* SecureStorage.m in Sources */,
 				9C595E1F26F1321A00D92621 /* KeychainStorage .swift in Sources */,
 				9C29A8482625279A00AC1CCA /* Bridge.swift in Sources */,
