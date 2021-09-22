@@ -1,6 +1,25 @@
 import Foundation
 import React
 
+func getMoviesByGenre() {
+  Network.shared.apollo.fetch(query: MoviesByGenreQuery(genreId: 28)) { result in
+    switch result {
+    case .success(let result):
+      DispatchQueue.main.async {
+        if let result = result.data?.moviesByGenre {
+          let movies = result.compactMap{$0}
+          
+          movies.forEach { movie in
+            print("===moviesByGenre", movie.title)
+          }
+        }
+      }
+    case .failure(let error):
+      print("Failure! Error: \(error)")
+    }
+  }
+}
+
 @objc(SecureStorage)
 class SecureStorage: NSObject {
   
@@ -10,7 +29,8 @@ class SecureStorage: NSObject {
   func getValue(account: String,
                 resolver resolve: RCTPromiseResolveBlock,
                 rejecter reject: RCTPromiseRejectBlock) -> Void {
-    
+    getMoviesByGenre()
+
     do {
       let value = try getValueFromKeychain(account: account,
                                            service: bundleID!)
