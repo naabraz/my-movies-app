@@ -10,7 +10,7 @@ class Network {
     
     let client = URLSessionClient()
     let provider = NetworkInterceptorProvider(store: store, client: client)
-    let url = URL(string: "https://nataliabraz.dev/mymovies/api")!
+    let url = URL(string: "https://"+environmentValues.apiURL)!
     
     let requestChainTransport = RequestChainNetworkTransport(interceptorProvider: provider,
                                                              endpointURL: url)
