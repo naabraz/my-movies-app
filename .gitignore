@@ -65,3 +65,4 @@ coverage
 
 # Env files
 .env
+ios/env-vars.sh
