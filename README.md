@@ -20,8 +20,9 @@ export API_URL=apiURL
 ```
 - Run Sourcery to generate environment value swift file
 ```
-sourcery --templates EnvironmentValues.stencil
---sources EnvironmentValues.stencil
---output EnvironmentValues.swift
---args apiURL=$API_URL
+cd ios && sourcery --templates EnvironmentValues.stencil \
+--sources EnvironmentValues.stencil \
+--output EnvironmentValues.swift \
+--args apiURL=$API_URL \
+&& cd ..
 ```
