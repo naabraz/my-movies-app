@@ -66,4 +66,4 @@ coverage
 # Env files
 .env
 ios/env-vars.sh
-ios/EnviromentValues.swift
+ios/EnvironmentValues.swift
