@@ -1,5 +1,5 @@
 env-file:
-	cd ios && \
+	cd ios \
 	&& source ./env-vars.sh \
 	&& sourcery --templates EnvironmentValues.stencil \
 	--sources EnvironmentValues.stencil \
