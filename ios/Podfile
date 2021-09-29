@@ -19,6 +19,10 @@ target 'MyMoviesApp' do
     post_install do |installer|
       react_native_post_install(installer)
   end
+
+  pod "Apollo"
 end
 
-pod "Apollo"
+target 'MoviesByGenreWidgetExtension' do
+  pod "Apollo"
+end
