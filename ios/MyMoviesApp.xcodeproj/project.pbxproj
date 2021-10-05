@@ -91,6 +91,10 @@
 		9C406FB326BB691700773317 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9C406FB526BB691700773317 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9C595E1E26F1321A00D92621 /* KeychainStorage .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeychainStorage .swift"; sourceTree = "<group>"; };
+		9C74E2A72707A24B000BDC5F /* MyMoviesApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = MyMoviesApp.entitlements; path = MyMoviesApp/MyMoviesApp.entitlements; sourceTree = "<group>"; };
+		9C74E2A82707A263000BDC5F /* MoviesByGenreWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MoviesByGenreWidgetExtension.entitlements; sourceTree = "<group>"; };
+		9C74E2A92707A275000BDC5F /* MyMoviesAppRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = MyMoviesAppRelease.entitlements; path = MyMoviesApp/MyMoviesAppRelease.entitlements; sourceTree = "<group>"; };
+		9C74E2AA2707A29C000BDC5F /* MoviesByGenreWidgetExtensionRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MoviesByGenreWidgetExtensionRelease.entitlements; sourceTree = "<group>"; };
 		9C8D2D9C26FD15C20019405A /* EnvironmentValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentValues.swift; sourceTree = "<group>"; };
 		9C9F93172704D5C50031B21F /* MoviesByGenreWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MoviesByGenreWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C9F93182704D5C50031B21F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -142,6 +146,8 @@
 				9C8D2D9C26FD15C20019405A /* EnvironmentValues.swift */,
 				9C595E1E26F1321A00D92621 /* KeychainStorage .swift */,
 				9C29A8462625279A00AC1CCA /* MyMoviesApp-Bridging-Header.h */,
+				9C74E2A72707A24B000BDC5F /* MyMoviesApp.entitlements */,
+				9C74E2A92707A275000BDC5F /* MyMoviesAppRelease.entitlements */,
 			);
 			name = MyMoviesApp;
 			sourceTree = "<group>";
@@ -262,6 +268,8 @@
 				9C9F931D2704D5C50031B21F /* MoviesByGenreWidget.swift */,
 				9C9F931F2704D5C70031B21F /* Assets.xcassets */,
 				9C9F93212704D5C70031B21F /* Info.plist */,
+				9C74E2AA2707A29C000BDC5F /* MoviesByGenreWidgetExtensionRelease.entitlements */,
+				9C74E2A82707A263000BDC5F /* MoviesByGenreWidgetExtension.entitlements */,
 			);
 			path = MoviesByGenreWidget;
 			sourceTree = "<group>";
@@ -337,7 +345,6 @@
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = W7MJH52X64;
 						LastSwiftMigration = 1240;
-						ProvisioningStyle = Manual;
 					};
 					9C9F93162704D5C50031B21F = {
 						CreatedOnToolsVersion = 13.0;
@@ -598,10 +605,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_ENTITLEMENTS = MyMoviesApp/MyMoviesApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 12;
-				DEVELOPMENT_TEAM = W7MJH52X64;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MyMoviesApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -615,7 +623,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.nataliabraz.MyMoviesApp;
 				PRODUCT_NAME = "My Movies";
-				PROVISIONING_PROFILE_SPECIFIER = MyMoviesApp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MyMoviesApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -630,10 +638,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_ENTITLEMENTS = MyMoviesApp/MyMoviesAppRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 12;
-				DEVELOPMENT_TEAM = W7MJH52X64;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MyMoviesApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -646,7 +655,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.nataliabraz.MyMoviesApp;
 				PRODUCT_NAME = "My Movies";
-				PROVISIONING_PROFILE_SPECIFIER = MyMoviesApp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MyMoviesApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -790,7 +799,8 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_ENTITLEMENTS = MoviesByGenreWidget/MoviesByGenreWidgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -811,6 +821,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.nataliabraz.MyMoviesApp.MoviesByGenreWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -832,7 +843,8 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_ENTITLEMENTS = MoviesByGenreWidget/MoviesByGenreWidgetExtensionRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
@@ -853,6 +865,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.nataliabraz.MyMoviesApp.MoviesByGenreWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;

@@ -6,13 +6,16 @@ enum KeychainError: Error {
   case itemNotFound
 }
 
+let appIdentifier = Bundle.main.infoDictionary!["AppIdentifierPrefix"] as! String
+
 func getValueFromKeychain(account: String, service: String) throws -> String {
   let query: NSMutableDictionary = [kSecClass: kSecClassGenericPassword,
-                                    kSecAttrService: service,
+                                    kSecAttrService: appIdentifier+service,
                                     kSecAttrAccount: account,
                                     kSecAttrSynchronizable: kSecAttrSynchronizableAny,
                                     kSecReturnData: true,
-                                    kSecReturnAttributes: true]
+                                    kSecReturnAttributes: true,
+                                    kSecAttrAccessGroup: "group.com.nataliabraz"]
   
   var item: CFTypeRef?
   let status = SecItemCopyMatching(query as CFDictionary, &item)
@@ -41,9 +44,9 @@ func setValueOnKeychain(account: String,
   let query: NSMutableDictionary = [
     kSecClass: kSecClassGenericPassword,
     kSecAttrAccount: account,
-    kSecAttrService: service,
-    kSecValueData: value.data(using: .utf8)!
-  ]
+    kSecAttrService: appIdentifier+service,
+    kSecValueData: value.data(using: .utf8)!,
+    kSecAttrAccessGroup: "group.com.nataliabraz"]
   
   var status = SecItemDelete(query as CFDictionary)
   status = SecItemAdd(query as CFDictionary, nil)
@@ -59,8 +62,8 @@ func deleteValueFromKeychain(account: String,
   let query: NSMutableDictionary = [
     kSecClass: kSecClassGenericPassword,
     kSecAttrAccount: account,
-    kSecAttrService: service,
-  ]
+    kSecAttrService: appIdentifier+service,
+    kSecAttrAccessGroup: "group.com.nataliabraz"]
   
   let status = SecItemDelete(query as CFDictionary)
   
