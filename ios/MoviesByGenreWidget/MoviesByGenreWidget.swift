@@ -24,7 +24,7 @@ struct Provider: TimelineProvider {
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
+            let entryDate = Calendar.current.date(byAdding: .minute, value: hourOffset, to: currentDate)!
             let entry = SimpleEntry(date: entryDate)
             entries.append(entry)
         }
@@ -35,14 +35,41 @@ struct Provider: TimelineProvider {
 }
 
 struct SimpleEntry: TimelineEntry {
-    let date: Date
+  let date: Date
+}
+
+func getFavoriteGenre() -> String {
+  let bundleID = "br.com.nataliabraz.MyMoviesApp"
+  
+  do {
+    let value = try getValueFromKeychain(account: "FAVORITE_GENRES",
+                                         service: bundleID)
+    
+    print("---getValueFromKeychain", value)
+  } catch KeychainError.itemNotFound {
+    print("---getValueFromKeychain itemNotFound")
+    return "itemNotFound";
+  } catch KeychainError.unexpectedValueData {
+    print("---getValueFromKeychain unexpectedValueData")
+    return "unexpectedValueData";
+  } catch KeychainError.unhandledError {
+    print("---getValueFromKeychain unhandledError")
+    return "unhandledError";
+  } catch {
+    print("---getValueFromKeychain genericError")
+    return "genericError";
+  }
+  
+  return "Horror"
 }
 
 struct MoviesByGenreWidgetEntryView : View {
-    var entry: Provider.Entry
+  var entry: Provider.Entry
+  let genre: String = getFavoriteGenre()
 
     var body: some View {
         Text(entry.date, style: .time)
+        Text(genre)
     }
 }
 
@@ -56,12 +83,5 @@ struct MoviesByGenreWidget: Widget {
         }
         .configurationDisplayName("My Widget")
         .description("This is an example widget.")
-    }
-}
-
-struct MoviesByGenreWidget_Previews: PreviewProvider {
-    static var previews: some View {
-        MoviesByGenreWidgetEntryView(entry: SimpleEntry(date: Date()))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
