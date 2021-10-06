@@ -10,7 +10,7 @@ func getMoviesByGenre() {
           let movies = result.compactMap{$0}
           
           movies.forEach { movie in
-            print("===moviesByGenre", movie.title)
+            print("===moviesByGenre", movie.title!)
           }
         }
       }
@@ -32,8 +32,7 @@ class SecureStorage: NSObject {
     getMoviesByGenre()
 
     do {
-      let value = try getValueFromKeychain(account: account,
-                                           service: bundleID!)
+      let value = try getValueFromKeychain(account: account)
       
       resolve(value)
     } catch KeychainError.itemNotFound {
@@ -54,9 +53,7 @@ class SecureStorage: NSObject {
                 rejecter reject: RCTPromiseRejectBlock) -> Void {
     
     do {
-      try setValueOnKeychain(account: account,
-                             service: bundleID!,
-                             value: value)
+      try setValueOnKeychain(account: account, value: value)
       resolve("Success")
     } catch KeychainError.unhandledError {
       reject("SecureStorage", "setValue: unhandledError", nil)
@@ -71,8 +68,7 @@ class SecureStorage: NSObject {
                    rejecter reject: RCTPromiseRejectBlock) -> Void {
     
     do {
-      try deleteValueFromKeychain(account: account,
-                                  service: bundleID!)
+      try deleteValueFromKeychain(account: account)
       resolve("Success")
     } catch KeychainError.unhandledError {
       reject("SecureStorage", "deleteValue: unhandledError", nil)

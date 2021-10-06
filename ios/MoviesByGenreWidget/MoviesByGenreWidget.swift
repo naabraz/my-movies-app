@@ -1,10 +1,3 @@
-//
-//  MoviesByGenreWidget.swift
-//  MoviesByGenreWidget
-//
-//  Created by Natalia Braz on 29/09/21.
-//
-
 import WidgetKit
 import SwiftUI
 
@@ -39,11 +32,8 @@ struct SimpleEntry: TimelineEntry {
 }
 
 func getFavoriteGenre() -> String {
-  let bundleID = "br.com.nataliabraz.MyMoviesApp"
-  
   do {
-    let value = try getValueFromKeychain(account: "FAVORITE_GENRES",
-                                         service: bundleID)
+    let value = try getValueFromKeychain(account: "FAVORITE_GENRES")
     
     print("---getValueFromKeychain", value)
   } catch KeychainError.itemNotFound {

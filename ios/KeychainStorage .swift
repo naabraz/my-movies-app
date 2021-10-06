@@ -7,15 +7,17 @@ enum KeychainError: Error {
 }
 
 let appIdentifier = Bundle.main.infoDictionary!["AppIdentifierPrefix"] as! String
+let service = appIdentifier+"br.com.nataliabraz.MyMoviesApp"
+let accessGroup = "group.com.nataliabraz"
 
-func getValueFromKeychain(account: String, service: String) throws -> String {
+func getValueFromKeychain(account: String) throws -> String {
   let query: NSMutableDictionary = [kSecClass: kSecClassGenericPassword,
-                                    kSecAttrService: appIdentifier+service,
+                                    kSecAttrService: service,
                                     kSecAttrAccount: account,
                                     kSecAttrSynchronizable: kSecAttrSynchronizableAny,
                                     kSecReturnData: true,
                                     kSecReturnAttributes: true,
-                                    kSecAttrAccessGroup: "group.com.nataliabraz"]
+                                    kSecAttrAccessGroup: accessGroup]
   
   var item: CFTypeRef?
   let status = SecItemCopyMatching(query as CFDictionary, &item)
@@ -37,16 +39,13 @@ func getValueFromKeychain(account: String, service: String) throws -> String {
   return token
 }
 
-func setValueOnKeychain(account: String,
-                        service: String,
-                        value: String) throws -> Void {
-  
+func setValueOnKeychain(account: String, value: String) throws -> Void {
   let query: NSMutableDictionary = [
     kSecClass: kSecClassGenericPassword,
     kSecAttrAccount: account,
-    kSecAttrService: appIdentifier+service,
+    kSecAttrService: service,
     kSecValueData: value.data(using: .utf8)!,
-    kSecAttrAccessGroup: "group.com.nataliabraz"]
+    kSecAttrAccessGroup: accessGroup]
   
   var status = SecItemDelete(query as CFDictionary)
   status = SecItemAdd(query as CFDictionary, nil)
@@ -56,14 +55,12 @@ func setValueOnKeychain(account: String,
   }
 }
 
-func deleteValueFromKeychain(account: String,
-                             service: String) throws -> Void {
-  
+func deleteValueFromKeychain(account: String) throws -> Void {
   let query: NSMutableDictionary = [
     kSecClass: kSecClassGenericPassword,
     kSecAttrAccount: account,
-    kSecAttrService: appIdentifier+service,
-    kSecAttrAccessGroup: "group.com.nataliabraz"]
+    kSecAttrService: service,
+    kSecAttrAccessGroup: accessGroup]
   
   let status = SecItemDelete(query as CFDictionary)
   

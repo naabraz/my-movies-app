@@ -343,7 +343,6 @@
 				LastUpgradeCheck = 1220;
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = W7MJH52X64;
 						LastSwiftMigration = 1240;
 					};
 					9C9F93162704D5C50031B21F = {
@@ -609,7 +608,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 12;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = W7MJH52X64;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MyMoviesApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -642,7 +641,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 12;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = W7MJH52X64;
 				INFOPLIST_FILE = MyMoviesApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
