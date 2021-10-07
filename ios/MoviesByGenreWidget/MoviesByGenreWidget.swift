@@ -31,26 +31,51 @@ struct SimpleEntry: TimelineEntry {
   let date: Date
 }
 
+struct GenreList {
+  var id: Int = 0
+  var name: String = ""
+}
+
+var list:Array<GenreList> = []
+
+func parseJson(anyObj:AnyObject) -> Array<GenreList> {
+  var list:Array<GenreList> = []
+  
+  if anyObj is Array<AnyObject> {
+    var genreList:GenreList = GenreList()
+    
+    for json in anyObj as! Array<AnyObject> {
+      genreList.name = (json["name"] as AnyObject? as? String) ?? ""
+      genreList.id = (json["id"] as AnyObject? as? Int) ?? 0
+      
+      list.append(genreList)
+    }
+  }
+
+  return list
+}
+
 func getFavoriteGenre() -> String {
   do {
     let value = try getValueFromKeychain(account: "FAVORITE_GENRES")
     
-    print("---getValueFromKeychain", value)
+    let data: Data = value.data(using: String.Encoding.utf8, allowLossyConversion: false)!
+
+    let anyObj: AnyObject? = try! JSONSerialization.jsonObject(with: data) as AnyObject
+
+    list = parseJson(anyObj: anyObj!)
+    let genre = list.first ?? nil
+    
+    return genre?.name ?? "Generic Value"
   } catch KeychainError.itemNotFound {
-    print("---getValueFromKeychain itemNotFound")
-    return "itemNotFound";
+    return "itemNotFound"
   } catch KeychainError.unexpectedValueData {
-    print("---getValueFromKeychain unexpectedValueData")
-    return "unexpectedValueData";
+    return "unexpectedValueData"
   } catch KeychainError.unhandledError {
-    print("---getValueFromKeychain unhandledError")
-    return "unhandledError";
+    return "unhandledError"
   } catch {
-    print("---getValueFromKeychain genericError")
-    return "genericError";
+    return "genericError"
   }
-  
-  return "Horror"
 }
 
 struct MoviesByGenreWidgetEntryView : View {
@@ -58,8 +83,10 @@ struct MoviesByGenreWidgetEntryView : View {
   let genre: String = getFavoriteGenre()
 
     var body: some View {
-        Text(entry.date, style: .time)
-        Text(genre)
+      Text("Favorite: ")
+        .bold()
+      +
+      Text(genre)
     }
 }
 
@@ -71,7 +98,7 @@ struct MoviesByGenreWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             MoviesByGenreWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("Favorite Genre Movies")
+        .description("Random movies from your favorite genre.")
     }
 }
