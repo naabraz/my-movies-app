@@ -96,13 +96,14 @@ struct MoviesByGenreWidgetEntryView : View {
     VStack {
       Text("Genre: \(genre.name)")
       Text("Movie: \(self.moviesList.first?.title ?? "Default")")
+      Text("Size: \(self.moviesList.count)")
     }.onAppear {
       Network.shared.apollo.fetch(query: MoviesByGenreQuery(genreId: genre.id)) { result in
         switch result {
         case .success(let result):
           if let result = result.data?.moviesByGenre {
             let movies = result.compactMap{$0}
-                        
+
             movies.forEach { selectedMovie in
               self.moviesList.append(Movie(title: selectedMovie.title!))
             }
