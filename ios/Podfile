@@ -1,7 +1,7 @@
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-platform :ios, '10.0'
+platform :ios, '14.0'
 
 target 'MyMoviesApp' do
   config = use_native_modules!
@@ -20,9 +20,9 @@ target 'MyMoviesApp' do
       react_native_post_install(installer)
   end
 
-  pod "Apollo"
+  pod "Apollo", '~> 0.49.1'
 end
 
 target 'MoviesByGenreWidgetExtension' do
-  pod "Apollo"
+  pod "Apollo", '~> 0.49.1'
 end
