@@ -4,6 +4,18 @@ struct Movie {
   var title: String = ""
 }
 
+func getMoviesByGenreMock(genreId: Int) -> String {
+  let moviesList = [
+    Movie(title: "Halloween Kills"),
+    Movie(title: "Dragon Fury"),
+    Movie(title: "Escape The Undertaker")
+  ]
+  
+  let firstMovie = moviesList.first
+  
+  return firstMovie!.title
+}
+
 func getMoviesByGenre(genreId: Int) {
   Network.shared.apollo.fetch(query: MoviesByGenreQuery(genreId: genreId)) { result in
     switch result {
