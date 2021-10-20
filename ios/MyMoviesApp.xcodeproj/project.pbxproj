@@ -37,7 +37,6 @@
 		9C9F932E2704D8F30031B21F /* NetworkInterceptorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D4B8026FBAF530046718C /* NetworkInterceptorProvider.swift */; };
 		9C9F932F2704D8F70031B21F /* UserManagementInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D4B8426FBAFBE0046718C /* UserManagementInterceptor.swift */; };
 		9C9F93302704DDFB0031B21F /* EnvironmentValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D2D9C26FD15C20019405A /* EnvironmentValues.swift */; };
-		9CBD7977271FA3F500BB1CCA /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBD7976271FA3F500BB1CCA /* Service.swift */; };
 		9CBD7979271FA4B400BB1CCA /* FavoriteGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBD7978271FA4B400BB1CCA /* FavoriteGenre.swift */; };
 		CF81A1F5F365F8673E3D3178 /* libPods-MyMoviesApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C898F018BFBE1D50F329F10 /* libPods-MyMoviesApp.a */; };
 /* End PBXBuildFile section */
@@ -104,7 +103,6 @@
 		9C9F931D2704D5C50031B21F /* MoviesByGenreWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesByGenreWidget.swift; sourceTree = "<group>"; };
 		9C9F931F2704D5C70031B21F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C9F93212704D5C70031B21F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9CBD7976271FA3F500BB1CCA /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		9CBD7978271FA4B400BB1CCA /* FavoriteGenre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteGenre.swift; sourceTree = "<group>"; };
 		D59785D71E32AB333A2C6985 /* libPods-MoviesByGenreWidgetExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoviesByGenreWidgetExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -270,12 +268,11 @@
 			isa = PBXGroup;
 			children = (
 				9C9F931D2704D5C50031B21F /* MoviesByGenreWidget.swift */,
+				9CBD7978271FA4B400BB1CCA /* FavoriteGenre.swift */,
 				9C9F931F2704D5C70031B21F /* Assets.xcassets */,
 				9C9F93212704D5C70031B21F /* Info.plist */,
 				9C74E2AA2707A29C000BDC5F /* MoviesByGenreWidgetExtensionRelease.entitlements */,
 				9C74E2A82707A263000BDC5F /* MoviesByGenreWidgetExtension.entitlements */,
-				9CBD7976271FA3F500BB1CCA /* Service.swift */,
-				9CBD7978271FA4B400BB1CCA /* FavoriteGenre.swift */,
 			);
 			path = MoviesByGenreWidget;
 			sourceTree = "<group>";
@@ -588,7 +585,6 @@
 				9C9F93292704D6AD0031B21F /* KeychainStorage .swift in Sources */,
 				9C9F932F2704D8F70031B21F /* UserManagementInterceptor.swift in Sources */,
 				9C9F932A2704D6D20031B21F /* MoviesByGenre.graphql.swift in Sources */,
-				9CBD7977271FA3F500BB1CCA /* Service.swift in Sources */,
 				9C9F93302704DDFB0031B21F /* EnvironmentValues.swift in Sources */,
 				9C9F931E2704D5C50031B21F /* MoviesByGenreWidget.swift in Sources */,
 			);
