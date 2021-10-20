@@ -45,10 +45,12 @@ struct MoviesByGenreWidgetProvider: TimelineProvider {
           if let result = graphQLResult.data?.moviesByGenre {
             let movies = result.compactMap{$0}
             
+            let randomMovie = movies.randomElement()
+            
             let entry = MoviesByGenreWidgetEntry(
               date: entryDate,
               genreName: genre.name,
-              genreMovie: (movies.first?.title!)!
+              genreMovie: (randomMovie?.title)!
             )
             
             let timeline = Timeline(entries: [entry], policy: .atEnd)
