@@ -1,13 +1,20 @@
 import WidgetKit
 import SwiftUI
 
+struct MoviesByGenreWidgetEntry: TimelineEntry {
+  let date: Date
+  let genreMovie: String
+}
+
+let genre: Genre = getFavoriteGenre()
+
 struct MoviesByGenreWidgetProvider: TimelineProvider {
   func placeholder(in context: Context) -> MoviesByGenreWidgetEntry {
-    MoviesByGenreWidgetEntry(date: Date())
+    MoviesByGenreWidgetEntry(date: Date(), genreMovie: getMoviesByGenreMock(genreId: genre.id))
   }
   
   func getSnapshot(in context: Context, completion: @escaping (MoviesByGenreWidgetEntry) -> ()) {
-    let entry = MoviesByGenreWidgetEntry(date: Date())
+    let entry = MoviesByGenreWidgetEntry(date: Date(), genreMovie: getMoviesByGenreMock(genreId: genre.id))
     completion(entry)
   }
   
@@ -18,7 +25,7 @@ struct MoviesByGenreWidgetProvider: TimelineProvider {
     let currentDate = Date()
     for hourOffset in 0 ..< 5 {
       let entryDate = Calendar.current.date(byAdding: .minute, value: hourOffset, to: currentDate)!
-      let entry = MoviesByGenreWidgetEntry(date: entryDate)
+      let entry = MoviesByGenreWidgetEntry(date: entryDate, genreMovie: getMoviesByGenreMock(genreId: genre.id))
       entries.append(entry)
     }
     
@@ -27,22 +34,13 @@ struct MoviesByGenreWidgetProvider: TimelineProvider {
   }
 }
 
-struct MoviesByGenreWidgetEntry: TimelineEntry {
-  let date: Date
-}
-
 struct MoviesByGenreWidgetEntryView : View {
   var entry: MoviesByGenreWidgetProvider.Entry
-  
-  let genre: Genre = getFavoriteGenre()
-  
-  @State var moviesList = [Movie]()
-    
+
   var body: some View {
     VStack {
       Text("Genre: \(genre.name)")
-      Text("Movie: \(self.moviesList.first?.title ?? "Default")")
-      Text("Size: \(self.moviesList.count)")
+      Text("Movie: \(entry.genreMovie)")
     }.onAppear {
       getMoviesByGenre(genreId: genre.id)
     }
