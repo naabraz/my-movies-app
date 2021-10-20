@@ -1,5 +1,6 @@
 import Foundation
 import React
+import WidgetKit
 
 @objc(SecureStorage)
 class SecureStorage: NSObject {
@@ -34,6 +35,11 @@ class SecureStorage: NSObject {
     
     do {
       try setValueOnKeychain(account: account, value: value)
+
+      if #available(iOS 14.0, *) {
+        WidgetCenter.shared.reloadAllTimelines()
+      }
+
       resolve("Success")
     } catch KeychainError.unhandledError {
       reject("SecureStorage", "setValue: unhandledError", nil)
