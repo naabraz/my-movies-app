@@ -134,7 +134,6 @@
 		13B07FAE1A68108700A75B9A /* MyMoviesApp */ = {
 			isa = PBXGroup;
 			children = (
-				9C3D4B7D26FBAE490046718C /* ApolloClient */,
 				9C3D4B7726FBAB420046718C /* NativeModules */,
 				9C3D4B5E26FBA86C0046718C /* MoviesByGenre */,
 				9C406FB126BB691700773317 /* Firebase */,
@@ -267,6 +266,7 @@
 		9C9F931C2704D5C50031B21F /* MoviesByGenreWidget */ = {
 			isa = PBXGroup;
 			children = (
+				9C3D4B7D26FBAE490046718C /* ApolloClient */,
 				9C9F931D2704D5C50031B21F /* MoviesByGenreWidget.swift */,
 				9CBD7978271FA4B400BB1CCA /* FavoriteGenre.swift */,
 				9C9F931F2704D5C70031B21F /* Assets.xcassets */,
