@@ -1,7 +1,7 @@
 PODS:
-  - Apollo (0.49.1):
-    - Apollo/Core (= 0.49.1)
-  - Apollo/Core (0.49.1)
+  - Apollo (0.43.0):
+    - Apollo/Core (= 0.43.0)
+  - Apollo/Core (0.43.0)
   - boost-for-react-native (1.63.0)
   - CocoaAsyncSocket (7.6.5)
   - DoubleConversion (1.1.6)
@@ -448,7 +448,7 @@ PODS:
     - Yoga (~> 1.14)
 
 DEPENDENCIES:
-  - Apollo (~> 0.49.1)
+  - Apollo (~> 0.43.0)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/React/FBReactNativeSpec`)
@@ -622,7 +622,7 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
-  Apollo: 69f35ed8f8d87c32ef89e99e4f8c682399e9192b
+  Apollo: d9c43854f6504f8ebcc741117c17a84aaa396577
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   DoubleConversion: cf9b38bf0b2d048436d9a82ad2abe1404f11e7de
@@ -688,6 +688,6 @@ SPEC CHECKSUMS:
   Yoga: 575c581c63e0d35c9a83f4b46d01d63abc1100ac
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 739c6eb57eef88afa4ad4a01ee03a1cbe2808029
+PODFILE CHECKSUM: f0326123054fd8c4cf736e8c4d372b0745c8e70e
 
 COCOAPODS: 1.11.2
