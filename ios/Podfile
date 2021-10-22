@@ -26,3 +26,8 @@ end
 target 'MoviesByGenreWidgetExtension' do
   pod "Apollo", '~> 0.43.0'
 end
+
+target 'MyMoviesTests' do
+  inherit! :search_paths
+  # Pods for testing
+end
