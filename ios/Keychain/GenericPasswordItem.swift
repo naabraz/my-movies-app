@@ -5,7 +5,11 @@ public struct GenericPasswordItem {
   let account: String?
   let accessGroup: String?
   
-  public init(service: String, account: String?, accessGroup: String?) {
+  public init(
+    service: String,
+    account: String?,
+    accessGroup: String?
+  ) {
     self.service = service
     self.account = account
     self.accessGroup = accessGroup
