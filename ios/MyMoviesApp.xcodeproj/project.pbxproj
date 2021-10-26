@@ -12,6 +12,10 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		456DDF07164DC50CC7DC47A4 /* libPods-MoviesByGenreWidgetExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D59785D71E32AB333A2C6985 /* libPods-MoviesByGenreWidgetExtension.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		9C189A7D27280E0C0050A1AD /* KeychainManagerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C189A7C27280E0C0050A1AD /* KeychainManagerError.swift */; };
+		9C189A7E27280E0C0050A1AD /* KeychainManagerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C189A7C27280E0C0050A1AD /* KeychainManagerError.swift */; };
+		9C189A80272813D70050A1AD /* KeychainManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C189A7F272813D70050A1AD /* KeychainManagerProtocol.swift */; };
+		9C189A81272813D70050A1AD /* KeychainManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C189A7F272813D70050A1AD /* KeychainManagerProtocol.swift */; };
 		9C29A8482625279A00AC1CCA /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C29A8472625279A00AC1CCA /* Bridge.swift */; };
 		9C3D4B6226FBA86C0046718C /* MoviesByGenre.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D4B5F26FBA86C0046718C /* MoviesByGenre.graphql.swift */; };
 		9C3D4B6326FBA86C0046718C /* Types.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D4B6026FBA86C0046718C /* Types.graphql.swift */; };
@@ -99,6 +103,8 @@
 		539F7C2DFCB1E103AF532CB3 /* Pods-MoviesByGenreWidgetExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesByGenreWidgetExtension.debug.xcconfig"; path = "Target Support Files/Pods-MoviesByGenreWidgetExtension/Pods-MoviesByGenreWidgetExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = MyMoviesApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C898F018BFBE1D50F329F10 /* libPods-MyMoviesApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyMoviesApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C189A7C27280E0C0050A1AD /* KeychainManagerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManagerError.swift; sourceTree = "<group>"; };
+		9C189A7F272813D70050A1AD /* KeychainManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManagerProtocol.swift; sourceTree = "<group>"; };
 		9C29A8462625279A00AC1CCA /* MyMoviesApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyMoviesApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		9C29A8472625279A00AC1CCA /* Bridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bridge.swift; sourceTree = "<group>"; };
 		9C3D4B5F26FBA86C0046718C /* MoviesByGenre.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesByGenre.graphql.swift; sourceTree = "<group>"; };
@@ -314,6 +320,8 @@
 				9C9718172722C71800CD3458 /* KeychainResult.swift */,
 				9C97181B2722CA0900CD3458 /* GenericPasswordItem.swift */,
 				9C97181E2722CB9B00CD3458 /* QueryableProtocol.swift */,
+				9C189A7C27280E0C0050A1AD /* KeychainManagerError.swift */,
+				9C189A7F272813D70050A1AD /* KeychainManagerProtocol.swift */,
 			);
 			path = Keychain;
 			sourceTree = "<group>";
@@ -685,7 +693,9 @@
 				9C3D4B8526FBAFBE0046718C /* UserManagementInterceptor.swift in Sources */,
 				9C3D4B8326FBAF7A0046718C /* RequestLoggingInterceptor.swift in Sources */,
 				9C97181F2722CB9B00CD3458 /* QueryableProtocol.swift in Sources */,
+				9C189A80272813D70050A1AD /* KeychainManagerProtocol.swift in Sources */,
 				9C3D4B6226FBA86C0046718C /* MoviesByGenre.graphql.swift in Sources */,
+				9C189A7D27280E0C0050A1AD /* KeychainManagerError.swift in Sources */,
 				9C3D4B7F26FBAF0C0046718C /* Network.swift in Sources */,
 				9C9718182722C71800CD3458 /* KeychainResult.swift in Sources */,
 				9C8D2D9D26FD15C20019405A /* EnvironmentValues.swift in Sources */,
@@ -707,10 +717,12 @@
 				9C9F932E2704D8F30031B21F /* NetworkInterceptorProvider.swift in Sources */,
 				9C9F932B2704D6D50031B21F /* Types.graphql.swift in Sources */,
 				9C97181D2722CA0900CD3458 /* GenericPasswordItem.swift in Sources */,
+				9C189A7E27280E0C0050A1AD /* KeychainManagerError.swift in Sources */,
 				9C9718132722C6D100CD3458 /* Keychain.swift in Sources */,
 				9C9718192722C71800CD3458 /* KeychainResult.swift in Sources */,
 				9C9718202722CB9B00CD3458 /* QueryableProtocol.swift in Sources */,
 				9C9F93292704D6AD0031B21F /* KeychainStorage .swift in Sources */,
+				9C189A81272813D70050A1AD /* KeychainManagerProtocol.swift in Sources */,
 				9C9718162722C6FA00CD3458 /* KeychainProtocol.swift in Sources */,
 				9C9F932F2704D8F70031B21F /* UserManagementInterceptor.swift in Sources */,
 				9C9F932A2704D6D20031B21F /* MoviesByGenre.graphql.swift in Sources */,
