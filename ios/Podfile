@@ -18,16 +18,15 @@ target 'MyMoviesApp' do
     use_flipper!()
     post_install do |installer|
       react_native_post_install(installer)
-  end
+    end
 
   pod "Apollo", '~> 0.43.0'
+
+  target 'MyMoviesTests' do
+    inherit! :search_paths
+  end
 end
 
 target 'MoviesByGenreWidgetExtension' do
   pod "Apollo", '~> 0.43.0'
-end
-
-target 'MyMoviesTests' do
-  inherit! :search_paths
-  # Pods for testing
 end

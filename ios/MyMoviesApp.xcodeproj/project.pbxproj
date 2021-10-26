@@ -24,6 +24,16 @@
 		9C3D4B8526FBAFBE0046718C /* UserManagementInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D4B8426FBAFBE0046718C /* UserManagementInterceptor.swift */; };
 		9C595E1F26F1321A00D92621 /* KeychainStorage .swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C595E1E26F1321A00D92621 /* KeychainStorage .swift */; };
 		9C8D2D9D26FD15C20019405A /* EnvironmentValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D2D9C26FD15C20019405A /* EnvironmentValues.swift */; };
+		9C9718122722C6D100CD3458 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9718112722C6D100CD3458 /* Keychain.swift */; };
+		9C9718132722C6D100CD3458 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9718112722C6D100CD3458 /* Keychain.swift */; };
+		9C9718152722C6FA00CD3458 /* KeychainProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9718142722C6FA00CD3458 /* KeychainProtocol.swift */; };
+		9C9718162722C6FA00CD3458 /* KeychainProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9718142722C6FA00CD3458 /* KeychainProtocol.swift */; };
+		9C9718182722C71800CD3458 /* KeychainResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9718172722C71800CD3458 /* KeychainResult.swift */; };
+		9C9718192722C71800CD3458 /* KeychainResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9718172722C71800CD3458 /* KeychainResult.swift */; };
+		9C97181C2722CA0900CD3458 /* GenericPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C97181B2722CA0900CD3458 /* GenericPasswordItem.swift */; };
+		9C97181D2722CA0900CD3458 /* GenericPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C97181B2722CA0900CD3458 /* GenericPasswordItem.swift */; };
+		9C97181F2722CB9B00CD3458 /* QueryableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C97181E2722CB9B00CD3458 /* QueryableProtocol.swift */; };
+		9C9718202722CB9B00CD3458 /* QueryableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C97181E2722CB9B00CD3458 /* QueryableProtocol.swift */; };
 		9C9F93192704D5C50031B21F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C9F93182704D5C50031B21F /* WidgetKit.framework */; };
 		9C9F931B2704D5C50031B21F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C9F931A2704D5C50031B21F /* SwiftUI.framework */; };
 		9C9F931E2704D5C50031B21F /* MoviesByGenreWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F931D2704D5C50031B21F /* MoviesByGenreWidget.swift */; };
@@ -39,7 +49,7 @@
 		9C9F93302704DDFB0031B21F /* EnvironmentValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D2D9C26FD15C20019405A /* EnvironmentValues.swift */; };
 		9CBD7979271FA4B400BB1CCA /* FavoriteGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBD7978271FA4B400BB1CCA /* FavoriteGenre.swift */; };
 		9CD8FE7327217AEF00766C59 /* MyMoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD8FE7227217AEF00766C59 /* MyMoviesTests.swift */; };
-		9CD8FE7A27217B8C00766C59 /* KeychainStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD8FE7927217B8C00766C59 /* KeychainStorageTests.swift */; };
+		9CD8FE7A27217B8C00766C59 /* GenericPasswordItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD8FE7927217B8C00766C59 /* GenericPasswordItemTests.swift */; };
 		B79D18CFC11A4FFB8604B505 /* libPods-MyMoviesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA2E95D8C82E0B39948A8923 /* libPods-MyMoviesTests.a */; };
 		CF81A1F5F365F8673E3D3178 /* libPods-MyMoviesApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C898F018BFBE1D50F329F10 /* libPods-MyMoviesApp.a */; };
 /* End PBXBuildFile section */
@@ -108,6 +118,11 @@
 		9C74E2A92707A275000BDC5F /* MyMoviesAppRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = MyMoviesAppRelease.entitlements; path = MyMoviesApp/MyMoviesAppRelease.entitlements; sourceTree = "<group>"; };
 		9C74E2AA2707A29C000BDC5F /* MoviesByGenreWidgetExtensionRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MoviesByGenreWidgetExtensionRelease.entitlements; sourceTree = "<group>"; };
 		9C8D2D9C26FD15C20019405A /* EnvironmentValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentValues.swift; sourceTree = "<group>"; };
+		9C9718112722C6D100CD3458 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		9C9718142722C6FA00CD3458 /* KeychainProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainProtocol.swift; sourceTree = "<group>"; };
+		9C9718172722C71800CD3458 /* KeychainResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainResult.swift; sourceTree = "<group>"; };
+		9C97181B2722CA0900CD3458 /* GenericPasswordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericPasswordItem.swift; sourceTree = "<group>"; };
+		9C97181E2722CB9B00CD3458 /* QueryableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryableProtocol.swift; sourceTree = "<group>"; };
 		9C9F93172704D5C50031B21F /* MoviesByGenreWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MoviesByGenreWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C9F93182704D5C50031B21F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		9C9F931A2704D5C50031B21F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -117,7 +132,7 @@
 		9CBD7978271FA4B400BB1CCA /* FavoriteGenre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteGenre.swift; sourceTree = "<group>"; };
 		9CD8FE7027217AEF00766C59 /* MyMoviesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyMoviesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD8FE7227217AEF00766C59 /* MyMoviesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMoviesTests.swift; sourceTree = "<group>"; };
-		9CD8FE7927217B8C00766C59 /* KeychainStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStorageTests.swift; sourceTree = "<group>"; };
+		9CD8FE7927217B8C00766C59 /* GenericPasswordItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericPasswordItemTests.swift; sourceTree = "<group>"; };
 		A61597A939002BC204B04E7D /* Pods-MyMoviesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMoviesTests.release.xcconfig"; path = "Target Support Files/Pods-MyMoviesTests/Pods-MyMoviesTests.release.xcconfig"; sourceTree = "<group>"; };
 		AA2E95D8C82E0B39948A8923 /* libPods-MyMoviesTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyMoviesTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D59785D71E32AB333A2C6985 /* libPods-MoviesByGenreWidgetExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoviesByGenreWidgetExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,8 +176,9 @@
 				9C3D4B7726FBAB420046718C /* NativeModules */,
 				9C3D4B5E26FBA86C0046718C /* MoviesByGenre */,
 				9C406FB126BB691700773317 /* Firebase */,
-				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
+				9C97181A2722C71E00CD3458 /* Keychain */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
+				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
@@ -290,6 +306,18 @@
 			path = Production;
 			sourceTree = "<group>";
 		};
+		9C97181A2722C71E00CD3458 /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				9C9718112722C6D100CD3458 /* Keychain.swift */,
+				9C9718142722C6FA00CD3458 /* KeychainProtocol.swift */,
+				9C9718172722C71800CD3458 /* KeychainResult.swift */,
+				9C97181B2722CA0900CD3458 /* GenericPasswordItem.swift */,
+				9C97181E2722CB9B00CD3458 /* QueryableProtocol.swift */,
+			);
+			path = Keychain;
+			sourceTree = "<group>";
+		};
 		9C9F931C2704D5C50031B21F /* MoviesByGenreWidget */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,7 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				9CD8FE7227217AEF00766C59 /* MyMoviesTests.swift */,
-				9CD8FE7927217B8C00766C59 /* KeychainStorageTests.swift */,
+				9CD8FE7927217B8C00766C59 /* GenericPasswordItemTests.swift */,
 			);
 			path = MyMoviesTests;
 			sourceTree = "<group>";
@@ -652,15 +680,20 @@
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				9C3D4B8126FBAF530046718C /* NetworkInterceptorProvider.swift in Sources */,
 				9C3D4B7C26FBAB420046718C /* SecureStorage.swift in Sources */,
+				9C9718152722C6FA00CD3458 /* KeychainProtocol.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				9C3D4B8526FBAFBE0046718C /* UserManagementInterceptor.swift in Sources */,
 				9C3D4B8326FBAF7A0046718C /* RequestLoggingInterceptor.swift in Sources */,
+				9C97181F2722CB9B00CD3458 /* QueryableProtocol.swift in Sources */,
 				9C3D4B6226FBA86C0046718C /* MoviesByGenre.graphql.swift in Sources */,
 				9C3D4B7F26FBAF0C0046718C /* Network.swift in Sources */,
+				9C9718182722C71800CD3458 /* KeychainResult.swift in Sources */,
 				9C8D2D9D26FD15C20019405A /* EnvironmentValues.swift in Sources */,
 				9C3D4B7B26FBAB420046718C /* SecureStorage.m in Sources */,
 				9C595E1F26F1321A00D92621 /* KeychainStorage .swift in Sources */,
 				9C29A8482625279A00AC1CCA /* Bridge.swift in Sources */,
+				9C97181C2722CA0900CD3458 /* GenericPasswordItem.swift in Sources */,
+				9C9718122722C6D100CD3458 /* Keychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -673,7 +706,12 @@
 				9C9F932D2704D8F10031B21F /* RequestLoggingInterceptor.swift in Sources */,
 				9C9F932E2704D8F30031B21F /* NetworkInterceptorProvider.swift in Sources */,
 				9C9F932B2704D6D50031B21F /* Types.graphql.swift in Sources */,
+				9C97181D2722CA0900CD3458 /* GenericPasswordItem.swift in Sources */,
+				9C9718132722C6D100CD3458 /* Keychain.swift in Sources */,
+				9C9718192722C71800CD3458 /* KeychainResult.swift in Sources */,
+				9C9718202722CB9B00CD3458 /* QueryableProtocol.swift in Sources */,
 				9C9F93292704D6AD0031B21F /* KeychainStorage .swift in Sources */,
+				9C9718162722C6FA00CD3458 /* KeychainProtocol.swift in Sources */,
 				9C9F932F2704D8F70031B21F /* UserManagementInterceptor.swift in Sources */,
 				9C9F932A2704D6D20031B21F /* MoviesByGenre.graphql.swift in Sources */,
 				9C9F93302704DDFB0031B21F /* EnvironmentValues.swift in Sources */,
@@ -686,7 +724,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CD8FE7327217AEF00766C59 /* MyMoviesTests.swift in Sources */,
-				9CD8FE7A27217B8C00766C59 /* KeychainStorageTests.swift in Sources */,
+				9CD8FE7A27217B8C00766C59 /* GenericPasswordItemTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1000,6 +1038,65 @@
 				DEVELOPMENT_TEAM = W7MJH52X64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaAsyncSocket\"",
+					"\"${PODS_ROOT}/Headers/Public/DoubleConversion\"",
+					"\"${PODS_ROOT}/Headers/Public/FBLazyVector\"",
+					"\"${PODS_ROOT}/Headers/Public/FBReactNativeSpec\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseCore\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseCoreDiagnostics\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseCrashlytics\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseInstallations\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper-DoubleConversion\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper-Folly\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper-Glog\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper-PeerTalk\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper-RSocket\"",
+					"\"${PODS_ROOT}/Headers/Public/FlipperKit\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleDataTransport\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/PromisesObjC\"",
+					"\"${PODS_ROOT}/Headers/Public/RCT-Folly\"",
+					"\"${PODS_ROOT}/Headers/Public/RCTRequired\"",
+					"\"${PODS_ROOT}/Headers/Public/RCTTypeSafety\"",
+					"\"${PODS_ROOT}/Headers/Public/RNCAsyncStorage\"",
+					"\"${PODS_ROOT}/Headers/Public/RNCMaskedView\"",
+					"\"${PODS_ROOT}/Headers/Public/RNDeviceInfo\"",
+					"\"${PODS_ROOT}/Headers/Public/RNFBAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/RNFBApp\"",
+					"\"${PODS_ROOT}/Headers/Public/RNFBCrashlytics\"",
+					"\"${PODS_ROOT}/Headers/Public/RNGestureHandler\"",
+					"\"${PODS_ROOT}/Headers/Public/RNSVG\"",
+					"\"${PODS_ROOT}/Headers/Public/RNScreens\"",
+					"\"${PODS_ROOT}/Headers/Public/React-Core\"",
+					"\"${PODS_ROOT}/Headers/Public/React-RCTBlob\"",
+					"\"${PODS_ROOT}/Headers/Public/React-RCTText\"",
+					"\"${PODS_ROOT}/Headers/Public/React-callinvoker\"",
+					"\"${PODS_ROOT}/Headers/Public/React-cxxreact\"",
+					"\"${PODS_ROOT}/Headers/Public/React-jsi\"",
+					"\"${PODS_ROOT}/Headers/Public/React-jsiexecutor\"",
+					"\"${PODS_ROOT}/Headers/Public/React-jsinspector\"",
+					"\"${PODS_ROOT}/Headers/Public/React-perflogger\"",
+					"\"${PODS_ROOT}/Headers/Public/React-runtimeexecutor\"",
+					"\"${PODS_ROOT}/Headers/Public/ReactCommon\"",
+					"\"${PODS_ROOT}/Headers/Public/Yoga\"",
+					"\"${PODS_ROOT}/Headers/Public/YogaKit\"",
+					"\"${PODS_ROOT}/Headers/Public/glog\"",
+					"\"${PODS_ROOT}/Headers/Public/libevent\"",
+					"\"${PODS_ROOT}/Headers/Public/lottie-react-native\"",
+					"\"${PODS_ROOT}/Headers/Public/nanopb\"",
+					"\"${PODS_ROOT}/Headers/Public/react-native-config\"",
+					"\"${PODS_ROOT}/Headers/Public/react-native-safe-area-context\"",
+					"$(inherited)",
+					"${PODS_ROOT}/Firebase/CoreOnly/Sources",
+					"\"${PODS_TARGET_SRCROOT}/Sources/FBLPromises/include\"",
+					"\"$(PODS_ROOT)/boost-for-react-native\"",
+					"\"$(PODS_ROOT)/Headers/Private/React-Core\"",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1038,6 +1135,65 @@
 				DEVELOPMENT_TEAM = W7MJH52X64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaAsyncSocket\"",
+					"\"${PODS_ROOT}/Headers/Public/DoubleConversion\"",
+					"\"${PODS_ROOT}/Headers/Public/FBLazyVector\"",
+					"\"${PODS_ROOT}/Headers/Public/FBReactNativeSpec\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseCore\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseCoreDiagnostics\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseCrashlytics\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseInstallations\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper-DoubleConversion\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper-Folly\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper-Glog\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper-PeerTalk\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper-RSocket\"",
+					"\"${PODS_ROOT}/Headers/Public/FlipperKit\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleDataTransport\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/PromisesObjC\"",
+					"\"${PODS_ROOT}/Headers/Public/RCT-Folly\"",
+					"\"${PODS_ROOT}/Headers/Public/RCTRequired\"",
+					"\"${PODS_ROOT}/Headers/Public/RCTTypeSafety\"",
+					"\"${PODS_ROOT}/Headers/Public/RNCAsyncStorage\"",
+					"\"${PODS_ROOT}/Headers/Public/RNCMaskedView\"",
+					"\"${PODS_ROOT}/Headers/Public/RNDeviceInfo\"",
+					"\"${PODS_ROOT}/Headers/Public/RNFBAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/RNFBApp\"",
+					"\"${PODS_ROOT}/Headers/Public/RNFBCrashlytics\"",
+					"\"${PODS_ROOT}/Headers/Public/RNGestureHandler\"",
+					"\"${PODS_ROOT}/Headers/Public/RNSVG\"",
+					"\"${PODS_ROOT}/Headers/Public/RNScreens\"",
+					"\"${PODS_ROOT}/Headers/Public/React-Core\"",
+					"\"${PODS_ROOT}/Headers/Public/React-RCTBlob\"",
+					"\"${PODS_ROOT}/Headers/Public/React-RCTText\"",
+					"\"${PODS_ROOT}/Headers/Public/React-callinvoker\"",
+					"\"${PODS_ROOT}/Headers/Public/React-cxxreact\"",
+					"\"${PODS_ROOT}/Headers/Public/React-jsi\"",
+					"\"${PODS_ROOT}/Headers/Public/React-jsiexecutor\"",
+					"\"${PODS_ROOT}/Headers/Public/React-jsinspector\"",
+					"\"${PODS_ROOT}/Headers/Public/React-perflogger\"",
+					"\"${PODS_ROOT}/Headers/Public/React-runtimeexecutor\"",
+					"\"${PODS_ROOT}/Headers/Public/ReactCommon\"",
+					"\"${PODS_ROOT}/Headers/Public/Yoga\"",
+					"\"${PODS_ROOT}/Headers/Public/YogaKit\"",
+					"\"${PODS_ROOT}/Headers/Public/glog\"",
+					"\"${PODS_ROOT}/Headers/Public/libevent\"",
+					"\"${PODS_ROOT}/Headers/Public/lottie-react-native\"",
+					"\"${PODS_ROOT}/Headers/Public/nanopb\"",
+					"\"${PODS_ROOT}/Headers/Public/react-native-config\"",
+					"\"${PODS_ROOT}/Headers/Public/react-native-safe-area-context\"",
+					"$(inherited)",
+					"${PODS_ROOT}/Firebase/CoreOnly/Sources",
+					"\"${PODS_TARGET_SRCROOT}/Sources/FBLPromises/include\"",
+					"\"$(PODS_ROOT)/boost-for-react-native\"",
+					"\"$(PODS_ROOT)/Headers/Private/React-Core\"",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
