@@ -52,6 +52,8 @@
 		9C9F932F2704D8F70031B21F /* UserManagementInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D4B8426FBAFBE0046718C /* UserManagementInterceptor.swift */; };
 		9C9F93302704DDFB0031B21F /* EnvironmentValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D2D9C26FD15C20019405A /* EnvironmentValues.swift */; };
 		9CBD7979271FA4B400BB1CCA /* FavoriteGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBD7978271FA4B400BB1CCA /* FavoriteGenre.swift */; };
+		9CCEDC8B272965E200160A42 /* MockKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCEDC882729614700160A42 /* MockKeychain.swift */; };
+		9CCEDC8C272965E200160A42 /* MockKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCEDC882729614700160A42 /* MockKeychain.swift */; };
 		9CD8FE7327217AEF00766C59 /* MyMoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD8FE7227217AEF00766C59 /* MyMoviesTests.swift */; };
 		9CD8FE7A27217B8C00766C59 /* GenericPasswordItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD8FE7927217B8C00766C59 /* GenericPasswordItemTests.swift */; };
 		B79D18CFC11A4FFB8604B505 /* libPods-MyMoviesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA2E95D8C82E0B39948A8923 /* libPods-MyMoviesTests.a */; };
@@ -136,6 +138,7 @@
 		9C9F931F2704D5C70031B21F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C9F93212704D5C70031B21F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CBD7978271FA4B400BB1CCA /* FavoriteGenre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteGenre.swift; sourceTree = "<group>"; };
+		9CCEDC882729614700160A42 /* MockKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockKeychain.swift; sourceTree = "<group>"; };
 		9CD8FE7027217AEF00766C59 /* MyMoviesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyMoviesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD8FE7227217AEF00766C59 /* MyMoviesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMoviesTests.swift; sourceTree = "<group>"; };
 		9CD8FE7927217B8C00766C59 /* GenericPasswordItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericPasswordItemTests.swift; sourceTree = "<group>"; };
@@ -322,6 +325,7 @@
 				9C97181E2722CB9B00CD3458 /* QueryableProtocol.swift */,
 				9C189A7C27280E0C0050A1AD /* KeychainManager.swift */,
 				9C189A7F272813D70050A1AD /* KeychainManagerProtocol.swift */,
+				9CCEDC882729614700160A42 /* MockKeychain.swift */,
 			);
 			path = Keychain;
 			sourceTree = "<group>";
@@ -697,6 +701,7 @@
 				9C3D4B6226FBA86C0046718C /* MoviesByGenre.graphql.swift in Sources */,
 				9C189A7D27280E0C0050A1AD /* KeychainManager.swift in Sources */,
 				9C3D4B7F26FBAF0C0046718C /* Network.swift in Sources */,
+				9CCEDC8C272965E200160A42 /* MockKeychain.swift in Sources */,
 				9C9718182722C71800CD3458 /* KeychainResult.swift in Sources */,
 				9C8D2D9D26FD15C20019405A /* EnvironmentValues.swift in Sources */,
 				9C3D4B7B26FBAB420046718C /* SecureStorage.m in Sources */,
@@ -712,6 +717,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CBD7979271FA4B400BB1CCA /* FavoriteGenre.swift in Sources */,
+				9CCEDC8B272965E200160A42 /* MockKeychain.swift in Sources */,
 				9C9F932C2704D8EE0031B21F /* Network.swift in Sources */,
 				9C9F932D2704D8F10031B21F /* RequestLoggingInterceptor.swift in Sources */,
 				9C9F932E2704D8F30031B21F /* NetworkInterceptorProvider.swift in Sources */,
