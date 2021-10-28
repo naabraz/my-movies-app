@@ -4,7 +4,7 @@ import XCTest
 
 class KeychainManagerTests: XCTestCase {
   let mockKeychain = MockKeychain()
-  lazy var mockKeychainManager = KeychainManager(keychain: mockKeychain)
+  lazy var sut = KeychainManager(keychain: mockKeychain)
   
   override func tearDown() {
     super.tearDown()
@@ -21,7 +21,7 @@ class KeychainManagerTests: XCTestCase {
                                    account: nil,
                                    accessGroup: nil)
     
-    XCTAssertNoThrow(try mockKeychainManager.saveValue("10", to: item))
+    XCTAssertNoThrow(try sut.saveValue("10", to: item))
     XCTAssertEqual((mockKeychain.attributesToUpdate[kSecValueData as String] as? Data),
                    "10".data(using: String.Encoding.utf8)
     )
@@ -32,6 +32,6 @@ class KeychainManagerTests: XCTestCase {
     
     let item = GenericPasswordItem(service: "", account: nil, accessGroup: nil)
     
-    XCTAssertNoThrow(try mockKeychainManager.deleteItem(item))
+    XCTAssertNoThrow(try sut.deleteItem(item))
   }
 }
