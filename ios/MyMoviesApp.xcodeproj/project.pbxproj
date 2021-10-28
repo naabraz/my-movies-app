@@ -54,6 +54,7 @@
 		9CBD7979271FA4B400BB1CCA /* FavoriteGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBD7978271FA4B400BB1CCA /* FavoriteGenre.swift */; };
 		9CCEDC8B272965E200160A42 /* MockKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCEDC882729614700160A42 /* MockKeychain.swift */; };
 		9CCEDC8C272965E200160A42 /* MockKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCEDC882729614700160A42 /* MockKeychain.swift */; };
+		9CCEDC8E2729670D00160A42 /* KeychainManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCEDC8D2729670D00160A42 /* KeychainManagerTests.swift */; };
 		9CD8FE7327217AEF00766C59 /* MyMoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD8FE7227217AEF00766C59 /* MyMoviesTests.swift */; };
 		9CD8FE7A27217B8C00766C59 /* GenericPasswordItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD8FE7927217B8C00766C59 /* GenericPasswordItemTests.swift */; };
 		B79D18CFC11A4FFB8604B505 /* libPods-MyMoviesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA2E95D8C82E0B39948A8923 /* libPods-MyMoviesTests.a */; };
@@ -139,6 +140,7 @@
 		9C9F93212704D5C70031B21F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CBD7978271FA4B400BB1CCA /* FavoriteGenre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteGenre.swift; sourceTree = "<group>"; };
 		9CCEDC882729614700160A42 /* MockKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockKeychain.swift; sourceTree = "<group>"; };
+		9CCEDC8D2729670D00160A42 /* KeychainManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManagerTests.swift; sourceTree = "<group>"; };
 		9CD8FE7027217AEF00766C59 /* MyMoviesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyMoviesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD8FE7227217AEF00766C59 /* MyMoviesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMoviesTests.swift; sourceTree = "<group>"; };
 		9CD8FE7927217B8C00766C59 /* GenericPasswordItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericPasswordItemTests.swift; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 			children = (
 				9CD8FE7227217AEF00766C59 /* MyMoviesTests.swift */,
 				9CD8FE7927217B8C00766C59 /* GenericPasswordItemTests.swift */,
+				9CCEDC8D2729670D00160A42 /* KeychainManagerTests.swift */,
 			);
 			path = MyMoviesTests;
 			sourceTree = "<group>";
@@ -741,6 +744,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CCEDC8E2729670D00160A42 /* KeychainManagerTests.swift in Sources */,
 				9CD8FE7327217AEF00766C59 /* MyMoviesTests.swift in Sources */,
 				9CD8FE7A27217B8C00766C59 /* GenericPasswordItemTests.swift in Sources */,
 			);
