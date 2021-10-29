@@ -1,5 +1,21 @@
 import Foundation
 
+public struct KeychainResult {
+  public let status: OSStatus
+
+  public let queryResult: AnyObject?
+}
+
+public protocol KeychainProtocol {
+  func add(_ dictionary: [String: AnyObject]) -> OSStatus
+  
+  func fetch(_ query: [String: AnyObject]) -> KeychainResult
+  
+  func update(_ query: [String: AnyObject], with attributes: [String: AnyObject]) -> OSStatus
+  
+  func delete(_ query: [String: AnyObject]) -> OSStatus
+}
+
 public class Keychain: KeychainProtocol {
   public init() { }
   

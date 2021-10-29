@@ -1,15 +1,17 @@
 import Foundation
 
+public protocol Queryable {
+  var query: [String: AnyObject] { get }
+}
+
 public struct GenericPasswordItem {
   let service: String
   let account: String?
   let accessGroup: String?
   
-  public init(
-    service: String,
-    account: String?,
-    accessGroup: String?
-  ) {
+  public init(service: String,
+              account: String?,
+              accessGroup: String?) {
     self.service = service
     self.account = account
     self.accessGroup = accessGroup
