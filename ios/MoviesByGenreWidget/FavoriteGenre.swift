@@ -26,8 +26,14 @@ func getFavoriteGenre() -> Genre {
   var list:Array<Genre> = []
   
   do {
-    let value = try getValueFromKeychain(account: "FAVORITE_GENRES")
+    let Keychain = KeychainManager(keychain: Keychain())
     
+    let item = GenericPasswordItem(service: service,
+                                   account: "FAVORITE_GENRES",
+                                   accessGroup: accessGroup)
+    
+    let value = try Keychain.readValue(item)
+
     let data: Data = value.data(using: String.Encoding.utf8, allowLossyConversion: false)!
     
     let anyObj: AnyObject? = try! JSONSerialization.jsonObject(with: data) as AnyObject
@@ -36,13 +42,13 @@ func getFavoriteGenre() -> Genre {
     let genre = list.first!
     
     return genre
-  } catch KeychainError.itemNotFound {
+  } catch KeychainManagerError.noItemFound {
     print("itemNotFound")
     return Genre(id: 0, name: "Generic")
-  } catch KeychainError.unexpectedValueData {
+  } catch KeychainManagerError.unexpectedData {
     print("unexpectedValueData")
     return Genre(id: 0, name: "Generic")
-  } catch KeychainError.unhandledError {
+  } catch KeychainManagerError.unhandledError {
     print("unhandledError")
     return Genre(id: 0, name: "Generic")
   } catch {
