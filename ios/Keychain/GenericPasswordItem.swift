@@ -24,17 +24,9 @@ extension GenericPasswordItem: Queryable {
     
     query[kSecClass as String] = kSecClassGenericPassword
     query[kSecAttrService as String] = service as AnyObject
-    
-    if let account = account {
-      query[kSecAttrAccount as String] = account as AnyObject
-    }
-    
-    if let accessGroup = accessGroup {
-      query[kSecAttrAccessGroup as String] = accessGroup as AnyObject
-    }
-    
-    query [kSecAttrAccessible as String] = kSecAttrAccessibleAfterFirstUnlock
-    
+    query[kSecAttrAccessGroup as String] = accessGroup as AnyObject
+    query[kSecAttrAccount as String] = account as AnyObject
+        
     return query
   }
 }

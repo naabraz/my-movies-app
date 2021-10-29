@@ -50,7 +50,7 @@ public class KeychainManager: KeychainManagerProtocol {
   
   public func saveValue(_ value: String, to item: Queryable) throws {
     let encodedValue = value.data(using: String.Encoding.utf8)!
-    
+
     do {
       try _ = readValue(item)
       
@@ -64,6 +64,7 @@ public class KeychainManager: KeychainManagerProtocol {
       }
     } catch KeychainManagerError.noItemFound {
       var newItem = item.query
+      
       newItem[kSecValueData as String] = encodedValue as AnyObject?
       
       let status = keychain.add(newItem)
