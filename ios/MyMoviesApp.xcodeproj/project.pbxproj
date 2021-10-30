@@ -42,8 +42,7 @@
 		9C9F932F2704D8F70031B21F /* UserManagementInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D4B8426FBAFBE0046718C /* UserManagementInterceptor.swift */; };
 		9C9F93302704DDFB0031B21F /* EnvironmentValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D2D9C26FD15C20019405A /* EnvironmentValues.swift */; };
 		9CBD7979271FA4B400BB1CCA /* FavoriteGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBD7978271FA4B400BB1CCA /* FavoriteGenre.swift */; };
-		9CCEDC8B272965E200160A42 /* MockKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCEDC882729614700160A42 /* MockKeychain.swift */; };
-		9CCEDC8C272965E200160A42 /* MockKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCEDC882729614700160A42 /* MockKeychain.swift */; };
+		9CCAAB66272CD80F00165E4E /* MockKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCEDC882729614700160A42 /* MockKeychain.swift */; };
 		9CCEDC8E2729670D00160A42 /* KeychainManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCEDC8D2729670D00160A42 /* KeychainManagerTests.swift */; };
 		9CD8FE7A27217B8C00766C59 /* GenericPasswordItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD8FE7927217B8C00766C59 /* GenericPasswordItemTests.swift */; };
 		9CEAD042272C89C20071910D /* KeychainConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEAD041272C89C20071910D /* KeychainConfig.swift */; };
@@ -307,7 +306,6 @@
 				9CEAD041272C89C20071910D /* KeychainConfig.swift */,
 				9C97181B2722CA0900CD3458 /* GenericPasswordItem.swift */,
 				9C189A7C27280E0C0050A1AD /* KeychainManager.swift */,
-				9CCEDC882729614700160A42 /* MockKeychain.swift */,
 			);
 			path = Keychain;
 			sourceTree = "<group>";
@@ -330,6 +328,7 @@
 		9CD8FE7127217AEF00766C59 /* KeychainTests */ = {
 			isa = PBXGroup;
 			children = (
+				9CCEDC882729614700160A42 /* MockKeychain.swift */,
 				9CD8FE7927217B8C00766C59 /* GenericPasswordItemTests.swift */,
 				9CCEDC8D2729670D00160A42 /* KeychainManagerTests.swift */,
 			);
@@ -682,7 +681,6 @@
 				9C3D4B6226FBA86C0046718C /* MoviesByGenre.graphql.swift in Sources */,
 				9C189A7D27280E0C0050A1AD /* KeychainManager.swift in Sources */,
 				9C3D4B7F26FBAF0C0046718C /* Network.swift in Sources */,
-				9CCEDC8C272965E200160A42 /* MockKeychain.swift in Sources */,
 				9C8D2D9D26FD15C20019405A /* EnvironmentValues.swift in Sources */,
 				9C3D4B7B26FBAB420046718C /* SecureStorage.m in Sources */,
 				9C29A8482625279A00AC1CCA /* Bridge.swift in Sources */,
@@ -696,7 +694,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CBD7979271FA4B400BB1CCA /* FavoriteGenre.swift in Sources */,
-				9CCEDC8B272965E200160A42 /* MockKeychain.swift in Sources */,
 				9C9F932C2704D8EE0031B21F /* Network.swift in Sources */,
 				9C9F932D2704D8F10031B21F /* RequestLoggingInterceptor.swift in Sources */,
 				9C9F932E2704D8F30031B21F /* NetworkInterceptorProvider.swift in Sources */,
@@ -717,6 +714,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CCEDC8E2729670D00160A42 /* KeychainManagerTests.swift in Sources */,
+				9CCAAB66272CD80F00165E4E /* MockKeychain.swift in Sources */,
 				9CD8FE7A27217B8C00766C59 /* GenericPasswordItemTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
