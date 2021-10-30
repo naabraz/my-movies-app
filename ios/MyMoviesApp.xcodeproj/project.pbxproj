@@ -171,7 +171,6 @@
 			isa = PBXGroup;
 			children = (
 				9C3D4B7726FBAB420046718C /* NativeModules */,
-				9C3D4B5E26FBA86C0046718C /* MoviesByGenre */,
 				9C406FB126BB691700773317 /* Firebase */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -239,12 +238,11 @@
 		9C3D4B5E26FBA86C0046718C /* MoviesByGenre */ = {
 			isa = PBXGroup;
 			children = (
-				9C3D4B5F26FBA86C0046718C /* MoviesByGenre.graphql.swift */,
 				9C3D4B6026FBA86C0046718C /* Types.graphql.swift */,
+				9C3D4B5F26FBA86C0046718C /* MoviesByGenre.graphql.swift */,
 				9C3D4B6126FBA86C0046718C /* MoviesByGenre.graphql */,
 			);
-			name = MoviesByGenre;
-			path = MyMoviesApp/MoviesByGenre;
+			path = MoviesByGenre;
 			sourceTree = "<group>";
 		};
 		9C3D4B7726FBAB420046718C /* NativeModules */ = {
@@ -318,6 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				9C3D4B7D26FBAE490046718C /* ApolloClient */,
+				9C3D4B5E26FBA86C0046718C /* MoviesByGenre */,
 				9C9F931D2704D5C50031B21F /* MoviesByGenreWidget.swift */,
 				9CBD7978271FA4B400BB1CCA /* FavoriteGenre.swift */,
 				9C9F931F2704D5C70031B21F /* Assets.xcassets */,
