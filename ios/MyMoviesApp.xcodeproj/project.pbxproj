@@ -173,7 +173,6 @@
 				9C3D4B7726FBAB420046718C /* NativeModules */,
 				9C3D4B5E26FBA86C0046718C /* MoviesByGenre */,
 				9C406FB126BB691700773317 /* Firebase */,
-				9C97181A2722C71E00CD3458 /* Keychain */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -216,7 +215,8 @@
 				13B07FAE1A68108700A75B9A /* MyMoviesApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				9C9F931C2704D5C50031B21F /* MoviesByGenreWidget */,
-				9CD8FE7127217AEF00766C59 /* MyMoviesTests */,
+				9C97181A2722C71E00CD3458 /* Keychain */,
+				9CD8FE7127217AEF00766C59 /* KeychainTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				F2F36129198982F7561991A9 /* Pods */,
@@ -328,13 +328,13 @@
 			path = MoviesByGenreWidget;
 			sourceTree = "<group>";
 		};
-		9CD8FE7127217AEF00766C59 /* MyMoviesTests */ = {
+		9CD8FE7127217AEF00766C59 /* KeychainTests */ = {
 			isa = PBXGroup;
 			children = (
 				9CD8FE7927217B8C00766C59 /* GenericPasswordItemTests.swift */,
 				9CCEDC8D2729670D00160A42 /* KeychainManagerTests.swift */,
 			);
-			path = MyMoviesTests;
+			path = KeychainTests;
 			sourceTree = "<group>";
 		};
 		F2F36129198982F7561991A9 /* Pods */ = {
