@@ -91,4 +91,16 @@ class KeychainManagerTests: XCTestCase {
     
     XCTAssertNoThrow(try sut.deleteItem(item))
   }
+  
+  func testDeleteItem_whenItemNoExist_unhandledError() {
+    mockKeychain.osStatus = errSecInvalidValue
+    
+    let item = GenericPasswordItem(
+      service: "Service",
+      account: "Account",
+      accessGroup: "Group"
+    )
+
+    XCTAssertThrowsError(try sut.deleteItem(item))
+  }
 }
