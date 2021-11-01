@@ -11,34 +11,16 @@ class KeychainManagerTests: XCTestCase {
     mockKeychain.clearData()
   }
   
-  func testSaveValue_whenItemDoesntExist_valueAdded() {
-    mockKeychain.keychainResult = KeychainResult(
-      status: errSecItemNotFound,
-      queryResult: [kSecValueData: "12345".data(using: .utf8)] as AnyObject
-    )
-    
-    let item = GenericPasswordItem(
-      service: "TestService",
-      account: nil,
-      accessGroup: nil
-    )
-    
-    XCTAssertNoThrow(try sut.saveValue("10", to: item))
-    XCTAssertEqual((mockKeychain.query[kSecValueData as String] as? Data),
-                   "10".data(using: String.Encoding.utf8)
-    )
-  }
-  
   func testSaveValue_whenItemExist_valueUpdated() {
     mockKeychain.keychainResult = KeychainResult(
       status: noErr,
       queryResult: [kSecValueData: "12345".data(using: .utf8)] as AnyObject
     )
-
+    
     let item = GenericPasswordItem(
-      service: "TestService",
-      account: nil,
-      accessGroup: nil
+      service: "Service",
+      account: "Account",
+      accessGroup: "Group"
     )
     
     XCTAssertNoThrow(try sut.saveValue("10", to: item))
@@ -47,13 +29,64 @@ class KeychainManagerTests: XCTestCase {
     )
   }
   
+  func testSaveValue_whenItemExist_unhandledError() {
+    mockKeychain.osStatus = errSecInvalidValue
+    mockKeychain.keychainResult = KeychainResult(
+      status: noErr,
+      queryResult: [kSecValueData: "12345".data(using: .utf8)] as AnyObject
+    )
+    
+    let item = GenericPasswordItem(
+      service: "Service",
+      account: "Account",
+      accessGroup: "Group"
+    )
+    
+    XCTAssertThrowsError(try sut.saveValue("10", to: item))
+  }
+  
+  func testSaveValue_whenItemDoesntExist_valueAdded() {
+    mockKeychain.keychainResult = KeychainResult(
+      status: errSecItemNotFound,
+      queryResult: [kSecValueData: "12345".data(using: .utf8)] as AnyObject
+    )
+    
+    let item = GenericPasswordItem(
+      service: "Service",
+      account: "Account",
+      accessGroup: "Group"
+    )
+    
+    XCTAssertNoThrow(try sut.saveValue("10", to: item))
+    XCTAssertEqual((mockKeychain.query[kSecValueData as String] as? Data),
+                   "10".data(using: String.Encoding.utf8)
+    )
+  }
+  
+  func testSaveValue_whenItemDoesntExist_unhandledError() {
+    mockKeychain.osStatus = errSecInvalidValue
+
+    mockKeychain.keychainResult = KeychainResult(
+      status: errSecItemNotFound,
+      queryResult: [kSecValueData: "12345".data(using: .utf8)] as AnyObject
+    )
+    
+    let item = GenericPasswordItem(
+      service: "Service",
+      account: "Account",
+      accessGroup: "Group"
+    )
+    
+    XCTAssertThrowsError(try sut.saveValue("10", to: item))
+  }
+  
   func testDeleteItem_whenItemNoExist_deleteItemSucceeded() {
     mockKeychain.osStatus = errSecItemNotFound
     
     let item = GenericPasswordItem(
-      service: "TestService",
-      account: nil,
-      accessGroup: nil
+      service: "Service",
+      account: "Account",
+      accessGroup: "Group"
     )
     
     XCTAssertNoThrow(try sut.deleteItem(item))

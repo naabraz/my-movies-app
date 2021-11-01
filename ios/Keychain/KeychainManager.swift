@@ -57,8 +57,8 @@ public class KeychainManager: KeychainManagerProtocol {
       var attributesToUpdate = [String: AnyObject]()
       attributesToUpdate[kSecValueData as String] = encodedValue as AnyObject?
       
-      let status =  keychain.update(item.query, with: attributesToUpdate)
-      
+      let status = keychain.update(item.query, with: attributesToUpdate)
+
       guard status == noErr else {
         throw KeychainManagerError.unhandledError(status: status)
       }
