@@ -4,11 +4,38 @@ import XCTest
 
 class KeychainManagerTests: XCTestCase {
   let mockKeychain = MockKeychain()
-  lazy var sut = KeychainManager(keychain: mockKeychain)
+  lazy var sut = KeychainManager(keychain: mockKeychain) // sut = System Under Test
   
   override func tearDown() {
     super.tearDown()
     mockKeychain.clearData()
+  }
+  
+  func testReadValue_whenItemExists_unhandledError() {
+    mockKeychain.osStatus = errSecInvalidValue
+    
+    let item = GenericPasswordItem(
+      service: "Service",
+      account: "Account",
+      accessGroup: "Group"
+    )
+    
+    XCTAssertThrowsError(try sut.readValue(item))
+  }
+  
+  func testReadValue_whenItemExists_invalidValue() {
+    mockKeychain.keychainResult = KeychainResult(
+      status: noErr,
+      queryResult: [kSecValueData: nil] as AnyObject
+    )
+    
+    let item = GenericPasswordItem(
+      service: "Service",
+      account: "Account",
+      accessGroup: "Group"
+    )
+    
+    XCTAssertThrowsError(try sut.readValue(item))
   }
   
   func testSaveValue_whenItemExist_valueUpdated() {
