@@ -24,6 +24,7 @@
 		9C3D4B8126FBAF530046718C /* NetworkInterceptorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D4B8026FBAF530046718C /* NetworkInterceptorProvider.swift */; };
 		9C3D4B8326FBAF7A0046718C /* RequestLoggingInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D4B8226FBAF7A0046718C /* RequestLoggingInterceptor.swift */; };
 		9C3D4B8526FBAFBE0046718C /* UserManagementInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D4B8426FBAFBE0046718C /* UserManagementInterceptor.swift */; };
+		9C5B18722731DD0400D6232B /* MoviesByGenreSmallWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5B18712731DD0400D6232B /* MoviesByGenreSmallWidget.swift */; };
 		9C8D2D9D26FD15C20019405A /* EnvironmentValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D2D9C26FD15C20019405A /* EnvironmentValues.swift */; };
 		9C9718122722C6D100CD3458 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9718112722C6D100CD3458 /* Keychain.swift */; };
 		9C9718132722C6D100CD3458 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9718112722C6D100CD3458 /* Keychain.swift */; };
@@ -110,6 +111,7 @@
 		9C3D4B8426FBAFBE0046718C /* UserManagementInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagementInterceptor.swift; sourceTree = "<group>"; };
 		9C406FB326BB691700773317 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9C406FB526BB691700773317 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9C5B18712731DD0400D6232B /* MoviesByGenreSmallWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesByGenreSmallWidget.swift; sourceTree = "<group>"; };
 		9C74E2A72707A24B000BDC5F /* MyMoviesApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = MyMoviesApp.entitlements; path = MyMoviesApp/MyMoviesApp.entitlements; sourceTree = "<group>"; };
 		9C74E2A82707A263000BDC5F /* MoviesByGenreWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MoviesByGenreWidgetExtension.entitlements; sourceTree = "<group>"; };
 		9C74E2A92707A275000BDC5F /* MyMoviesAppRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = MyMoviesAppRelease.entitlements; path = MyMoviesApp/MyMoviesAppRelease.entitlements; sourceTree = "<group>"; };
@@ -299,6 +301,14 @@
 			path = Production;
 			sourceTree = "<group>";
 		};
+		9C5B18702731DCD000D6232B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9C5B18712731DD0400D6232B /* MoviesByGenreSmallWidget.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		9C97181A2722C71E00CD3458 /* Keychain */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,6 +323,7 @@
 		9C9F931C2704D5C50031B21F /* MoviesByGenreWidget */ = {
 			isa = PBXGroup;
 			children = (
+				9C5B18702731DCD000D6232B /* Views */,
 				9C3D4B7D26FBAE490046718C /* ApolloClient */,
 				9C3D4B5E26FBA86C0046718C /* MoviesByGenre */,
 				9C9F931D2704D5C50031B21F /* MoviesByGenreWidget.swift */,
@@ -704,6 +715,7 @@
 				9C9718132722C6D100CD3458 /* Keychain.swift in Sources */,
 				9C9F932F2704D8F70031B21F /* UserManagementInterceptor.swift in Sources */,
 				9C9F932A2704D6D20031B21F /* MoviesByGenre.graphql.swift in Sources */,
+				9C5B18722731DD0400D6232B /* MoviesByGenreSmallWidget.swift in Sources */,
 				9C9F93302704DDFB0031B21F /* EnvironmentValues.swift in Sources */,
 				9C9F931E2704D5C50031B21F /* MoviesByGenreWidget.swift in Sources */,
 			);

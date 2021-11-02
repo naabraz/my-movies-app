@@ -3,9 +3,12 @@ import SwiftUI
 
 struct MoviesByGenreWidgetEntry: TimelineEntry {
   let date: Date
-  let genreName: String
-  let genreMovie: String
+  let welcomeMessage: String
+  let movieTitle: String
 }
+
+let welcomeMessage = "What about this comedy movie?"
+let movieTitle = "Free Guy"
 
 let genre: Genre = getFavoriteGenre()
 
@@ -13,16 +16,16 @@ struct MoviesByGenreWidgetProvider: TimelineProvider {
   func placeholder(in context: Context) -> MoviesByGenreWidgetEntry {
     MoviesByGenreWidgetEntry(
       date: Date(),
-      genreName: "Placeholder Genre",
-      genreMovie: "Placeholder Movie"
+      welcomeMessage: welcomeMessage,
+      movieTitle: movieTitle
     )
   }
   
   func getSnapshot(in context: Context, completion: @escaping (MoviesByGenreWidgetEntry) -> ()) {
     let entry = MoviesByGenreWidgetEntry(
       date: Date(),
-      genreName: "Snapshot Genre",
-      genreMovie: "Snapshot Movie"
+      welcomeMessage: welcomeMessage,
+      movieTitle: movieTitle
     )
     
     completion(entry)
@@ -49,8 +52,8 @@ struct MoviesByGenreWidgetProvider: TimelineProvider {
             
             let entry = MoviesByGenreWidgetEntry(
               date: entryDate,
-              genreName: genre.name,
-              genreMovie: (randomMovie?.title)!
+              welcomeMessage: "What about this \(genre.name.lowercased()) movie?",
+              movieTitle: (randomMovie?.title)!
             )
             
             let timeline = Timeline(entries: [entry], policy: .atEnd)
@@ -63,8 +66,8 @@ struct MoviesByGenreWidgetProvider: TimelineProvider {
           
           let entry = MoviesByGenreWidgetEntry(
             date: entryDate,
-            genreName: genre.name,
-            genreMovie: "Failure"
+            welcomeMessage: genre.name,
+            movieTitle: "Failure"
           )
           
           let timeline = Timeline(entries: [entry], policy: .atEnd)
@@ -81,10 +84,10 @@ struct MoviesByGenreWidgetEntryView : View {
   var entry: MoviesByGenreWidgetProvider.Entry
   
   var body: some View {
-    VStack {
-      Text(entry.genreName)
-      Text(entry.genreMovie)
-    }
+    MoviesByGenreSmallWidget(
+      welcomeMessage: entry.welcomeMessage,
+      movieTitle: entry.movieTitle
+    )
   }
 }
 
