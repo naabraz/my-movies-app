@@ -57,28 +57,7 @@ class SecureStorage: NSObject {
       reject("SecureStorage", "setValue: Generic error", nil);
     }
   }
-  
-  @objc(updateValue:value:resolver:rejecter:)
-  func updateValue(account: String,
-                   value: String,
-                   resolver resolve: RCTPromiseResolveBlock,
-                   rejecter reject: RCTPromiseRejectBlock) -> Void {
-    
-    do {
-      try updateKeychainValue(account: account, value: value)
-      
-      if #available(iOS 14.0, *) {
-        WidgetCenter.shared.reloadAllTimelines()
-      }
-      
-      resolve("Success")
-    } catch KeychainError.unhandledError {
-      reject("SecureStorage", "updateValue: unhandledError", nil)
-    } catch {
-      reject("SecureStorage", "updateValue: Generic error", nil);
-    }
-  }
-  
+
   @objc(deleteValue:resolver:rejecter:)
   func deleteValue(account: String,
                    resolver resolve: RCTPromiseResolveBlock,

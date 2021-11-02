@@ -12,11 +12,6 @@ RCT_EXTERN_METHOD(setValue:(NSString *) account
                   resolver: (RCTPromiseResolveBlock) resolve
                   rejecter: (RCTPromiseRejectBlock) reject)
 
-RCT_EXTERN_METHOD(updateValue:(NSString *) account
-                  value: (NSString *) value
-                  resolver: (RCTPromiseResolveBlock) resolve
-                  rejecter: (RCTPromiseRejectBlock) reject)
-
 RCT_EXTERN_METHOD(deleteValue:(NSString *) account
                   resolver: (RCTPromiseResolveBlock) resolve
                   rejecter: (RCTPromiseRejectBlock) reject)
