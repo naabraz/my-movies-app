@@ -5,10 +5,12 @@ struct MoviesByGenreWidgetEntry: TimelineEntry {
   let date: Date
   let welcomeMessage: String
   let movieTitle: String
+  let moviePoster: Data
 }
 
 let welcomeMessage = "What about this comedy movie?"
 let movieTitle = "Free Guy"
+let moviePoster = try! Data(contentsOf: URL(string: "https://image.tmdb.org/t/p/w92/xmbU4JTUm8rsdtn7Y3Fcm30GpeT.jpg")!)
 
 let genre: Genre = getFavoriteGenre()
 
@@ -17,7 +19,8 @@ struct MoviesByGenreWidgetProvider: TimelineProvider {
     MoviesByGenreWidgetEntry(
       date: Date(),
       welcomeMessage: welcomeMessage,
-      movieTitle: movieTitle
+      movieTitle: movieTitle,
+      moviePoster: moviePoster
     )
   }
   
@@ -25,10 +28,19 @@ struct MoviesByGenreWidgetProvider: TimelineProvider {
     let entry = MoviesByGenreWidgetEntry(
       date: Date(),
       welcomeMessage: welcomeMessage,
-      movieTitle: movieTitle
+      movieTitle: movieTitle,
+      moviePoster: moviePoster
     )
     
     completion(entry)
+  }
+  
+  func getImage(url: String) -> Data {
+    let imgData = try! Data(
+      contentsOf: URL(string: url)!
+    )
+    
+    return imgData
   }
   
   func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
@@ -49,11 +61,12 @@ struct MoviesByGenreWidgetProvider: TimelineProvider {
             let movies = result.compactMap{$0}
             
             let randomMovie = movies.randomElement()
-            
+
             let entry = MoviesByGenreWidgetEntry(
               date: entryDate,
               welcomeMessage: "What about this \(genre.name.lowercased()) movie?",
-              movieTitle: (randomMovie?.title)!
+              movieTitle: (randomMovie?.title)!,
+              moviePoster: getImage(url: (randomMovie?.posterPath!) as! String)
             )
             
             let timeline = Timeline(entries: [entry], policy: .atEnd)
@@ -67,7 +80,8 @@ struct MoviesByGenreWidgetProvider: TimelineProvider {
           let entry = MoviesByGenreWidgetEntry(
             date: entryDate,
             welcomeMessage: genre.name,
-            movieTitle: "Failure"
+            movieTitle: "Failure",
+            moviePoster: moviePoster
           )
           
           let timeline = Timeline(entries: [entry], policy: .atEnd)
@@ -86,7 +100,8 @@ struct MoviesByGenreWidgetEntryView : View {
   var body: some View {
     MoviesByGenreSmallWidget(
       welcomeMessage: entry.welcomeMessage,
-      movieTitle: entry.movieTitle
+      movieTitle: entry.movieTitle,
+      moviePoster: entry.moviePoster
     )
   }
 }
