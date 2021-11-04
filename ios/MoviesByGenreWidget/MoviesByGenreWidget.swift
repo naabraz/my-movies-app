@@ -3,15 +3,14 @@ import SwiftUI
 
 struct MoviesByGenreWidgetEntry: TimelineEntry {
   let date: Date
-  let welcomeMessage: String
-  let movieTitle: String
   let moviePoster: Data
+  let movieBackdrop: Data
 }
 
-let welcomeMessage = "What about this comedy movie?"
-let movieTitle = "Free Guy"
-let posterUrl = "https://image.tmdb.org/t/p/w300/8Y43POKjjKDGI9MH89NW0NAzzp8.jpg"
+let posterUrl = "https://image.tmdb.org/t/p/w92/xmbU4JTUm8rsdtn7Y3Fcm30GpeT.jpg"
+let backdropUrl = "https://image.tmdb.org/t/p/w300/8Y43POKjjKDGI9MH89NW0NAzzp8.jpg"
 let moviePoster = try! Data(contentsOf: URL(string: posterUrl)!)
+let movieBackdrop = try! Data(contentsOf: URL(string: backdropUrl)!)
 
 let genre: Genre = getFavoriteGenre()
 
@@ -19,18 +18,16 @@ struct MoviesByGenreWidgetProvider: TimelineProvider {
   func placeholder(in context: Context) -> MoviesByGenreWidgetEntry {
     MoviesByGenreWidgetEntry(
       date: Date(),
-      welcomeMessage: welcomeMessage,
-      movieTitle: movieTitle,
-      moviePoster: moviePoster
+      moviePoster: moviePoster,
+      movieBackdrop: movieBackdrop
     )
   }
   
   func getSnapshot(in context: Context, completion: @escaping (MoviesByGenreWidgetEntry) -> ()) {
     let entry = MoviesByGenreWidgetEntry(
       date: Date(),
-      welcomeMessage: welcomeMessage,
-      movieTitle: movieTitle,
-      moviePoster: moviePoster
+      moviePoster: moviePoster,
+      movieBackdrop: movieBackdrop
     )
     
     completion(entry)
@@ -63,9 +60,8 @@ struct MoviesByGenreWidgetProvider: TimelineProvider {
 
             let entry = MoviesByGenreWidgetEntry(
               date: entryDate,
-              welcomeMessage: "What about this \(genre.name.lowercased()) movie?",
-              movieTitle: (randomMovie?.title)!,
-              moviePoster: getImage(url: randomMovie?.backdropPath ?? "")
+              moviePoster: getImage(url: randomMovie?.posterPath ?? ""),
+              movieBackdrop: getImage(url: randomMovie?.backdropPath ?? "")
             )
             
             let timeline = Timeline(entries: [entry], policy: .atEnd)
@@ -78,9 +74,8 @@ struct MoviesByGenreWidgetProvider: TimelineProvider {
           
           let entry = MoviesByGenreWidgetEntry(
             date: entryDate,
-            welcomeMessage: genre.name,
-            movieTitle: "Failure",
-            moviePoster: moviePoster
+            moviePoster: moviePoster,
+            movieBackdrop: movieBackdrop
           )
           
           let timeline = Timeline(entries: [entry], policy: .atEnd)
@@ -97,11 +92,7 @@ struct MoviesByGenreWidgetEntryView : View {
   var entry: MoviesByGenreWidgetProvider.Entry
   
   var body: some View {
-    MoviesByGenreSmallWidget(
-      welcomeMessage: entry.welcomeMessage,
-      movieTitle: entry.movieTitle,
-      moviePoster: entry.moviePoster
-    )
+    MoviesByGenreSmallWidget(moviePoster: entry.moviePoster, movieBackdrop: entry.movieBackdrop)
   }
 }
 
