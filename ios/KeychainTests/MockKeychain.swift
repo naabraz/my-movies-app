@@ -4,7 +4,7 @@ import Foundation
 
 class MockKeychain: KeychainProtocol {
   var osStatus: OSStatus = 0
-  var keychainResult = KeychainResult(status: 10, queryResult: nil)
+  var keychainResult = KeychainResult(status: 0, queryResult: nil)
   var query: [String: AnyObject] = [:]
   var attributesToUpdate: [String: AnyObject] = [:]
   

@@ -25,7 +25,7 @@ class KeychainManagerTests: XCTestCase {
   
   func testReadValue_whenItemExists_invalidValue() {
     mockKeychain.keychainResult = KeychainResult(
-      status: noErr,
+      status: errSecInvalidValue,
       queryResult: [kSecValueData: nil] as AnyObject
     )
 
