@@ -10,7 +10,8 @@ struct MoviesByGenreWidgetEntry: TimelineEntry {
 
 let welcomeMessage = "What about this comedy movie?"
 let movieTitle = "Free Guy"
-let moviePoster = try! Data(contentsOf: URL(string: "https://image.tmdb.org/t/p/w92/xmbU4JTUm8rsdtn7Y3Fcm30GpeT.jpg")!)
+let posterUrl = "https://image.tmdb.org/t/p/w300/8Y43POKjjKDGI9MH89NW0NAzzp8.jpg"
+let moviePoster = try! Data(contentsOf: URL(string: posterUrl)!)
 
 let genre: Genre = getFavoriteGenre()
 
@@ -36,10 +37,8 @@ struct MoviesByGenreWidgetProvider: TimelineProvider {
   }
   
   func getImage(url: String) -> Data {
-    let imgData = try! Data(
-      contentsOf: URL(string: url)!
-    )
-    
+    let imgData = try! Data(contentsOf: URL(string: url)!)
+
     return imgData
   }
   
@@ -66,7 +65,7 @@ struct MoviesByGenreWidgetProvider: TimelineProvider {
               date: entryDate,
               welcomeMessage: "What about this \(genre.name.lowercased()) movie?",
               movieTitle: (randomMovie?.title)!,
-              moviePoster: getImage(url: (randomMovie?.posterPath!) as! String)
+              moviePoster: getImage(url: randomMovie?.backdropPath ?? "")
             )
             
             let timeline = Timeline(entries: [entry], policy: .atEnd)
