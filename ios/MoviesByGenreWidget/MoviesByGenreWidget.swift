@@ -1,33 +1,48 @@
 import WidgetKit
 import SwiftUI
 
+struct Movie {
+  let title: String
+  let releaseYear: String
+  let poster: Data
+  let backdrop: Data
+}
+
 struct MoviesByGenreWidgetEntry: TimelineEntry {
   let date: Date
-  let moviePoster: Data
-  let movieBackdrop: Data
+  let movie: Movie
+  let favoriteGenre: String
 }
 
 let posterUrl = "https://image.tmdb.org/t/p/w92/xmbU4JTUm8rsdtn7Y3Fcm30GpeT.jpg"
 let backdropUrl = "https://image.tmdb.org/t/p/w300/8Y43POKjjKDGI9MH89NW0NAzzp8.jpg"
 let moviePoster = try! Data(contentsOf: URL(string: posterUrl)!)
 let movieBackdrop = try! Data(contentsOf: URL(string: backdropUrl)!)
+let favoriteGenre = "Comedy"
 
 let genre: Genre = getFavoriteGenre()
 
 struct MoviesByGenreWidgetProvider: TimelineProvider {
+  let defaultMovie = Movie(
+    title: "Free Guy",
+    releaseYear: "2021",
+    poster: moviePoster,
+    backdrop: movieBackdrop
+  )
+  
   func placeholder(in context: Context) -> MoviesByGenreWidgetEntry {
     MoviesByGenreWidgetEntry(
       date: Date(),
-      moviePoster: moviePoster,
-      movieBackdrop: movieBackdrop
+      movie: defaultMovie,
+      favoriteGenre: favoriteGenre
     )
   }
   
   func getSnapshot(in context: Context, completion: @escaping (MoviesByGenreWidgetEntry) -> ()) {
     let entry = MoviesByGenreWidgetEntry(
       date: Date(),
-      moviePoster: moviePoster,
-      movieBackdrop: movieBackdrop
+      movie: defaultMovie,
+      favoriteGenre: favoriteGenre
     )
     
     completion(entry)
@@ -57,11 +72,18 @@ struct MoviesByGenreWidgetProvider: TimelineProvider {
             let movies = result.compactMap{$0}
             
             let randomMovie = movies.randomElement()
-
+            
+            let movie = Movie(
+              title: randomMovie?.title ?? defaultMovie.title,
+              releaseYear: randomMovie?.releaseDate ?? defaultMovie.releaseYear,
+              poster: getImage(url: randomMovie?.posterPath ?? posterUrl),
+              backdrop: getImage(url: randomMovie?.backdropPath ?? backdropUrl)
+            )
+            
             let entry = MoviesByGenreWidgetEntry(
               date: entryDate,
-              moviePoster: getImage(url: randomMovie?.posterPath ?? ""),
-              movieBackdrop: getImage(url: randomMovie?.backdropPath ?? "")
+              movie: movie,
+              favoriteGenre: genre.name
             )
             
             let timeline = Timeline(entries: [entry], policy: .atEnd)
@@ -74,8 +96,8 @@ struct MoviesByGenreWidgetProvider: TimelineProvider {
           
           let entry = MoviesByGenreWidgetEntry(
             date: entryDate,
-            moviePoster: moviePoster,
-            movieBackdrop: movieBackdrop
+            movie: defaultMovie,
+            favoriteGenre: genre.name
           )
           
           let timeline = Timeline(entries: [entry], policy: .atEnd)
@@ -92,7 +114,7 @@ struct MoviesByGenreWidgetEntryView : View {
   var entry: MoviesByGenreWidgetProvider.Entry
   
   var body: some View {
-    MoviesByGenreSmallWidget(moviePoster: entry.moviePoster, movieBackdrop: entry.movieBackdrop)
+    MoviesByGenreWidgetView(movie: entry.movie, favoriteGenre: entry.favoriteGenre)
   }
 }
 
@@ -106,5 +128,6 @@ struct MoviesByGenreWidget: Widget {
     }
     .configurationDisplayName("Favorite Genre Movies")
     .description("Random movies from your favorite genre.")
+    .supportedFamilies([.systemSmall, .systemMedium])
   }
 }
