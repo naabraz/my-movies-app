@@ -46,7 +46,7 @@
 		9CCAAB66272CD80F00165E4E /* MockKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCEDC882729614700160A42 /* MockKeychain.swift */; };
 		9CCEDC8E2729670D00160A42 /* KeychainManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCEDC8D2729670D00160A42 /* KeychainManagerTests.swift */; };
 		9CCFE04C2735FE3E0029ACF4 /* MoviesByGenreMediumWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCFE04B2735FE3E0029ACF4 /* MoviesByGenreMediumWidget.swift */; };
-		9CCFE04E2735FFA70029ACF4 /* MoviesByGenreWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCFE04D2735FFA70029ACF4 /* MoviesByGenreWidget.swift */; };
+		9CCFE04E2735FFA70029ACF4 /* MoviesByGenreWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCFE04D2735FFA70029ACF4 /* MoviesByGenreWidgetView.swift */; };
 		9CD8FE7A27217B8C00766C59 /* GenericPasswordItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD8FE7927217B8C00766C59 /* GenericPasswordItemTests.swift */; };
 		9CEAD042272C89C20071910D /* KeychainConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEAD041272C89C20071910D /* KeychainConfig.swift */; };
 		9CEAD043272C89C20071910D /* KeychainConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEAD041272C89C20071910D /* KeychainConfig.swift */; };
@@ -131,7 +131,7 @@
 		9CCEDC882729614700160A42 /* MockKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockKeychain.swift; sourceTree = "<group>"; };
 		9CCEDC8D2729670D00160A42 /* KeychainManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManagerTests.swift; sourceTree = "<group>"; };
 		9CCFE04B2735FE3E0029ACF4 /* MoviesByGenreMediumWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesByGenreMediumWidget.swift; sourceTree = "<group>"; };
-		9CCFE04D2735FFA70029ACF4 /* MoviesByGenreWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesByGenreWidget.swift; sourceTree = "<group>"; };
+		9CCFE04D2735FFA70029ACF4 /* MoviesByGenreWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesByGenreWidgetView.swift; sourceTree = "<group>"; };
 		9CD8FE7027217AEF00766C59 /* MyMoviesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyMoviesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD8FE7927217B8C00766C59 /* GenericPasswordItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericPasswordItemTests.swift; sourceTree = "<group>"; };
 		9CEAD041272C89C20071910D /* KeychainConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainConfig.swift; sourceTree = "<group>"; };
@@ -310,7 +310,7 @@
 			children = (
 				9C5B18712731DD0400D6232B /* MoviesByGenreSmallWidget.swift */,
 				9CCFE04B2735FE3E0029ACF4 /* MoviesByGenreMediumWidget.swift */,
-				9CCFE04D2735FFA70029ACF4 /* MoviesByGenreWidget.swift */,
+				9CCFE04D2735FFA70029ACF4 /* MoviesByGenreWidgetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -717,7 +717,7 @@
 				9C9F932E2704D8F30031B21F /* NetworkInterceptorProvider.swift in Sources */,
 				9C9F932B2704D6D50031B21F /* Types.graphql.swift in Sources */,
 				9C97181D2722CA0900CD3458 /* GenericPasswordItem.swift in Sources */,
-				9CCFE04E2735FFA70029ACF4 /* MoviesByGenreWidget.swift in Sources */,
+				9CCFE04E2735FFA70029ACF4 /* MoviesByGenreWidgetView.swift in Sources */,
 				9CEAD043272C89C20071910D /* KeychainConfig.swift in Sources */,
 				9C189A7E27280E0C0050A1AD /* KeychainManager.swift in Sources */,
 				9C9718132722C6D100CD3458 /* Keychain.swift in Sources */,
