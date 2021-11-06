@@ -1,22 +1,15 @@
 import styled from 'styled-components/native';
+import { theme } from '@gympass/yoga';
 
-import * as colors from 'src/style/colors';
+const { spacing } = theme;
 
 export const List = styled.ScrollView`
-  margin-horizontal: 16px;
-  margin-vertical: 16px;
+  margin-horizontal: ${spacing.small}px;
+  margin-vertical: ${spacing.large}px;
 `;
 
 export const Movies = styled.View`
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
-`;
-
-export const Version = styled.Text`
-  margin-top: 12px;
-  font-size: 8px;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: ${colors.ebonyClay};
 `;
