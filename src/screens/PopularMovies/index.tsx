@@ -1,4 +1,5 @@
 import React from 'react';
+import { Text } from '@gympass/yoga';
 import { useQuery } from '@apollo/client';
 import { getBuildNumber } from 'react-native-device-info';
 
@@ -20,6 +21,7 @@ const PopularMovies: React.FC = () => {
 
   return (
     <List showsVerticalScrollIndicator={false}>
+      <Text>Yoga</Text>
       <Movies>{moviesList}</Movies>
       <Version>App Version: {getBuildNumber()}</Version>
     </List>
