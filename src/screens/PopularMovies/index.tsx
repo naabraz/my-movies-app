@@ -6,7 +6,7 @@ import { getBuildNumber } from 'react-native-device-info';
 import { Loading, Error, MoviesList } from 'src/components';
 import { POPULAR_MOVIES } from './index.graphql';
 import { Movies as MoviesType } from './types';
-import { List, Movies, Version } from './styles';
+import { List, Movies } from './styles';
 
 const PopularMovies: React.FC = () => {
   const { loading, data, error } = useQuery<MoviesType>(POPULAR_MOVIES);
@@ -21,9 +21,10 @@ const PopularMovies: React.FC = () => {
 
   return (
     <List showsVerticalScrollIndicator={false}>
-      <Text>Yoga</Text>
       <Movies>{moviesList}</Movies>
-      <Version>App Version: {getBuildNumber()}</Version>
+      <Text.SectionTitle color="medium">
+        App Version: {getBuildNumber()}
+      </Text.SectionTitle>
     </List>
   );
 };
