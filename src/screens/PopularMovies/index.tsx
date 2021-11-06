@@ -1,11 +1,12 @@
 import React from 'react';
+import { ScrollView } from 'react-native';
 import { useQuery } from '@apollo/client';
 import { getBuildNumber } from 'react-native-device-info';
+import { Text, Box } from '@gympass/yoga';
 
 import { Loading, Error, MoviesList } from 'src/components';
 import { POPULAR_MOVIES } from './index.graphql';
 import { Movies as MoviesType } from './types';
-import { List, Movies, Version } from './styles';
 
 const PopularMovies: React.FC = () => {
   const { loading, data, error } = useQuery<MoviesType>(POPULAR_MOVIES);
@@ -19,10 +20,16 @@ const PopularMovies: React.FC = () => {
   ));
 
   return (
-    <List showsVerticalScrollIndicator={false}>
-      <Movies>{moviesList}</Movies>
-      <Version>App Version: {getBuildNumber()}</Version>
-    </List>
+    <Box mh="small" mv="small">
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <Box alignSelf="center" mb="medium">
+          {moviesList}
+        </Box>
+        <Text.SectionTitle color="medium">
+          App Version: {getBuildNumber()}
+        </Text.SectionTitle>
+      </ScrollView>
+    </Box>
   );
 };
 
