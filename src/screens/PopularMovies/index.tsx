@@ -15,19 +15,19 @@ const PopularMovies: React.FC = () => {
 
   if (error) return <Error />;
 
-  const moviesList = data?.popularMovies.map(movie => (
-    <MoviesList movie={movie} key={movie.id} />
-  ));
-
   return (
-    <Box mh="small" mv="small">
+    <Box backgroundColor="stamina">
       <ScrollView showsVerticalScrollIndicator={false}>
-        <Box alignSelf="center" mb="medium">
-          {moviesList}
+        <Box alignSelf="center" mb="medium" width="300">
+          {data?.popularMovies.map(movie => (
+            <MoviesList movie={movie} key={movie.id} />
+          ))}
         </Box>
-        <Text.SectionTitle color="medium">
-          App Version: {getBuildNumber()}
-        </Text.SectionTitle>
+        <Box mh="small" mv="small">
+          <Text.SectionTitle color="energy">
+            App Version: {getBuildNumber()}
+          </Text.SectionTitle>
+        </Box>
       </ScrollView>
     </Box>
   );
