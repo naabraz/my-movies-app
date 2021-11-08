@@ -1,8 +1,11 @@
-import * as colors from 'src/style/colors';
-
 export const screenOptions = {
   headerStyle: {
-    backgroundColor: colors.gallery,
+    backgroundColor: '#231B22',
   },
-  headerTintColor: colors.ebonyClay,
+  headerTintColor: '#FFC24C',
+};
+
+export const tabBarOptions = {
+  activeTintColor: '#FFC24C',
+  style: { backgroundColor: '#231B22' },
 };
