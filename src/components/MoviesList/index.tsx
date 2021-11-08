@@ -6,12 +6,13 @@ import {
 import { TouchableWithoutFeedback } from 'react-native';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { Box } from '@gympass/yoga';
 
 import { firebase } from 'src/services';
 import { RootStackParamList, BottomTabParams } from 'src/navigator/types';
 
 import { Movie } from './types';
-import { Container, Poster, MovieInfoContainer, MovieTitle } from './styles';
+import { Poster, MovieTitle } from './styles';
 
 type PopularMoviesProp = CompositeNavigationProp<
   StackNavigationProp<RootStackParamList, 'Home'>,
@@ -20,7 +21,7 @@ type PopularMoviesProp = CompositeNavigationProp<
 
 const MoviesList: React.FC<Movie> = ({ movie }: Movie) => {
   const { navigate } = useNavigation<PopularMoviesProp>();
-  const { backdropPath } = movie;
+  const { backdropPath, title } = movie;
 
   const goToDetailsScreen = (): void => {
     firebase.sendEvent('go_to_movie_details', {
@@ -37,16 +38,21 @@ const MoviesList: React.FC<Movie> = ({ movie }: Movie) => {
       accessibilityLabel="Go to movie details"
       accessibilityHint="Goes to movie details screen"
     >
-      <Container>
-        <Poster
-          source={{ uri: backdropPath }}
-          borderTopLeftRadius={10}
-          borderTopRightRadius={10}
-        />
-        <MovieInfoContainer>
-          <MovieTitle>{movie.title}</MovieTitle>
-        </MovieInfoContainer>
-      </Container>
+      <Box mv="xsmall" alignItems="center">
+        <Poster source={{ uri: backdropPath }} />
+        <Box
+          width="100%"
+          position="absolute"
+          bottom="0"
+          alignItems="center"
+          backgroundColor="stamina"
+          opacity={0.8}
+        >
+          <MovieTitle paddingVertical="xxsmall" color="energy">
+            {title}
+          </MovieTitle>
+        </Box>
+      </Box>
     </TouchableWithoutFeedback>
   );
 };
