@@ -1,9 +1,9 @@
 import React from 'react';
-import {
-  createStackNavigator,
-  StackNavigationOptions,
-} from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {
+  createNativeStackNavigator,
+  NativeStackNavigationOptions,
+} from '@react-navigation/native-stack';
 
 import {
   PopularMovies,
@@ -15,33 +15,37 @@ import {
 import { RootStackParamList } from './types';
 import { screenOptions } from './styles.js';
 
-const Stack = createStackNavigator<RootStackParamList>();
-const Tab = createBottomTabNavigator<RootStackParamList>();
+const TabStack = createBottomTabNavigator<RootStackParamList>();
+const PopularMoviesStack = createNativeStackNavigator<RootStackParamList>();
 
-const Home: React.FC = () => (
-  <Tab.Navigator>
-    <Tab.Screen name="Popular Movies" component={PopularMovies} />
-    <Tab.Screen name="Genre List" component={GenreList} />
-    <Tab.Screen name="Favorite Genres" component={FavoriteGenres} />
-  </Tab.Navigator>
-);
-
-const StackNavigator: React.FC = () => (
-  <Stack.Navigator
-    initialRouteName="Popular Movies"
-    screenOptions={{ ...screenOptions, headerBackTitleVisible: false }}
-  >
-    <Stack.Screen name="Popular Movies" component={Home} />
-    <Stack.Screen name="Movie Details" component={MovieDetails} />
-    <Stack.Screen
+const PopularMoviesStackScreen: React.FC = () => (
+  <PopularMoviesStack.Navigator>
+    <PopularMoviesStack.Screen
+      name="Home"
+      component={PopularMovies}
+      options={{ title: 'Popular Movies' }}
+    />
+    <PopularMoviesStack.Screen name="Movie Details" component={MovieDetails} />
+    <PopularMoviesStack.Screen
       name="Movie By Genre"
       component={MoviesByGenre}
-      options={({ route }): StackNavigationOptions => ({
+      options={({ route }): NativeStackNavigationOptions => ({
         title: `${route.params.name} Movies`,
       })}
     />
-    <Stack.Screen name="Genre List" component={GenreList} />
-  </Stack.Navigator>
+  </PopularMoviesStack.Navigator>
 );
 
-export default StackNavigator;
+const Tabs: React.FC = () => (
+  <TabStack.Navigator screenOptions={{ ...screenOptions }}>
+    <TabStack.Screen
+      name="Popular Movies"
+      component={PopularMoviesStackScreen}
+      options={{ headerShown: false }}
+    />
+    <TabStack.Screen name="Genre List" component={GenreList} />
+    <TabStack.Screen name="Favorite Genres" component={FavoriteGenres} />
+  </TabStack.Navigator>
+);
+
+export default Tabs;
