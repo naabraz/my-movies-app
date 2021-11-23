@@ -25,7 +25,8 @@
 		9C3D4B8326FBAF7A0046718C /* RequestLoggingInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D4B8226FBAF7A0046718C /* RequestLoggingInterceptor.swift */; };
 		9C3D4B8526FBAFBE0046718C /* UserManagementInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D4B8426FBAFBE0046718C /* UserManagementInterceptor.swift */; };
 		9C5B18722731DD0400D6232B /* MoviesByGenreSmallWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5B18712731DD0400D6232B /* MoviesByGenreSmallWidget.swift */; };
-		9C86FA6B27370E530000C787 /* Rubik.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C86FA6A27370E530000C787 /* Rubik.ttf */; };
+		9C7E598E274C676E007586DC /* Rubik.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C7E598D274C676E007586DC /* Rubik.ttf */; };
+		9C7E598F274C676E007586DC /* Rubik.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C7E598D274C676E007586DC /* Rubik.ttf */; };
 		9C8D2D9D26FD15C20019405A /* EnvironmentValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D2D9C26FD15C20019405A /* EnvironmentValues.swift */; };
 		9C9718122722C6D100CD3458 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9718112722C6D100CD3458 /* Keychain.swift */; };
 		9C9718132722C6D100CD3458 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9718112722C6D100CD3458 /* Keychain.swift */; };
@@ -119,7 +120,7 @@
 		9C74E2A82707A263000BDC5F /* MoviesByGenreWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MoviesByGenreWidgetExtension.entitlements; sourceTree = "<group>"; };
 		9C74E2A92707A275000BDC5F /* MyMoviesAppRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = MyMoviesAppRelease.entitlements; path = MyMoviesApp/MyMoviesAppRelease.entitlements; sourceTree = "<group>"; };
 		9C74E2AA2707A29C000BDC5F /* MoviesByGenreWidgetExtensionRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MoviesByGenreWidgetExtensionRelease.entitlements; sourceTree = "<group>"; };
-		9C86FA6A27370E530000C787 /* Rubik.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Rubik.ttf; path = ../../../Downloads/Rubik/static/Rubik.ttf; sourceTree = "<group>"; };
+		9C7E598D274C676E007586DC /* Rubik.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Rubik.ttf; path = MyMoviesApp/assets/Rubik.ttf; sourceTree = "<group>"; };
 		9C8D2D9C26FD15C20019405A /* EnvironmentValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentValues.swift; sourceTree = "<group>"; };
 		9C9718112722C6D100CD3458 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		9C97181B2722CA0900CD3458 /* GenericPasswordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericPasswordItem.swift; sourceTree = "<group>"; };
@@ -185,10 +186,10 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				9C7E598D274C676E007586DC /* Rubik.ttf */,
 				9C29A8472625279A00AC1CCA /* Bridge.swift */,
 				9C8D2D9C26FD15C20019405A /* EnvironmentValues.swift */,
 				9C29A8462625279A00AC1CCA /* MyMoviesApp-Bridging-Header.h */,
-				9C86FA6A27370E530000C787 /* Rubik.ttf */,
 				9C74E2A72707A24B000BDC5F /* MyMoviesApp.entitlements */,
 				9C74E2A92707A275000BDC5F /* MyMoviesAppRelease.entitlements */,
 			);
@@ -483,7 +484,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				9C3D4B6426FBA86C0046718C /* MoviesByGenre.graphql in Resources */,
-				9C86FA6B27370E530000C787 /* Rubik.ttf in Resources */,
+				9C7E598E274C676E007586DC /* Rubik.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,6 +493,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C7E598F274C676E007586DC /* Rubik.ttf in Resources */,
 				9C9F93202704D5C70031B21F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
