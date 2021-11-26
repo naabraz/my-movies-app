@@ -12,6 +12,7 @@ import {
   GenreList,
   FavoriteGenres,
 } from 'src/screens';
+import { TabBar } from 'src/components';
 import { RootStackParamList } from './types';
 import { screenOptions } from './styles.js';
 
@@ -37,7 +38,10 @@ const PopularMoviesStackScreen: React.FC = () => (
 );
 
 const Tabs: React.FC = () => (
-  <TabStack.Navigator screenOptions={{ ...screenOptions }}>
+  <TabStack.Navigator
+    screenOptions={{ ...screenOptions }}
+    tabBar={(props): React.FC => <TabBar state={props.state} />}
+  >
     <TabStack.Screen
       name="Popular Movies"
       component={PopularMoviesStackScreen}
