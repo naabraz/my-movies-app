@@ -1,17 +1,28 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { useQuery } from '@apollo/client';
-import { useNavigation } from '@react-navigation/native';
+import {
+  useNavigation,
+  CompositeNavigationProp,
+} from '@react-navigation/native';
+import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 import { GenreButton } from 'src/components';
 import { firebase } from 'src/services';
+import { RootStackParamList, BottomTabParams } from 'src/navigator/types';
 
 import { GenreInfo } from './styles';
 import { MovieGenres } from './types';
 import { MOVIE_GENRES } from './index.graphql.js';
 
+type MovieGenreListProp = CompositeNavigationProp<
+  StackNavigationProp<RootStackParamList, 'Home'>,
+  BottomTabNavigationProp<BottomTabParams, 'Popular Movies'>
+>;
+
 const MovieGenresList: React.FC<{ id: string }> = ({ id }) => {
-  const { navigate } = useNavigation();
+  const { navigate } = useNavigation<MovieGenreListProp>();
   const variables = { movieId: id };
   const { loading, data, error } = useQuery<MovieGenres>(MOVIE_GENRES, {
     variables,

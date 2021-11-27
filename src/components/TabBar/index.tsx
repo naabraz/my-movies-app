@@ -48,11 +48,10 @@ type TabBarProps = {
 };
 
 const TabBar: React.FC<TabBarProps> = ({ state }) => {
-  const navigation = useNavigation();
+  const { navigate } = useNavigation<{ navigate: Function }>();
   const { routes, index: activeRouteIndex } = state;
 
-  const screenNavigate = (name: string): void =>
-    navigation.navigate({ name: name });
+  const screenNavigate = (name: string): void => navigate({ name: name });
 
   return (
     <ThemeProvider>

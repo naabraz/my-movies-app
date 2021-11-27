@@ -1,14 +1,26 @@
 import React from 'react';
 import { View, Text, ScrollView, TouchableWithoutFeedback } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import {
+  useNavigation,
+  CompositeNavigationProp,
+} from '@react-navigation/native';
 import { useQuery } from '@apollo/client';
+import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
+import { StackNavigationProp } from '@react-navigation/stack';
+
+import { RootStackParamList, BottomTabParams } from 'src/navigator/types';
 
 import { Container, Title, Poster } from './styles';
 import { SimilarMovies } from './types';
 import { SIMILAR_MOVIES } from './index.graphql.js';
 
+type SimilarMoviesProp = CompositeNavigationProp<
+  StackNavigationProp<RootStackParamList, 'Home'>,
+  BottomTabNavigationProp<BottomTabParams, 'Popular Movies'>
+>;
+
 const SimilarMoviesList: React.FC<{ id: string }> = ({ id }) => {
-  const { navigate } = useNavigation();
+  const { navigate } = useNavigation<SimilarMoviesProp>();
 
   const variables = { movieId: id };
 

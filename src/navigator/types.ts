@@ -1,9 +1,13 @@
+import { Movie } from 'src/components/MoviesList/types';
+
 export type RootStackParamList = {
-  Tabs: undefined;
   Home: undefined;
+  'Movie Details': Movie;
+  'Movie By Genre': { id: string; name: string };
+};
+
+export type BottomTabParams = {
   'Popular Movies': undefined;
-  'Movie Details': undefined;
-  'Movie By Genre': { name: string };
   'Genre List': undefined;
   'Favorite Genres': undefined;
 };

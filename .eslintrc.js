@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  parser: "@typescript-eslint/parser", 
+  parser: '@typescript-eslint/parser',
   globals: {
     jest: true,
   },
@@ -12,17 +12,17 @@ module.exports = {
   ],
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: "module"
+    sourceType: 'module',
   },
   rules: {
-    "@typescript-eslint/explicit-function-return-type": "off"
+    '@typescript-eslint/explicit-function-return-type': 'off',
   },
   overrides: [
     {
-      files: ["*.ts", "*.tsx"],
+      files: ['*.ts', '*.tsx'],
       rules: {
-        "@typescript-eslint/explicit-function-return-type": ["error"]
-      }
-    }
-  ]
+        '@typescript-eslint/explicit-function-return-type': ['error'],
+      },
+    },
+  ],
 };

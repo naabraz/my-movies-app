@@ -13,10 +13,10 @@ import {
   FavoriteGenres,
 } from 'src/screens';
 import { TabBar } from 'src/components';
-import { RootStackParamList } from './types';
+import { RootStackParamList, BottomTabParams } from './types';
 import { screenOptions } from './styles.js';
 
-const TabStack = createBottomTabNavigator<RootStackParamList>();
+const BottomTab = createBottomTabNavigator<BottomTabParams>();
 const PopularMoviesStack = createNativeStackNavigator<RootStackParamList>();
 
 const PopularMoviesStackScreen: React.FC = () => (
@@ -38,18 +38,18 @@ const PopularMoviesStackScreen: React.FC = () => (
 );
 
 const Tabs: React.FC = () => (
-  <TabStack.Navigator
+  <BottomTab.Navigator
     screenOptions={{ ...screenOptions }}
-    tabBar={(props): React.FC => <TabBar state={props.state} />}
+    tabBar={(props): Element => <TabBar state={props.state} />}
   >
-    <TabStack.Screen
+    <BottomTab.Screen
       name="Popular Movies"
       component={PopularMoviesStackScreen}
       options={{ headerShown: false }}
     />
-    <TabStack.Screen name="Genre List" component={GenreList} />
-    <TabStack.Screen name="Favorite Genres" component={FavoriteGenres} />
-  </TabStack.Navigator>
+    <BottomTab.Screen name="Genre List" component={GenreList} />
+    <BottomTab.Screen name="Favorite Genres" component={FavoriteGenres} />
+  </BottomTab.Navigator>
 );
 
 export default Tabs;

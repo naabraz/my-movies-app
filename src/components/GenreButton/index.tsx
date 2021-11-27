@@ -5,7 +5,7 @@ import { Button, Title } from './styles';
 const GenreButton: React.FC<{
   title: string;
   onPress: Function;
-  selectable: boolean;
+  selectable?: boolean;
 }> = ({ title, onPress, selectable }) => {
   const [selected, setSelected] = useState(false);
 
