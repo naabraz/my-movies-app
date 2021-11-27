@@ -1,14 +1,25 @@
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
+import {
+  useNavigation,
+  CompositeNavigationProp,
+} from '@react-navigation/native';
 import { TouchableWithoutFeedback } from 'react-native';
+import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 import { firebase } from 'src/services';
+import { RootStackParamList, BottomTabParams } from 'src/navigator/types';
 
 import { Movie } from './types';
 import { Container, Poster, MovieInfoContainer, MovieTitle } from './styles';
 
+type PopularMoviesProp = CompositeNavigationProp<
+  StackNavigationProp<RootStackParamList, 'Home'>,
+  BottomTabNavigationProp<BottomTabParams, 'Popular Movies'>
+>;
+
 const MoviesList: React.FC<Movie> = ({ movie }: Movie) => {
-  const { navigate } = useNavigation();
+  const { navigate } = useNavigation<PopularMoviesProp>();
   const { backdropPath } = movie;
 
   const goToDetailsScreen = (): void => {
