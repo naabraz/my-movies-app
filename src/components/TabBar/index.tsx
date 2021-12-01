@@ -1,8 +1,5 @@
 import React from 'react';
-import styled from 'styled-components/native';
-
 import { ThemeProvider, Box, Text, Icon } from '@gympass/yoga';
-import { TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import {
   Favorite,
@@ -13,11 +10,7 @@ import {
   PlayFilled,
 } from '@gympass/yoga-icons';
 
-export const TabItem = styled(TouchableOpacity)`
-  flex: 1;
-  align-items: center;
-  margin-bottom: 20px;
-`;
+import { TabItem } from './styles';
 
 const tabConfig = {
   'Popular Movies': {
@@ -67,13 +60,7 @@ const TabBar: React.FC<TabBarProps> = ({ state }) => {
 
             return (
               <TabItem key={name} onPress={(): void => screenNavigate(name)}>
-                <Icon
-                  as={YogaIcon}
-                  width="large"
-                  height="large"
-                  fill="vibin"
-                  testID={`Icon${routeIndex}`}
-                />
+                <Icon as={YogaIcon} width="large" height="large" fill="vibin" />
                 <Text.Tiny color="vibin">{route.name}</Text.Tiny>
               </TabItem>
             );
