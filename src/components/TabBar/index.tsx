@@ -60,8 +60,13 @@ const TabBar: React.FC<TabBarProps> = ({ state }) => {
 
             return (
               <TabItem key={name} onPress={(): void => screenNavigate(name)}>
-                <Icon as={YogaIcon} width="large" height="large" fill="vibin" />
-                <Text.Tiny color="vibin">{route.name}</Text.Tiny>
+                <Icon
+                  as={YogaIcon}
+                  width="large"
+                  height="large"
+                  fill="energy"
+                />
+                <Text.Tiny color="energy">{route.name}</Text.Tiny>
               </TabItem>
             );
           })}
