@@ -11,6 +11,7 @@ jest.mock('@react-navigation/native', () => ({
 
 jest.mock('react-native-device-info', () => ({
   getBuildNumber: jest.fn().mockReturnValue(1),
+  getVersion: jest.fn().mockReturnValue('1.0'),
 }));
 
 jest.mock('services', () => ({
