@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
 import { useQuery } from '@apollo/client';
-import { getBuildNumber } from 'react-native-device-info';
+import { getVersion, getBuildNumber } from 'react-native-device-info';
 import { Text, Box } from '@gympass/yoga';
 
 import { Loading, Error, MoviesList } from 'src/components';
@@ -24,8 +24,8 @@ const PopularMovies: React.FC = () => {
           ))}
         </Box>
         <Box mh="small" mv="small">
-          <Text.SectionTitle color="energy" fontSize="xxsmall">
-            App Version: {getBuildNumber()}
+          <Text.SectionTitle color="light" fontSize="xxsmall">
+            {getVersion()} ({getBuildNumber()})
           </Text.SectionTitle>
         </Box>
       </ScrollView>
