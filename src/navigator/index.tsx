@@ -20,7 +20,7 @@ const BottomTab = createBottomTabNavigator<BottomTabParams>();
 const PopularMoviesStack = createNativeStackNavigator<RootStackParamList>();
 
 const PopularMoviesStackScreen: React.FC = () => (
-  <PopularMoviesStack.Navigator>
+  <PopularMoviesStack.Navigator screenOptions={{ ...screenOptions }}>
     <PopularMoviesStack.Screen
       name="Home"
       component={PopularMovies}
