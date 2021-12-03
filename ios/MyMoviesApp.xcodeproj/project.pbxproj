@@ -7,11 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0120BFE7556A4591911CE7EE /* Rubik-500-italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 666F7D358EEB430EBB4D24D0 /* Rubik-500-italic.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		162E3F37676142A2892C10B3 /* Rubik-500.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDE6E21DB7FF4A308464D21E /* Rubik-500.ttf */; };
+		388F5CD76BB84085939ACD19 /* Rubik-300-italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A273BC3D1F16450BAA0F13C0 /* Rubik-300-italic.ttf */; };
 		456DDF07164DC50CC7DC47A4 /* libPods-MoviesByGenreWidgetExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D59785D71E32AB333A2C6985 /* libPods-MoviesByGenreWidgetExtension.a */; };
+		50E4C162A74749FDB0712EEB /* Rubik-900-italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58F6DC6FF2704879A41B7611 /* Rubik-900-italic.ttf */; };
+		7687F098392844E28F838100 /* Rubik-300.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 409570A8D98F4A8086EB951B /* Rubik-300.ttf */; };
+		77CE151805E849149E607CAA /* Rubik-900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1E458BA9B824759826CDD66 /* Rubik-900.ttf */; };
+		7CFA580C190E48DA87670661 /* Rubik-700.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D7BAC8CF14AF4FE6961825EA /* Rubik-700.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		8E3FD44428DB4833B5583796 /* Rubik-700-italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 10F1ED3AD67642DC9BB65942 /* Rubik-700-italic.ttf */; };
 		9C189A7D27280E0C0050A1AD /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C189A7C27280E0C0050A1AD /* KeychainManager.swift */; };
 		9C189A7E27280E0C0050A1AD /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C189A7C27280E0C0050A1AD /* KeychainManager.swift */; };
 		9C29A8482625279A00AC1CCA /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C29A8472625279A00AC1CCA /* Bridge.swift */; };
@@ -25,8 +33,6 @@
 		9C3D4B8326FBAF7A0046718C /* RequestLoggingInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D4B8226FBAF7A0046718C /* RequestLoggingInterceptor.swift */; };
 		9C3D4B8526FBAFBE0046718C /* UserManagementInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D4B8426FBAFBE0046718C /* UserManagementInterceptor.swift */; };
 		9C5B18722731DD0400D6232B /* MoviesByGenreSmallWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5B18712731DD0400D6232B /* MoviesByGenreSmallWidget.swift */; };
-		9C7E598E274C676E007586DC /* Rubik.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C7E598D274C676E007586DC /* Rubik.ttf */; };
-		9C7E598F274C676E007586DC /* Rubik.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C7E598D274C676E007586DC /* Rubik.ttf */; };
 		9C8D2D9D26FD15C20019405A /* EnvironmentValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D2D9C26FD15C20019405A /* EnvironmentValues.swift */; };
 		9C9718122722C6D100CD3458 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9718112722C6D100CD3458 /* Keychain.swift */; };
 		9C9718132722C6D100CD3458 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9718112722C6D100CD3458 /* Keychain.swift */; };
@@ -54,6 +60,8 @@
 		9CEAD043272C89C20071910D /* KeychainConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEAD041272C89C20071910D /* KeychainConfig.swift */; };
 		B79D18CFC11A4FFB8604B505 /* libPods-MyMoviesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA2E95D8C82E0B39948A8923 /* libPods-MyMoviesTests.a */; };
 		CF81A1F5F365F8673E3D3178 /* libPods-MyMoviesApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C898F018BFBE1D50F329F10 /* libPods-MyMoviesApp.a */; };
+		D47095E2963B4091A1A7AB07 /* Rubik-italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 832A665FD0434599A14C3D15 /* Rubik-italic.ttf */; };
+		E3F7ADEFE5F2466893CEB883 /* Rubik.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89C74CC459C547EBA6842717 /* Rubik.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,17 +97,23 @@
 
 /* Begin PBXFileReference section */
 		02A83E8A3FF8573201DA0DD9 /* Pods-MyMoviesApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMoviesApp.debug.xcconfig"; path = "Target Support Files/Pods-MyMoviesApp/Pods-MyMoviesApp.debug.xcconfig"; sourceTree = "<group>"; };
+		10F1ED3AD67642DC9BB65942 /* Rubik-700-italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rubik-700-italic.ttf"; path = "../node_modules/@gympass/yoga/fonts/Rubik-700-italic.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* My Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Movies.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = MyMoviesApp/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MyMoviesApp/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = MyMoviesApp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MyMoviesApp/main.m; sourceTree = "<group>"; };
+		409570A8D98F4A8086EB951B /* Rubik-300.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rubik-300.ttf"; path = "../node_modules/@gympass/yoga/fonts/Rubik-300.ttf"; sourceTree = "<group>"; };
 		427132E62C19D438C20A01B1 /* Pods-MoviesByGenreWidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesByGenreWidgetExtension.release.xcconfig"; path = "Target Support Files/Pods-MoviesByGenreWidgetExtension/Pods-MoviesByGenreWidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
 		4B3FD1FF2D750C5DDCCEF9B9 /* Pods-MyMoviesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMoviesTests.debug.xcconfig"; path = "Target Support Files/Pods-MyMoviesTests/Pods-MyMoviesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4B42FD79430BE531B27F0E3C /* Pods-MyMoviesApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMoviesApp.release.xcconfig"; path = "Target Support Files/Pods-MyMoviesApp/Pods-MyMoviesApp.release.xcconfig"; sourceTree = "<group>"; };
 		539F7C2DFCB1E103AF532CB3 /* Pods-MoviesByGenreWidgetExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesByGenreWidgetExtension.debug.xcconfig"; path = "Target Support Files/Pods-MoviesByGenreWidgetExtension/Pods-MoviesByGenreWidgetExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		58F6DC6FF2704879A41B7611 /* Rubik-900-italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rubik-900-italic.ttf"; path = "../node_modules/@gympass/yoga/fonts/Rubik-900-italic.ttf"; sourceTree = "<group>"; };
+		666F7D358EEB430EBB4D24D0 /* Rubik-500-italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rubik-500-italic.ttf"; path = "../node_modules/@gympass/yoga/fonts/Rubik-500-italic.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = MyMoviesApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		832A665FD0434599A14C3D15 /* Rubik-italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rubik-italic.ttf"; path = "../node_modules/@gympass/yoga/fonts/Rubik-italic.ttf"; sourceTree = "<group>"; };
+		89C74CC459C547EBA6842717 /* Rubik.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Rubik.ttf; path = "../node_modules/@gympass/yoga/fonts/Rubik.ttf"; sourceTree = "<group>"; };
 		8C898F018BFBE1D50F329F10 /* libPods-MyMoviesApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyMoviesApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C189A7C27280E0C0050A1AD /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		9C29A8462625279A00AC1CCA /* MyMoviesApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyMoviesApp-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -120,7 +134,6 @@
 		9C74E2A82707A263000BDC5F /* MoviesByGenreWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MoviesByGenreWidgetExtension.entitlements; sourceTree = "<group>"; };
 		9C74E2A92707A275000BDC5F /* MyMoviesAppRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = MyMoviesAppRelease.entitlements; path = MyMoviesApp/MyMoviesAppRelease.entitlements; sourceTree = "<group>"; };
 		9C74E2AA2707A29C000BDC5F /* MoviesByGenreWidgetExtensionRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MoviesByGenreWidgetExtensionRelease.entitlements; sourceTree = "<group>"; };
-		9C7E598D274C676E007586DC /* Rubik.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Rubik.ttf; path = MyMoviesApp/assets/Rubik.ttf; sourceTree = "<group>"; };
 		9C8D2D9C26FD15C20019405A /* EnvironmentValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentValues.swift; sourceTree = "<group>"; };
 		9C9718112722C6D100CD3458 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		9C97181B2722CA0900CD3458 /* GenericPasswordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericPasswordItem.swift; sourceTree = "<group>"; };
@@ -138,9 +151,13 @@
 		9CD8FE7027217AEF00766C59 /* MyMoviesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyMoviesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD8FE7927217B8C00766C59 /* GenericPasswordItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericPasswordItemTests.swift; sourceTree = "<group>"; };
 		9CEAD041272C89C20071910D /* KeychainConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainConfig.swift; sourceTree = "<group>"; };
+		A273BC3D1F16450BAA0F13C0 /* Rubik-300-italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rubik-300-italic.ttf"; path = "../node_modules/@gympass/yoga/fonts/Rubik-300-italic.ttf"; sourceTree = "<group>"; };
 		A61597A939002BC204B04E7D /* Pods-MyMoviesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMoviesTests.release.xcconfig"; path = "Target Support Files/Pods-MyMoviesTests/Pods-MyMoviesTests.release.xcconfig"; sourceTree = "<group>"; };
 		AA2E95D8C82E0B39948A8923 /* libPods-MyMoviesTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyMoviesTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1E458BA9B824759826CDD66 /* Rubik-900.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rubik-900.ttf"; path = "../node_modules/@gympass/yoga/fonts/Rubik-900.ttf"; sourceTree = "<group>"; };
 		D59785D71E32AB333A2C6985 /* libPods-MoviesByGenreWidgetExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoviesByGenreWidgetExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7BAC8CF14AF4FE6961825EA /* Rubik-700.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rubik-700.ttf"; path = "../node_modules/@gympass/yoga/fonts/Rubik-700.ttf"; sourceTree = "<group>"; };
+		DDE6E21DB7FF4A308464D21E /* Rubik-500.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rubik-500.ttf"; path = "../node_modules/@gympass/yoga/fonts/Rubik-500.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
@@ -186,7 +203,6 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
-				9C7E598D274C676E007586DC /* Rubik.ttf */,
 				9C29A8472625279A00AC1CCA /* Bridge.swift */,
 				9C8D2D9C26FD15C20019405A /* EnvironmentValues.swift */,
 				9C29A8462625279A00AC1CCA /* MyMoviesApp-Bridging-Header.h */,
@@ -228,6 +244,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				F2F36129198982F7561991A9 /* Pods */,
+				980415D724034010ABB1C0C8 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -242,6 +259,23 @@
 				9CD8FE7027217AEF00766C59 /* MyMoviesTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		980415D724034010ABB1C0C8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A273BC3D1F16450BAA0F13C0 /* Rubik-300-italic.ttf */,
+				409570A8D98F4A8086EB951B /* Rubik-300.ttf */,
+				666F7D358EEB430EBB4D24D0 /* Rubik-500-italic.ttf */,
+				DDE6E21DB7FF4A308464D21E /* Rubik-500.ttf */,
+				10F1ED3AD67642DC9BB65942 /* Rubik-700-italic.ttf */,
+				D7BAC8CF14AF4FE6961825EA /* Rubik-700.ttf */,
+				58F6DC6FF2704879A41B7611 /* Rubik-900-italic.ttf */,
+				D1E458BA9B824759826CDD66 /* Rubik-900.ttf */,
+				832A665FD0434599A14C3D15 /* Rubik-italic.ttf */,
+				89C74CC459C547EBA6842717 /* Rubik.ttf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		9C3D4B5E26FBA86C0046718C /* MoviesByGenre */ = {
@@ -484,8 +518,17 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				9C3D4B6426FBA86C0046718C /* MoviesByGenre.graphql in Resources */,
-				9C7E598E274C676E007586DC /* Rubik.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				388F5CD76BB84085939ACD19 /* Rubik-300-italic.ttf in Resources */,
+				7687F098392844E28F838100 /* Rubik-300.ttf in Resources */,
+				0120BFE7556A4591911CE7EE /* Rubik-500-italic.ttf in Resources */,
+				162E3F37676142A2892C10B3 /* Rubik-500.ttf in Resources */,
+				8E3FD44428DB4833B5583796 /* Rubik-700-italic.ttf in Resources */,
+				7CFA580C190E48DA87670661 /* Rubik-700.ttf in Resources */,
+				50E4C162A74749FDB0712EEB /* Rubik-900-italic.ttf in Resources */,
+				77CE151805E849149E607CAA /* Rubik-900.ttf in Resources */,
+				D47095E2963B4091A1A7AB07 /* Rubik-italic.ttf in Resources */,
+				E3F7ADEFE5F2466893CEB883 /* Rubik.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,7 +536,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C7E598F274C676E007586DC /* Rubik.ttf in Resources */,
 				9C9F93202704D5C70031B21F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
