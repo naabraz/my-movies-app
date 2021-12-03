@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import { Text } from '@gympass/yoga';
 
 export const Poster = styled.Image.attrs({
   borderTopLeftRadius: 10,
@@ -9,8 +8,4 @@ export const Poster = styled.Image.attrs({
 })`
   width: 300px;
   height: 169px;
-`;
-
-export const MovieTitle = styled(Text.Small)`
-  text-transform: uppercase;
 `;

@@ -6,13 +6,13 @@ import {
 import { TouchableWithoutFeedback } from 'react-native';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { Box } from '@gympass/yoga';
+import { Box, Text } from '@gympass/yoga';
 
 import { firebase } from 'src/services';
 import { RootStackParamList, BottomTabParams } from 'src/navigator/types';
 
 import { Movie } from './types';
-import { Poster, MovieTitle } from './styles';
+import { Poster } from './styles';
 
 type PopularMoviesProp = CompositeNavigationProp<
   StackNavigationProp<RootStackParamList, 'Home'>,
@@ -47,10 +47,15 @@ const MoviesList: React.FC<Movie> = ({ movie }: Movie) => {
           alignItems="center"
           backgroundColor="stamina"
           opacity={0.8}
+          paddingHorizontal="small"
         >
-          <MovieTitle paddingVertical="xxsmall" color="energy">
+          <Text.SectionTitle
+            numberOfLines={1}
+            paddingVertical="xxsmall"
+            color="energy"
+          >
             {title}
-          </MovieTitle>
+          </Text.SectionTitle>
         </Box>
       </Box>
     </TouchableWithoutFeedback>
