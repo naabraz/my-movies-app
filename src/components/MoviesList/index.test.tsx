@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
 import { useNavigation } from '@react-navigation/native';
+import { ThemeProvider } from '@gympass/yoga';
 
 import MoviesList from './index';
 
@@ -12,7 +13,11 @@ const movie = {
 };
 
 test('should navigate to Movie Details screen when poster is clicked', () => {
-  const { getByText } = render(<MoviesList movie={movie} />);
+  const { getByText } = render(
+    <ThemeProvider>
+      <MoviesList movie={movie} />
+    </ThemeProvider>,
+  );
 
   fireEvent.press(getByText('movieTitle'));
 
