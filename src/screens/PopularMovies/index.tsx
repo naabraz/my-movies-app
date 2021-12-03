@@ -24,7 +24,7 @@ const PopularMovies: React.FC = () => {
           ))}
         </Box>
         <Box mh="small" mv="small">
-          <Text.SectionTitle color="energy">
+          <Text.SectionTitle color="energy" fontSize="xxsmall">
             App Version: {getBuildNumber()}
           </Text.SectionTitle>
         </Box>
