@@ -4,8 +4,3 @@ export const screenOptions = {
   },
   headerTintColor: '#FFC24C',
 };
-
-export const tabBarOptions = {
-  activeTintColor: '#FFC24C',
-  style: { backgroundColor: '#231B22' },
-};
