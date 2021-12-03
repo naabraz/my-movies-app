@@ -3,7 +3,7 @@ import {
   useNavigation,
   CompositeNavigationProp,
 } from '@react-navigation/native';
-import { TouchableWithoutFeedback } from 'react-native';
+import { TouchableWithoutFeedback, Image } from 'react-native';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Box, Text } from '@gympass/yoga';
@@ -12,7 +12,6 @@ import { firebase } from 'src/services';
 import { RootStackParamList, BottomTabParams } from 'src/navigator/types';
 
 import { Movie } from './types';
-import { Poster } from './styles';
 
 type PopularMoviesProp = CompositeNavigationProp<
   StackNavigationProp<RootStackParamList, 'Home'>,
@@ -39,7 +38,16 @@ const MoviesList: React.FC<Movie> = ({ movie }: Movie) => {
       accessibilityHint="Goes to movie details screen"
     >
       <Box mv="xsmall" alignItems="center">
-        <Poster source={{ uri: backdropPath }} />
+        <Box
+          as={Image}
+          source={{ uri: backdropPath }}
+          borderTopLeftRadius={10}
+          borderTopRightRadius={10}
+          borderBottomLeftRadius={10}
+          borderBottomRightRadius={10}
+          width={300}
+          height={169}
+        />
         <Box
           width="100%"
           position="absolute"
@@ -47,7 +55,7 @@ const MoviesList: React.FC<Movie> = ({ movie }: Movie) => {
           alignItems="center"
           backgroundColor="stamina"
           opacity={0.8}
-          paddingHorizontal="small"
+          ph="small"
         >
           <Text.SectionTitle
             numberOfLines={1}
