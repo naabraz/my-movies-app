@@ -1,16 +1,16 @@
 import React from 'react';
-import { View, Text, ScrollView, TouchableWithoutFeedback } from 'react-native';
+import { ScrollView, Image, TouchableWithoutFeedback } from 'react-native';
 import {
   useNavigation,
   CompositeNavigationProp,
 } from '@react-navigation/native';
 import { useQuery } from '@apollo/client';
+import { Box, Text } from '@gympass/yoga';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { StackNavigationProp } from '@react-navigation/stack';
 
 import { RootStackParamList, BottomTabParams } from 'src/navigator/types';
 
-import { Container, Title, Poster } from './styles';
 import { SimilarMovies } from './types';
 import { SIMILAR_MOVIES } from './index.graphql.js';
 
@@ -29,15 +29,15 @@ const SimilarMoviesList: React.FC<{ id: string }> = ({ id }) => {
   });
 
   const LoadingComponent = (
-    <View>
-      <Text>...</Text>
-    </View>
+    <Box>
+      <Text color="energy">...</Text>
+    </Box>
   );
 
   const ErrorComponent = (
-    <View>
-      <Text>There was an error</Text>
-    </View>
+    <Box>
+      <Text color="energy">There was an error</Text>
+    </Box>
   );
 
   if (loading) return LoadingComponent;
@@ -52,33 +52,39 @@ const SimilarMoviesList: React.FC<{ id: string }> = ({ id }) => {
   const EmptySimilarMoviesComponent = <Text>No similar movies found 😢</Text>;
 
   const SimilarMoviesComponent = (
-    <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+    <Box as={ScrollView} horizontal showsHorizontalScrollIndicator={false}>
       {data?.similarMovies.map(movie => (
         <TouchableWithoutFeedback
           key={movie.id}
           onPress={goToMovieDetail(movie)}
           accessibilityLabel="Go to movie details"
         >
-          <Poster
+          <Box
+            as={Image}
             key={movie.id}
+            width="92"
+            height="138"
             source={{ uri: movie.posterPath }}
             borderTopLeftRadius={10}
             borderTopRightRadius={10}
             borderBottomLeftRadius={10}
             borderBottomRightRadius={10}
+            mr="xxxsmall"
           />
         </TouchableWithoutFeedback>
       ))}
-    </ScrollView>
+    </Box>
   );
 
   return (
-    <Container>
-      <Title>Similar Movies</Title>
+    <Box>
+      <Text.SectionTitle variant="energy" mv="small">
+        Similar Movies
+      </Text.SectionTitle>
       {emptySimilarMovies
         ? EmptySimilarMoviesComponent
         : SimilarMoviesComponent}
-    </Container>
+    </Box>
   );
 };
 
