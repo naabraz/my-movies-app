@@ -2,6 +2,7 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
 import { useNavigation } from '@react-navigation/native';
 import * as APOLLO from '@apollo/client';
+import { ThemeProvider } from '@gympass/yoga';
 
 import SimilarMoviesList from './index';
 
@@ -57,7 +58,11 @@ test('should render Similar Movies according with received id', () => {
     called: true,
   });
 
-  const { getByText } = render(<SimilarMoviesList id="1" />);
+  const { getByText } = render(
+    <ThemeProvider>
+      <SimilarMoviesList id="1" />{' '}
+    </ThemeProvider>,
+  );
 
   expect(getByText('...')).toBeTruthy();
 });
@@ -71,7 +76,11 @@ test('should render Error component when there is an error', () => {
     called: true,
   });
 
-  const { getByText } = render(<SimilarMoviesList id="1" />);
+  const { getByText } = render(
+    <ThemeProvider>
+      <SimilarMoviesList id="1" />
+    </ThemeProvider>,
+  );
 
   expect(getByText('There was an error')).toBeTruthy();
 });
@@ -85,7 +94,11 @@ test('should render Similar Movies list when data is ready', () => {
     called: true,
   });
 
-  const { getAllByLabelText } = render(<SimilarMoviesList id="1" />);
+  const { getAllByLabelText } = render(
+    <ThemeProvider>
+      <SimilarMoviesList id="1" />
+    </ThemeProvider>,
+  );
 
   const label = 'Go to movie details';
 
@@ -101,7 +114,11 @@ test('should navigate to Movie Details when poster is clicked', () => {
     called: true,
   });
 
-  const { getAllByLabelText } = render(<SimilarMoviesList id="1" />);
+  const { getAllByLabelText } = render(
+    <ThemeProvider>
+      <SimilarMoviesList id="1" />
+    </ThemeProvider>,
+  );
 
   const label = 'Go to movie details';
 
