@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { useQuery } from '@apollo/client';
+import { Box, Button } from '@gympass/yoga';
 import {
   useNavigation,
   CompositeNavigationProp,
@@ -8,11 +9,9 @@ import {
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { StackNavigationProp } from '@react-navigation/stack';
 
-import { GenreButton } from 'src/components';
 import { firebase } from 'src/services';
 import { RootStackParamList, BottomTabParams } from 'src/navigator/types';
 
-import { GenreInfo } from './styles';
 import { MovieGenres } from './types';
 import { MOVIE_GENRES } from './index.graphql.js';
 
@@ -52,15 +51,15 @@ const MovieGenresList: React.FC<{ id: string }> = ({ id }) => {
     );
 
   return (
-    <GenreInfo>
+    <Box flexDirection="row" flexWrap="wrap" mv="small">
       {data?.movieGenres.map(({ id: genreId, name }) => (
-        <GenreButton
-          key={genreId}
-          title={name}
-          onPress={goToMoviesByGenreScreen(genreId, name)}
-        />
+        <Box key={genreId} mh="xxxsmall" mv="xxxsmall">
+          <Button small onPress={goToMoviesByGenreScreen(genreId, name)}>
+            {name}
+          </Button>
+        </Box>
       ))}
-    </GenreInfo>
+    </Box>
   );
 };
 
