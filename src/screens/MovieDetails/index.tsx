@@ -1,16 +1,8 @@
 import React from 'react';
+import { ScrollView, Image } from 'react-native';
+import { Box, Text } from '@gympass/yoga';
 
 import { Rating, MovieGenresList, SimilarMoviesList } from './components';
-import {
-  Container,
-  Details,
-  Title,
-  Poster,
-  Info,
-  Date,
-  Year,
-  Overview,
-} from './styles';
 import { Details as DetailsType } from './types';
 
 const MovieDetails: React.FC<DetailsType> = ({ route }: DetailsType) => {
@@ -23,21 +15,29 @@ const MovieDetails: React.FC<DetailsType> = ({ route }: DetailsType) => {
 
   return (
     <>
-      <Container>
-        <Details>
-          <Title>{title}</Title>
-          <Poster source={{ uri: backdropPath }} borderRadius={10} />
-          <Info>
+      <Box backgroundColor="stamina" as={ScrollView}>
+        <Box ph="small" pv="small">
+          <Text.H3 color="energy">{title}</Text.H3>
+          <Box
+            as={Image}
+            source={{ uri: backdropPath }}
+            borderRadius={10}
+            mt="large"
+            width="300"
+            height="169"
+            alignSelf="center"
+          />
+          <Box flexDirection="row" mt="small">
             <Rating voteAverage={voteAverage} />
-            <Date>
-              <Year>{formattedYear}</Year>
-            </Date>
-          </Info>
+            <Text.Small color="clear" ml="small">
+              {formattedYear}
+            </Text.Small>
+          </Box>
           <MovieGenresList id={id} />
-          <Overview>{overview}</Overview>
-        </Details>
-        <SimilarMoviesList id={id} />
-      </Container>
+          <Text color="clear">{overview}</Text>
+          <SimilarMoviesList id={id} />
+        </Box>
+      </Box>
     </>
   );
 };
