@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
+import { ThemeProvider } from '@gympass/yoga';
 
 import MovieDetails from './index';
 
@@ -20,7 +21,11 @@ const movie = {
 const details = { params: { movie } };
 
 test('should render received Movie Details', () => {
-  const { getByText } = render(<MovieDetails route={details} />);
+  const { getByText } = render(
+    <ThemeProvider>
+      <MovieDetails route={details} />
+    </ThemeProvider>,
+  );
 
   expect(getByText('fooTitle')).toBeTruthy();
   expect(getByText('fooOverview')).toBeTruthy();

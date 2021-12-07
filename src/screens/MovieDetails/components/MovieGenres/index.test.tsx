@@ -2,6 +2,7 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
 import { useNavigation } from '@react-navigation/native';
 import * as APOLLO from '@apollo/client';
+import { ThemeProvider } from '@gympass/yoga';
 
 import MovieGenresList from './index';
 
@@ -48,7 +49,11 @@ test('should render Loading component when data is not ready', () => {
     called: true,
   });
 
-  const { getByText } = render(<MovieGenresList id="1" />);
+  const { getByText } = render(
+    <ThemeProvider>
+      <MovieGenresList id="1" />
+    </ThemeProvider>,
+  );
 
   expect(getByText('...')).toBeTruthy();
 });
@@ -62,7 +67,11 @@ test('should render Error component when there is an error', () => {
     called: true,
   });
 
-  const { getByText } = render(<MovieGenresList id="1" />);
+  const { getByText } = render(
+    <ThemeProvider>
+      <MovieGenresList id="1" />
+    </ThemeProvider>,
+  );
 
   expect(getByText('There was an error')).toBeTruthy();
 });
@@ -75,7 +84,11 @@ test('should render Movie Genres list when data is ready', () => {
     called: true,
   });
 
-  const { getByText } = render(<MovieGenresList id="1" />);
+  const { getByText } = render(
+    <ThemeProvider>
+      <MovieGenresList id="1" />
+    </ThemeProvider>,
+  );
 
   expect(getByText('genreOne')).toBeTruthy();
 
@@ -90,7 +103,11 @@ test('should navigate to Movies By Genre screen when poster is clicked', () => {
     called: true,
   });
 
-  const { getByText } = render(<MovieGenresList id="1" />);
+  const { getByText } = render(
+    <ThemeProvider>
+      <MovieGenresList id="1" />
+    </ThemeProvider>,
+  );
 
   fireEvent.press(getByText('genreOne'));
 
