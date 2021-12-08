@@ -17,7 +17,7 @@ const PopularMovies: React.FC = () => {
 
   return (
     <Box backgroundColor="stamina">
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <Box as={ScrollView} showsVerticalScrollIndicator={false}>
         <Box alignSelf="center" mb="medium" width="300">
           {data?.popularMovies.map(movie => (
             <MoviesList movie={movie} key={movie.id} />
@@ -28,7 +28,7 @@ const PopularMovies: React.FC = () => {
             {getVersion()} ({getBuildNumber()})
           </Text.SectionTitle>
         </Box>
-      </ScrollView>
+      </Box>
     </Box>
   );
 };
