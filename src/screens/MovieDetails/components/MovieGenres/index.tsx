@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { useQuery } from '@apollo/client';
-import { Box, Button } from '@gympass/yoga';
+import { Box, Button, Text } from '@gympass/yoga';
 import {
   useNavigation,
   CompositeNavigationProp,
@@ -52,13 +52,27 @@ const MovieGenresList: React.FC<{ id: string }> = ({ id }) => {
 
   return (
     <Box flexDirection="row" flexWrap="wrap" mv="small">
-      {data?.movieGenres.map(({ id: genreId, name }) => (
-        <Box key={genreId} mh="xxxsmall" mv="xxxsmall">
-          <Button small onPress={goToMoviesByGenreScreen(genreId, name)}>
-            {name}
-          </Button>
-        </Box>
-      ))}
+      {data?.movieGenres.map(({ id: genreId, name }, index) => {
+        const notTheLastOne = index !== data?.movieGenres.length - 1;
+
+        return (
+          <>
+            <Box key={genreId} flexDirection="row" alignItems="center">
+              <Button.Link
+                small
+                onPress={goToMoviesByGenreScreen(genreId, name)}
+              >
+                {name}
+              </Button.Link>
+              {notTheLastOne && (
+                <Text color="clear" mh="xxsmall">
+                  &middot;
+                </Text>
+              )}
+            </Box>
+          </>
+        );
+      })}
     </Box>
   );
 };
