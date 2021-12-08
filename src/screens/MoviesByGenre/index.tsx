@@ -1,10 +1,11 @@
 import React from 'react';
+import { ScrollView } from 'react-native';
 import { useQuery } from '@apollo/client';
+import { Box } from '@gympass/yoga';
 
 import { Loading, Error, MoviesList } from 'src/components';
 import { Genre, Movies as MoviesType } from './types';
 import { MOVIES_BY_GENRE } from './index.graphql';
-import { Movies, List } from './styles';
 
 const MoviesByGenre: React.FC<Genre> = ({ route }: Genre) => {
   const {
@@ -21,13 +22,13 @@ const MoviesByGenre: React.FC<Genre> = ({ route }: Genre) => {
   if (error) return <Error />;
 
   return (
-    <List showsVerticalScrollIndicator={false}>
-      <Movies>
+    <Box as={ScrollView} bg="stamina" showsVerticalScrollIndicator={false}>
+      <Box alignSelf="center" mb="medium" width="300">
         {data?.moviesByGenre.map(movie => (
           <MoviesList movie={movie} key={movie.id} />
         ))}
-      </Movies>
-    </List>
+      </Box>
+    </Box>
   );
 };
 
