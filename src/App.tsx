@@ -12,7 +12,7 @@ export const App: React.FC = () => (
     <ApolloProvider client={apolloClient}>
       <ThemeProvider>
         <NavigationContainer>
-          <StatusBar barStyle="dark-content" />
+          <StatusBar barStyle="light-content" />
           <StackNavigator />
         </NavigationContainer>
       </ThemeProvider>
