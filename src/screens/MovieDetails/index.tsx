@@ -17,7 +17,7 @@ const MovieDetails: React.FC<DetailsType> = ({ route }: DetailsType) => {
     <>
       <Box backgroundColor="stamina" as={ScrollView}>
         <Box ph="small" pv="small">
-          <Text.H3 color="energy">{title}</Text.H3>
+          <Text.H5 color="energy">{title}</Text.H5>
           <Box
             as={Image}
             source={{ uri: backdropPath }}

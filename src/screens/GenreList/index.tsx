@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { ScrollView, NativeModules } from 'react-native';
 import { useQuery } from '@apollo/client';
+import { Text, Box, Button } from '@gympass/yoga';
 
-import { GenreButton, Loading, Error } from 'src/components';
+import { Loading, Error } from 'src/components';
 
 import { GENRES } from './index.graphql';
 import { GenreList as GenreListType, Genre } from './types';
-import { Genres, List, Title, Button, Text } from './styles';
 
 const GenreList: React.FC = () => {
   const { loading, data, error } = useQuery<GenreListType>(GENRES);
@@ -38,24 +38,32 @@ const GenreList: React.FC = () => {
   if (error) return <Error />;
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false}>
-      <Genres>
-        <Title>Select Your Favorite Genres</Title>
-        <List>
+    <Box bg="stamina" p="medium">
+      <Box as={ScrollView} showsVerticalScrollIndicator={false}>
+        <Text.H5 color="energy">Select Your Favorite Genres</Text.H5>
+        <Box pv="medium">
           {data?.genreList.map(genre => (
-            <GenreButton
-              key={genre.id}
-              title={genre.name}
-              selectable
-              onPress={(): void => onPress(genre)}
-            />
+            <Box mb="small">
+              <Button
+                key={genre.id}
+                selectable
+                full
+                onPress={(): void => onPress(genre)}
+              >
+                {genre.name}
+              </Button>
+            </Box>
           ))}
-        </List>
-        <Button onPress={saveFavoriteGenres} disabled={!favoriteGenres.length}>
-          <Text>Save</Text>
+        </Box>
+        <Button
+          full
+          onPress={saveFavoriteGenres}
+          disabled={!favoriteGenres.length}
+        >
+          Save
         </Button>
-      </Genres>
-    </ScrollView>
+      </Box>
+    </Box>
   );
 };
 
