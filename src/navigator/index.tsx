@@ -9,8 +9,7 @@ import {
   PopularMovies,
   MovieDetails,
   MoviesByGenre,
-  GenreList,
-  FavoriteGenres,
+  FavoriteGenre,
 } from 'src/screens';
 import { TabBar } from 'src/components';
 import { RootStackParamList, BottomTabParams } from './types';
@@ -47,8 +46,7 @@ const Tabs: React.FC = () => (
       component={PopularMoviesStackScreen}
       options={{ headerShown: false }}
     />
-    <BottomTab.Screen name="Genre List" component={GenreList} />
-    <BottomTab.Screen name="Favorite Genres" component={FavoriteGenres} />
+    <BottomTab.Screen name="Favorite Genre" component={FavoriteGenre} />
   </BottomTab.Navigator>
 );
 

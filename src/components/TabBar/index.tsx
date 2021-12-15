@@ -6,8 +6,6 @@ import {
   FavoriteFilled,
   Star,
   StarFilled,
-  Play,
-  PlayFilled,
 } from '@gympass/yoga-icons';
 
 import { TabItem } from './styles';
@@ -19,13 +17,7 @@ const tabConfig = {
       default: Star,
     },
   },
-  'Genre List': {
-    icon: {
-      active: PlayFilled,
-      default: Play,
-    },
-  },
-  'Favorite Genres': {
+  'Favorite Genre': {
     icon: {
       active: FavoriteFilled,
       default: Favorite,
@@ -65,6 +57,7 @@ const TabBar: React.FC<TabBarProps> = ({ state }) => {
                   width="large"
                   height="large"
                   fill="energy"
+                  stroke="none"
                 />
                 <Text.Tiny color="energy">{route.name}</Text.Tiny>
               </TabItem>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ScrollView, NativeModules } from 'react-native';
 import { useQuery } from '@apollo/client';
-import { Text, Box, Button } from '@gympass/yoga';
+import { Text, List, Checkbox, Box } from '@gympass/yoga';
 
 import { Loading, Error } from 'src/components';
 
@@ -22,16 +22,16 @@ const GenreList: React.FC = () => {
     }
   };
 
-  const removeItem = (genre: Genre): void =>
-    setFavoriteGenres((prevList: Genre[]) =>
-      prevList.filter(prevGenreId => prevGenreId.id !== genre.id),
-    );
+  // const removeItem = (genre: Genre): void =>
+  //   setFavoriteGenres((prevList: Genre[]) =>
+  //     prevList.filter(prevGenreId => prevGenreId.id !== genre.id),
+  //   );
 
-  const onPress = (genre: Genre): void => {
-    favoriteGenres.includes(genre)
-      ? removeItem(genre)
-      : setFavoriteGenres((prevState: Genre[]) => [...prevState, genre]);
-  };
+  // const onPress = (genre: Genre): void => {
+  //   favoriteGenres.includes(genre)
+  //     ? removeItem(genre)
+  //     : setFavoriteGenres((prevState: Genre[]) => [...prevState, genre]);
+  // };
 
   if (loading) return <Loading />;
 
@@ -40,28 +40,27 @@ const GenreList: React.FC = () => {
   return (
     <Box bg="stamina" p="medium">
       <Box as={ScrollView} showsVerticalScrollIndicator={false}>
-        <Text.H5 color="energy">Select Your Favorite Genres</Text.H5>
         <Box pv="medium">
-          {data?.genreList.map(genre => (
-            <Box mb="small">
-              <Button
+          {data?.genreList.map((genre, index) => {
+            const notTheLastOne = index !== data.genreList.length - 1;
+
+            return (
+              <List.Item
+                flexDirection="row"
+                justifyContent="space-between"
+                divided={notTheLastOne}
                 key={genre.id}
-                selectable
-                full
-                onPress={(): void => onPress(genre)}
               >
-                {genre.name}
-              </Button>
-            </Box>
-          ))}
+                <Text color="energy">{genre.name}</Text>
+                <Checkbox.Switch
+                  id={genre.id}
+                  checked={true}
+                  onChange={(): void => console.log()}
+                />
+              </List.Item>
+            );
+          })}
         </Box>
-        <Button
-          full
-          onPress={saveFavoriteGenres}
-          disabled={!favoriteGenres.length}
-        >
-          Save
-        </Button>
       </Box>
     </Box>
   );

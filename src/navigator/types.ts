@@ -8,6 +8,5 @@ export type RootStackParamList = {
 
 export type BottomTabParams = {
   'Popular Movies': undefined;
-  'Genre List': undefined;
-  'Favorite Genres': undefined;
+  'Favorite Genre': undefined;
 };

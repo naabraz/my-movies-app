@@ -4,7 +4,7 @@ import { NativeModules } from 'react-native';
 import { render, fireEvent } from '@testing-library/react-native';
 import * as APOLLO from '@apollo/client';
 
-import GenreList from './';
+import GenreList from '.';
 
 const useQueryMock = jest.spyOn(APOLLO, 'useQuery');
 
