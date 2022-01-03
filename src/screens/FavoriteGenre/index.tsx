@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ScrollView, NativeModules } from 'react-native';
 import { useQuery } from '@apollo/client';
 import { Text, List, Checkbox, Box } from '@gympass/yoga';
@@ -10,28 +10,46 @@ import { GenreList as GenreListType, Genre } from './types';
 
 const GenreList: React.FC = () => {
   const { loading, data, error } = useQuery<GenreListType>(GENRES);
-  const [favoriteGenres, setFavoriteGenres] = useState<Genre[]>([]);
+  const [favorite, setFavorite] = useState<Genre>();
+  const storageKey = 'FAVORITE_GENRES';
 
-  const { SecureStorage } = NativeModules;
+  const getFavorite: Function = async () => {
+    const {
+      SecureStorage: { getValue },
+    } = NativeModules;
 
-  const saveFavoriteGenres: Function = () => {
     try {
-      SecureStorage.setValue('FAVORITE_GENRES', JSON.stringify(favoriteGenres));
+      const storageValue = await getValue(storageKey);
+
+      if (storageValue) {
+        const savedFavorite = JSON.parse(storageValue);
+        setFavorite({ id: savedFavorite.id, name: savedFavorite.name });
+      }
     } catch (e) {
       console.log('setFavoriteGenres error', e);
     }
   };
 
-  // const removeItem = (genre: Genre): void =>
-  //   setFavoriteGenres((prevList: Genre[]) =>
-  //     prevList.filter(prevGenreId => prevGenreId.id !== genre.id),
-  //   );
+  useEffect(() => {
+    getFavorite();
+  }, []);
 
-  // const onPress = (genre: Genre): void => {
-  //   favoriteGenres.includes(genre)
-  //     ? removeItem(genre)
-  //     : setFavoriteGenres((prevState: Genre[]) => [...prevState, genre]);
-  // };
+  const saveFavorite: Function = () => {
+    const {
+      SecureStorage: { setValue },
+    } = NativeModules;
+
+    try {
+      setValue(storageKey, JSON.stringify(favorite));
+    } catch (e) {
+      console.log('setFavoriteGenres error', e);
+    }
+  };
+
+  const onChange = (genre: Genre): void => {
+    setFavorite(genre);
+    saveFavorite();
+  };
 
   if (loading) return <Loading />;
 
@@ -54,8 +72,8 @@ const GenreList: React.FC = () => {
                 <Text color="energy">{genre.name}</Text>
                 <Checkbox.Switch
                   id={genre.id}
-                  checked={true}
-                  onChange={(): void => console.log()}
+                  checked={genre.id === favorite?.id}
+                  onChange={(): void => onChange(genre)}
                 />
               </List.Item>
             );
