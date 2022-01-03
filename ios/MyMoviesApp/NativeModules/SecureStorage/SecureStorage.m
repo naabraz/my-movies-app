@@ -16,4 +16,8 @@ RCT_EXTERN_METHOD(deleteValue:(NSString *) account
                   resolver: (RCTPromiseResolveBlock) resolve
                   rejecter: (RCTPromiseRejectBlock) reject)
 
++ (BOOL)requiresMainQueueSetup {
+  return YES;
+}
+
 @end
