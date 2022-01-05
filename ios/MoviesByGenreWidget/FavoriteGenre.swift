@@ -5,26 +5,16 @@ struct Genre {
   var name: String = ""
 }
 
-func parseJson(anyObj:AnyObject) -> Array<Genre> {
-  var list:Array<Genre> = []
+func parseJson(json:AnyObject) -> Genre {
+  var genre: Genre = Genre()
   
-  if anyObj is Array<AnyObject> {
-    var genreList:Genre = Genre()
-    
-    for json in anyObj as! Array<AnyObject> {
-      genreList.name = (json["name"] as AnyObject? as? String) ?? ""
-      genreList.id = (json["id"] as AnyObject? as? Int) ?? 0
-      
-      list.append(genreList)
-    }
-  }
+  genre.name = (json["name"] as AnyObject? as? String) ?? ""
+  genre.id = (json["id"] as AnyObject? as? Int) ?? 0
   
-  return list
+  return genre
 }
 
 func getFavoriteGenre() -> Genre {
-  var list:Array<Genre> = []
-  
   do {
     let Keychain = KeychainManager(keychain: Keychain())
     
@@ -36,10 +26,9 @@ func getFavoriteGenre() -> Genre {
 
     let data: Data = value.data(using: String.Encoding.utf8, allowLossyConversion: false)!
     
-    let anyObj: AnyObject? = try! JSONSerialization.jsonObject(with: data) as AnyObject
+    let jsonData: AnyObject? = try! JSONSerialization.jsonObject(with: data) as AnyObject
     
-    list = parseJson(anyObj: anyObj!)
-    let genre = list.first!
+    let genre = parseJson(json: jsonData!)
     
     return genre
   } catch KeychainManagerError.noItemFound {
