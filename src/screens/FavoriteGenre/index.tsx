@@ -12,43 +12,32 @@ const GenreList: React.FC = () => {
   const { loading, data, error } = useQuery<GenreListType>(GENRES);
   const [favorite, setFavorite] = useState<Genre>();
   const storageKey = 'FAVORITE_GENRES';
-
-  const getFavorite: Function = async () => {
-    const {
-      SecureStorage: { getValue },
-    } = NativeModules;
-
-    try {
-      const storageValue = await getValue(storageKey);
-
-      if (storageValue) {
-        const savedFavorite = JSON.parse(storageValue);
-        setFavorite({ id: savedFavorite.id, name: savedFavorite.name });
-      }
-    } catch (e) {
-      console.log('setFavoriteGenres error', e);
-    }
-  };
+  const { SecureStorage } = NativeModules;
 
   useEffect(() => {
+    const getFavorite: Function = async () => {
+      try {
+        const storageValue = await SecureStorage.getValue(storageKey);
+
+        if (storageValue) {
+          const savedFavorite = JSON.parse(storageValue);
+          setFavorite({ id: savedFavorite.id, name: savedFavorite.name });
+        }
+      } catch (e) {
+        console.log('setFavoriteGenres error', e);
+      }
+    };
+
     getFavorite();
-  }, []);
+  }, [SecureStorage]);
 
-  const saveFavorite: Function = () => {
-    const {
-      SecureStorage: { setValue },
-    } = NativeModules;
-
+  const changeFavorite = (genre: Genre): void => {
     try {
-      setValue(storageKey, JSON.stringify(favorite));
+      SecureStorage.setValue(storageKey, JSON.stringify(genre));
+      setFavorite({ id: genre.id, name: genre.name });
     } catch (e) {
       console.log('setFavoriteGenres error', e);
     }
-  };
-
-  const onChange = (genre: Genre): void => {
-    setFavorite(genre);
-    saveFavorite();
   };
 
   if (loading) return <Loading />;
@@ -73,7 +62,7 @@ const GenreList: React.FC = () => {
                 <Checkbox.Switch
                   id={genre.id}
                   checked={genre.id === favorite?.id}
-                  onChange={(): void => onChange(genre)}
+                  onChange={(): void => changeFavorite(genre)}
                 />
               </List.Item>
             );
