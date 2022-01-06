@@ -10,8 +10,7 @@ jest.mock('screens', () => ({
   PopularMovies: 'PopularMovies',
   MovieDetails: 'MovieDetails',
   MoviesByGenre: 'MoviesByGenre',
-  GenreList: 'GenreList',
-  FavoriteGenres: 'FavoriteGenres',
+  FavoriteGenre: 'FavoriteGenre',
 }));
 
 test('should render Stack Navigator with Popular Movies screen', () => {
@@ -32,5 +31,5 @@ test('should render Stack Navigator with tab navigator', () => {
   );
 
   expect(getAllByText('Popular Movies')).toBeTruthy();
-  expect(getAllByText('Genre List')).toBeTruthy();
+  expect(getAllByText('Favorite Genre')).toBeTruthy();
 });
