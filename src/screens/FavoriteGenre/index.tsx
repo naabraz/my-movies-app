@@ -63,6 +63,7 @@ const GenreList: React.FC = () => {
                   id={genre.id}
                   checked={genre.id === favorite?.id}
                   onChange={(): void => changeFavorite(genre)}
+                  accessibilityRole="switch"
                 />
               </List.Item>
             );
