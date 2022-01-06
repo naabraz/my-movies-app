@@ -1,10 +1,11 @@
 import React from 'react';
 import { NativeModules } from 'react-native';
 
-import { render, fireEvent } from '@testing-library/react-native';
+import { render, fireEvent, waitFor } from '@testing-library/react-native';
 import * as APOLLO from '@apollo/client';
+import { ThemeProvider } from '@gympass/yoga';
 
-import GenreList from '.';
+import FavoriteGenre from '.';
 
 const useQueryMock = jest.spyOn(APOLLO, 'useQuery');
 
@@ -52,7 +53,11 @@ test('should render Loading component when data is not ready', () => {
     called: true,
   });
 
-  const { getByTestId } = render(<GenreList />);
+  const { getByTestId } = render(
+    <ThemeProvider>
+      <FavoriteGenre />
+    </ThemeProvider>,
+  );
 
   expect(getByTestId('LoadingAnimation')).toBeTruthy();
 });
@@ -66,7 +71,11 @@ test('should render Error component when there is an error', () => {
     called: true,
   });
 
-  const { getByTestId } = render(<GenreList />);
+  const { getByTestId } = render(
+    <ThemeProvider>
+      <FavoriteGenre />
+    </ThemeProvider>,
+  );
 
   expect(getByTestId('ErrorAnimation')).toBeTruthy();
 });
@@ -79,15 +88,18 @@ test('should render genre list', () => {
     called: true,
   });
 
-  const { getByText } = render(<GenreList />);
-  const genre = getByText('Action');
+  const { getByText } = render(
+    <ThemeProvider>
+      <FavoriteGenre />
+    </ThemeProvider>,
+  );
 
-  fireEvent.press(genre);
+  const genre = getByText('Action');
 
   expect(genre).toBeTruthy();
 });
 
-test('should call secure storage save value method', () => {
+test('should render selected favorite genre when it exists', async () => {
   const { SecureStorage } = NativeModules;
 
   useQueryMock.mockReturnValue({
@@ -97,15 +109,22 @@ test('should call secure storage save value method', () => {
     called: true,
   });
 
-  const { getByText } = render(<GenreList />);
+  render(
+    <ThemeProvider>
+      <FavoriteGenre />
+    </ThemeProvider>,
+  );
 
-  fireEvent.press(getByText('Action'));
-  fireEvent.press(getByText('Save'));
+  SecureStorage.getValue.mockReturnValueOnce(
+    JSON.stringify({ id: 28, name: 'Action' }),
+  );
 
-  expect(SecureStorage.setValue).toHaveBeenCalled();
+  await waitFor(() =>
+    expect(SecureStorage.getValue).toHaveBeenCalledWith('FAVORITE_GENRES'),
+  );
 });
 
-test('should remove genre if clicked twice', () => {
+test('should call secure storage save value method', async () => {
   const { SecureStorage } = NativeModules;
 
   useQueryMock.mockReturnValue({
@@ -115,16 +134,20 @@ test('should remove genre if clicked twice', () => {
     called: true,
   });
 
-  const { getByText } = render(<GenreList />);
-  const [, genre] = data.genreList;
+  const { getAllByA11yRole } = render(
+    <ThemeProvider>
+      <FavoriteGenre />
+    </ThemeProvider>,
+  );
 
-  fireEvent.press(getByText('Animation'));
-  fireEvent.press(getByText('Animation'));
-  fireEvent.press(getByText('Adventure'));
-  fireEvent.press(getByText('Save'));
+  const [movieGenre] = getAllByA11yRole('switch');
 
-  expect(SecureStorage.setValue).toHaveBeenCalledWith(
-    'FAVORITE_GENRES',
-    JSON.stringify([genre]),
+  fireEvent(movieGenre, 'onChange', true);
+
+  await waitFor(() =>
+    expect(SecureStorage.setValue).toHaveBeenCalledWith(
+      'FAVORITE_GENRES',
+      JSON.stringify({ id: 28, name: 'Action' }),
+    ),
   );
 });
