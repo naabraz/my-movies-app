@@ -17,7 +17,7 @@ const tabBarProps = {
         name: 'Popular Movies',
       },
       {
-        name: 'Favorite Genres',
+        name: 'Favorite Genre',
       },
     ],
     index: 0,
@@ -28,7 +28,7 @@ test('should render tab bar with routes', () => {
   const { getByText } = render(<TabBar {...tabBarProps} />);
 
   expect(getByText('Popular Movies')).toBeTruthy();
-  expect(getByText('Favorite Genres')).toBeTruthy();
+  expect(getByText('Favorite Genre')).toBeTruthy();
 });
 
 test('should navigate to route item is pressed', () => {
