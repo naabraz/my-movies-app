@@ -69,7 +69,7 @@ test('should render Error component when there is an error', () => {
 
   const { getByText } = render(
     <ThemeProvider>
-      <MovieGenresList id="1" />
+      <MovieGenresList id="2" />
     </ThemeProvider>,
   );
 
@@ -86,12 +86,11 @@ test('should render Movie Genres list when data is ready', () => {
 
   const { getByText } = render(
     <ThemeProvider>
-      <MovieGenresList id="1" />
+      <MovieGenresList id="3" />
     </ThemeProvider>,
   );
 
   expect(getByText('genreOne')).toBeTruthy();
-
   expect(getByText('genreTwo')).toBeTruthy();
 });
 
@@ -105,7 +104,7 @@ test('should navigate to Movies By Genre screen when poster is clicked', () => {
 
   const { getByText } = render(
     <ThemeProvider>
-      <MovieGenresList id="1" />
+      <MovieGenresList id="4" />
     </ThemeProvider>,
   );
 
