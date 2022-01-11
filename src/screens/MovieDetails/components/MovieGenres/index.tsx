@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { View } from 'react-native';
 import { useQuery } from '@apollo/client';
 import { Box, Button, Text } from '@gympass/yoga';
@@ -56,8 +56,8 @@ const MovieGenresList: React.FC<{ id: string }> = ({ id }) => {
         const notTheLastOne = index !== data?.movieGenres.length - 1;
 
         return (
-          <>
-            <Box key={genreId} flexDirection="row" alignItems="center">
+          <Fragment key={genreId}>
+            <Box flexDirection="row" alignItems="center">
               <Button.Link
                 small
                 onPress={goToMoviesByGenreScreen(genreId, name)}
@@ -70,7 +70,7 @@ const MovieGenresList: React.FC<{ id: string }> = ({ id }) => {
                 </Text>
               )}
             </Box>
-          </>
+          </Fragment>
         );
       })}
     </Box>
