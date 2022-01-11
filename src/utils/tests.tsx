@@ -4,10 +4,15 @@ import {
   RenderAPI,
   RenderOptions,
 } from '@testing-library/react-native';
+import { NavigationContainer } from '@react-navigation/native';
 import { ThemeProvider } from '@gympass/yoga';
 
 const ComponentWithProviders: FC = ({ children }) => {
-  return <ThemeProvider>{children}</ThemeProvider>;
+  return (
+    <NavigationContainer>
+      <ThemeProvider>{children}</ThemeProvider>
+    </NavigationContainer>
+  );
 };
 
 const customRender = (
