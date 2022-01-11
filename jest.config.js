@@ -18,4 +18,5 @@ module.exports = {
     '!**/tools/**',
     '!**/style/**',
   ],
+  moduleDirectories: ['node_modules', 'utils'],
 };
