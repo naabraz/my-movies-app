@@ -1,9 +1,9 @@
 import React from 'react';
 import { NativeModules } from 'react-native';
-
-import { render, fireEvent, waitFor } from '@testing-library/react-native';
+import { fireEvent, waitFor, RenderAPI } from '@testing-library/react-native';
 import * as APOLLO from '@apollo/client';
-import { ThemeProvider } from '@gympass/yoga';
+
+import { render } from 'src/utils/tests';
 
 import FavoriteGenre from '.';
 
@@ -45,6 +45,8 @@ beforeEach(() => {
   jest.clearAllMocks();
 });
 
+const setup = (): RenderAPI => render(<FavoriteGenre />);
+
 test('should render Loading component when data is not ready', () => {
   useQueryMock.mockReturnValue({
     ...queryResultMock,
@@ -53,11 +55,7 @@ test('should render Loading component when data is not ready', () => {
     called: true,
   });
 
-  const { getByTestId } = render(
-    <ThemeProvider>
-      <FavoriteGenre />
-    </ThemeProvider>,
-  );
+  const { getByTestId } = setup();
 
   expect(getByTestId('LoadingAnimation')).toBeTruthy();
 });
@@ -71,11 +69,7 @@ test('should render Error component when there is an error', () => {
     called: true,
   });
 
-  const { getByTestId } = render(
-    <ThemeProvider>
-      <FavoriteGenre />
-    </ThemeProvider>,
-  );
+  const { getByTestId } = setup();
 
   expect(getByTestId('ErrorAnimation')).toBeTruthy();
 });
@@ -88,11 +82,7 @@ test('should render genre list', () => {
     called: true,
   });
 
-  const { getByText } = render(
-    <ThemeProvider>
-      <FavoriteGenre />
-    </ThemeProvider>,
-  );
+  const { getByText } = setup();
 
   const genre = getByText('Action');
 
@@ -109,11 +99,7 @@ test('should render selected favorite genre when it exists', async () => {
     called: true,
   });
 
-  render(
-    <ThemeProvider>
-      <FavoriteGenre />
-    </ThemeProvider>,
-  );
+  setup();
 
   SecureStorage.getValue.mockReturnValueOnce(
     JSON.stringify({ id: 28, name: 'Action' }),
@@ -134,11 +120,7 @@ test('should call secure storage save value method', async () => {
     called: true,
   });
 
-  const { getAllByA11yRole } = render(
-    <ThemeProvider>
-      <FavoriteGenre />
-    </ThemeProvider>,
-  );
+  const { getAllByA11yRole } = setup();
 
   const [movieGenre] = getAllByA11yRole('switch');
 
