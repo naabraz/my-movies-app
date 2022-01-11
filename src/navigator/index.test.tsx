@@ -1,6 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { render } from 'src/utils/tests';
 
 import StackNavigator from './index';
 
@@ -14,21 +13,13 @@ jest.mock('screens', () => ({
 }));
 
 test('should render Stack Navigator with Popular Movies screen', () => {
-  const { getAllByText } = render(
-    <NavigationContainer>
-      <StackNavigator />
-    </NavigationContainer>,
-  );
+  const { getAllByText } = render(<StackNavigator />);
 
   expect(getAllByText('Popular Movies')).toBeTruthy();
 });
 
 test('should render Stack Navigator with tab navigator', () => {
-  const { getAllByText } = render(
-    <NavigationContainer>
-      <StackNavigator />
-    </NavigationContainer>,
-  );
+  const { getAllByText } = render(<StackNavigator />);
 
   expect(getAllByText('Popular Movies')).toBeTruthy();
   expect(getAllByText('Favorite Genre')).toBeTruthy();
