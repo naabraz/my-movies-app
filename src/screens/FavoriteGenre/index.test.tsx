@@ -1,28 +1,11 @@
 import React from 'react';
 import { NativeModules } from 'react-native';
 import { fireEvent, waitFor, RenderAPI } from '@testing-library/react-native';
-import * as APOLLO from '@apollo/client';
+import { useQuery, ApolloError } from '@apollo/client';
 
 import { render } from 'src/utils/tests';
 
 import FavoriteGenre from '.';
-
-const useQueryMock = jest.spyOn(APOLLO, 'useQuery');
-
-const queryResultMock = {
-  client: new APOLLO.ApolloClient({
-    uri: '',
-    cache: new APOLLO.InMemoryCache(),
-  }),
-  networkStatus: 1,
-  refetch: jest.fn(),
-  startPolling: jest.fn(),
-  stopPolling: jest.fn(),
-  subscribeToMore: jest.fn(),
-  updateQuery: jest.fn(),
-  variables: null,
-  fetchMore: jest.fn(),
-};
 
 const data = {
   genreList: [
@@ -41,19 +24,17 @@ const data = {
   ],
 };
 
-beforeEach(() => {
-  jest.clearAllMocks();
-});
+jest.mock('@apollo/client', () => ({
+  ...jest.requireActual('@apollo/client'),
+  useQuery: jest.fn(),
+}));
+
+const useQueryMock = useQuery as jest.MockedFunction<typeof Object>;
 
 const setup = (): RenderAPI => render(<FavoriteGenre />);
 
 test('should render Loading component when data is not ready', () => {
-  useQueryMock.mockReturnValue({
-    ...queryResultMock,
-    data: undefined,
-    loading: true,
-    called: true,
-  });
+  useQueryMock.mockReturnValue({ loading: true });
 
   const { getByTestId } = setup();
 
@@ -61,13 +42,7 @@ test('should render Loading component when data is not ready', () => {
 });
 
 test('should render Error component when there is an error', () => {
-  useQueryMock.mockReturnValue({
-    ...queryResultMock,
-    data: undefined,
-    loading: false,
-    error: new APOLLO.ApolloError({}),
-    called: true,
-  });
+  useQueryMock.mockReturnValue({ error: new ApolloError({}) });
 
   const { getByTestId } = setup();
 
@@ -75,12 +50,7 @@ test('should render Error component when there is an error', () => {
 });
 
 test('should render genre list', () => {
-  useQueryMock.mockReturnValue({
-    ...queryResultMock,
-    data,
-    loading: false,
-    called: true,
-  });
+  useQueryMock.mockReturnValue({ data });
 
   const { getByText } = setup();
 
@@ -90,16 +60,11 @@ test('should render genre list', () => {
 });
 
 test('should render selected favorite genre when it exists', async () => {
-  const { SecureStorage } = NativeModules;
-
-  useQueryMock.mockReturnValue({
-    ...queryResultMock,
-    data,
-    loading: false,
-    called: true,
-  });
+  useQueryMock.mockReturnValue({ data });
 
   setup();
+
+  const { SecureStorage } = NativeModules;
 
   SecureStorage.getValue.mockReturnValueOnce(
     JSON.stringify({ id: 28, name: 'Action' }),
@@ -111,20 +76,15 @@ test('should render selected favorite genre when it exists', async () => {
 });
 
 test('should call secure storage save value method', async () => {
-  const { SecureStorage } = NativeModules;
-
-  useQueryMock.mockReturnValue({
-    ...queryResultMock,
-    data,
-    loading: false,
-    called: true,
-  });
+  useQueryMock.mockReturnValue({ data });
 
   const { getAllByA11yRole } = setup();
 
   const [movieGenre] = getAllByA11yRole('switch');
 
   fireEvent(movieGenre, 'onChange', true);
+
+  const { SecureStorage } = NativeModules;
 
   await waitFor(() =>
     expect(SecureStorage.setValue).toHaveBeenCalledWith(

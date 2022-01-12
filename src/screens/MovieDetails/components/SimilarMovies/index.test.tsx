@@ -1,13 +1,11 @@
 import React from 'react';
 import { fireEvent } from '@testing-library/react-native';
 import { useNavigation } from '@react-navigation/native';
-import * as APOLLO from '@apollo/client';
+import { useQuery, ApolloError } from '@apollo/client';
 
 import { render, RenderAPI } from 'src/utils/tests';
 
 import SimilarMoviesList from './index';
-
-const useQueryMock = jest.spyOn(APOLLO, 'useQuery');
 
 const data = {
   similarMovies: [
@@ -32,34 +30,17 @@ const data = {
   ],
 };
 
-const queryResultMock = {
-  client: new APOLLO.ApolloClient({
-    uri: '',
-    cache: new APOLLO.InMemoryCache(),
-  }),
-  networkStatus: 1,
-  refetch: jest.fn(),
-  startPolling: jest.fn(),
-  stopPolling: jest.fn(),
-  subscribeToMore: jest.fn(),
-  updateQuery: jest.fn(),
-  variables: null,
-  fetchMore: jest.fn(),
-};
+jest.mock('@apollo/client', () => ({
+  ...jest.requireActual('@apollo/client'),
+  useQuery: jest.fn(),
+}));
 
-beforeEach(() => {
-  jest.clearAllMocks();
-});
+const useQueryMock = useQuery as jest.MockedFunction<typeof Object>;
 
 const setup = (): RenderAPI => render(<SimilarMoviesList id="1" />);
 
 test('should render Similar Movies according with received id', () => {
-  useQueryMock.mockReturnValue({
-    ...queryResultMock,
-    data: undefined,
-    loading: true,
-    called: true,
-  });
+  useQueryMock.mockReturnValue({ loading: true });
 
   const { getByText } = setup();
 
@@ -67,13 +48,7 @@ test('should render Similar Movies according with received id', () => {
 });
 
 test('should render Error component when there is an error', () => {
-  useQueryMock.mockReturnValue({
-    ...queryResultMock,
-    data: undefined,
-    loading: false,
-    error: new APOLLO.ApolloError({}),
-    called: true,
-  });
+  useQueryMock.mockReturnValue({ error: new ApolloError({}) });
 
   const { getByText } = setup();
 
@@ -81,13 +56,7 @@ test('should render Error component when there is an error', () => {
 });
 
 test('should render Similar Movies list when data is ready', () => {
-  useQueryMock.mockReturnValue({
-    ...queryResultMock,
-    data,
-    loading: false,
-    error: undefined,
-    called: true,
-  });
+  useQueryMock.mockReturnValue({ data });
 
   const { getAllByLabelText } = setup();
 
@@ -97,19 +66,13 @@ test('should render Similar Movies list when data is ready', () => {
 });
 
 test('should navigate to Movie Details when poster is clicked', () => {
-  useQueryMock.mockReturnValue({
-    ...queryResultMock,
-    data,
-    loading: false,
-    error: undefined,
-    called: true,
-  });
+  useQueryMock.mockReturnValue({ data });
 
   const { getAllByLabelText } = setup();
 
-  const label = 'Go to movie details';
+  const [label] = getAllByLabelText('Go to movie details');
 
-  fireEvent.press(getAllByLabelText(label)[0]);
+  fireEvent.press(label);
 
   expect(useNavigation().navigate).toHaveBeenCalledWith('Movie Details', {
     movie: {
