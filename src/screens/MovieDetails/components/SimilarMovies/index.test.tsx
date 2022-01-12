@@ -1,8 +1,9 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react-native';
+import { fireEvent } from '@testing-library/react-native';
 import { useNavigation } from '@react-navigation/native';
 import * as APOLLO from '@apollo/client';
-import { ThemeProvider } from '@gympass/yoga';
+
+import { render, RenderAPI } from 'src/utils/tests';
 
 import SimilarMoviesList from './index';
 
@@ -50,6 +51,8 @@ beforeEach(() => {
   jest.clearAllMocks();
 });
 
+const setup = (): RenderAPI => render(<SimilarMoviesList id="1" />);
+
 test('should render Similar Movies according with received id', () => {
   useQueryMock.mockReturnValue({
     ...queryResultMock,
@@ -58,11 +61,7 @@ test('should render Similar Movies according with received id', () => {
     called: true,
   });
 
-  const { getByText } = render(
-    <ThemeProvider>
-      <SimilarMoviesList id="1" />{' '}
-    </ThemeProvider>,
-  );
+  const { getByText } = setup();
 
   expect(getByText('...')).toBeTruthy();
 });
@@ -76,11 +75,7 @@ test('should render Error component when there is an error', () => {
     called: true,
   });
 
-  const { getByText } = render(
-    <ThemeProvider>
-      <SimilarMoviesList id="1" />
-    </ThemeProvider>,
-  );
+  const { getByText } = setup();
 
   expect(getByText('There was an error')).toBeTruthy();
 });
@@ -94,11 +89,7 @@ test('should render Similar Movies list when data is ready', () => {
     called: true,
   });
 
-  const { getAllByLabelText } = render(
-    <ThemeProvider>
-      <SimilarMoviesList id="1" />
-    </ThemeProvider>,
-  );
+  const { getAllByLabelText } = setup();
 
   const label = 'Go to movie details';
 
@@ -114,11 +105,7 @@ test('should navigate to Movie Details when poster is clicked', () => {
     called: true,
   });
 
-  const { getAllByLabelText } = render(
-    <ThemeProvider>
-      <SimilarMoviesList id="1" />
-    </ThemeProvider>,
-  );
+  const { getAllByLabelText } = setup();
 
   const label = 'Go to movie details';
 

@@ -1,13 +1,8 @@
 import React from 'react';
 import { fireEvent, RenderAPI } from '@testing-library/react-native';
 import { useNavigation } from '@react-navigation/native';
-import { render } from 'src/utils/tests';
 
-jest.mock('@react-navigation/native', () => ({
-  useNavigation: jest.fn().mockReturnValue({
-    navigate: jest.fn(),
-  }),
-}));
+import { render } from 'src/utils/tests';
 
 import TabBar from './index';
 
