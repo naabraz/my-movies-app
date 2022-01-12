@@ -1,11 +1,9 @@
 import React from 'react';
-import * as APOLLO from '@apollo/client';
+import { useQuery, ApolloError } from '@apollo/client';
 
 import { render, RenderAPI } from 'src/utils/tests';
 
 import PopularMovies from './index';
-
-const useQueryMock = jest.spyOn(APOLLO, 'useQuery');
 
 const data = {
   popularMovies: [
@@ -30,34 +28,17 @@ const data = {
   ],
 };
 
-const queryResultMock = {
-  client: new APOLLO.ApolloClient({
-    uri: '',
-    cache: new APOLLO.InMemoryCache(),
-  }),
-  networkStatus: 1,
-  refetch: jest.fn(),
-  startPolling: jest.fn(),
-  stopPolling: jest.fn(),
-  subscribeToMore: jest.fn(),
-  updateQuery: jest.fn(),
-  variables: null,
-  fetchMore: jest.fn(),
-};
+jest.mock('@apollo/client', () => ({
+  ...jest.requireActual('@apollo/client'),
+  useQuery: jest.fn(),
+}));
 
-beforeEach(() => {
-  jest.clearAllMocks();
-});
+const useQueryMock = useQuery as jest.MockedFunction<typeof Object>;
 
 const setup = (): RenderAPI => render(<PopularMovies />);
 
 test('should render Loading component when data is not ready', () => {
-  useQueryMock.mockReturnValue({
-    ...queryResultMock,
-    data: undefined,
-    loading: true,
-    called: true,
-  });
+  useQueryMock.mockReturnValue({ loading: true });
 
   const { getByTestId } = setup();
 
@@ -65,13 +46,7 @@ test('should render Loading component when data is not ready', () => {
 });
 
 test('should render Error component when there is an error', () => {
-  useQueryMock.mockReturnValue({
-    ...queryResultMock,
-    data: undefined,
-    loading: false,
-    error: new APOLLO.ApolloError({}),
-    called: true,
-  });
+  useQueryMock.mockReturnValue({ error: new ApolloError({}) });
 
   const { getByTestId } = setup();
 
@@ -79,12 +54,7 @@ test('should render Error component when there is an error', () => {
 });
 
 test('should render Movies list when data is ready', () => {
-  useQueryMock.mockReturnValue({
-    ...queryResultMock,
-    data,
-    loading: false,
-    called: true,
-  });
+  useQueryMock.mockReturnValue({ data });
 
   const { getAllByLabelText } = setup();
 
