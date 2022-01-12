@@ -1,7 +1,7 @@
 import React from 'react';
-import { render } from '@testing-library/react-native';
 import * as APOLLO from '@apollo/client';
-import { ThemeProvider } from '@gympass/yoga';
+
+import { render, RenderAPI } from 'src/utils/tests';
 
 import PopularMovies from './index';
 
@@ -49,6 +49,8 @@ beforeEach(() => {
   jest.clearAllMocks();
 });
 
+const setup = (): RenderAPI => render(<PopularMovies />);
+
 test('should render Loading component when data is not ready', () => {
   useQueryMock.mockReturnValue({
     ...queryResultMock,
@@ -57,11 +59,7 @@ test('should render Loading component when data is not ready', () => {
     called: true,
   });
 
-  const { getByTestId } = render(
-    <ThemeProvider>
-      <PopularMovies />
-    </ThemeProvider>,
-  );
+  const { getByTestId } = setup();
 
   expect(getByTestId('LoadingAnimation')).toBeTruthy();
 });
@@ -75,11 +73,7 @@ test('should render Error component when there is an error', () => {
     called: true,
   });
 
-  const { getByTestId } = render(
-    <ThemeProvider>
-      <PopularMovies />
-    </ThemeProvider>,
-  );
+  const { getByTestId } = setup();
 
   expect(getByTestId('ErrorAnimation')).toBeTruthy();
 });
@@ -92,11 +86,7 @@ test('should render Movies list when data is ready', () => {
     called: true,
   });
 
-  const { getAllByLabelText } = render(
-    <ThemeProvider>
-      <PopularMovies />
-    </ThemeProvider>,
-  );
+  const { getAllByLabelText } = setup();
 
   const labelText = 'Go to movie details';
 

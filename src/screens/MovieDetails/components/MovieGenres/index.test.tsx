@@ -1,8 +1,9 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react-native';
+import { fireEvent } from '@testing-library/react-native';
 import { useNavigation } from '@react-navigation/native';
 import * as APOLLO from '@apollo/client';
-import { ThemeProvider } from '@gympass/yoga';
+
+import { render, RenderAPI } from 'src/utils/tests';
 
 import MovieGenresList from './index';
 
@@ -40,6 +41,8 @@ beforeEach(() => {
   jest.clearAllMocks();
 });
 
+const setup = (): RenderAPI => render(<MovieGenresList id="1" />);
+
 test('should render Loading component when data is not ready', () => {
   useQueryMock.mockReturnValue({
     ...queryResultMock,
@@ -49,11 +52,7 @@ test('should render Loading component when data is not ready', () => {
     called: true,
   });
 
-  const { getByText } = render(
-    <ThemeProvider>
-      <MovieGenresList id="1" />
-    </ThemeProvider>,
-  );
+  const { getByText } = setup();
 
   expect(getByText('...')).toBeTruthy();
 });
@@ -67,11 +66,7 @@ test('should render Error component when there is an error', () => {
     called: true,
   });
 
-  const { getByText } = render(
-    <ThemeProvider>
-      <MovieGenresList id="2" />
-    </ThemeProvider>,
-  );
+  const { getByText } = setup();
 
   expect(getByText('There was an error')).toBeTruthy();
 });
@@ -84,11 +79,7 @@ test('should render Movie Genres list when data is ready', () => {
     called: true,
   });
 
-  const { getByText } = render(
-    <ThemeProvider>
-      <MovieGenresList id="3" />
-    </ThemeProvider>,
-  );
+  const { getByText } = setup();
 
   expect(getByText('genreOne')).toBeTruthy();
   expect(getByText('genreTwo')).toBeTruthy();
@@ -102,11 +93,7 @@ test('should navigate to Movies By Genre screen when poster is clicked', () => {
     called: true,
   });
 
-  const { getByText } = render(
-    <ThemeProvider>
-      <MovieGenresList id="4" />
-    </ThemeProvider>,
-  );
+  const { getByText } = setup();
 
   fireEvent.press(getByText('genreOne'));
 

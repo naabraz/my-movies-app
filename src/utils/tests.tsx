@@ -9,9 +9,9 @@ import { ThemeProvider } from '@gympass/yoga';
 
 const ComponentWithProviders: FC = ({ children }) => {
   return (
-    <NavigationContainer>
-      <ThemeProvider>{children}</ThemeProvider>
-    </NavigationContainer>
+    <ThemeProvider>
+      <NavigationContainer>{children}</NavigationContainer>
+    </ThemeProvider>
   );
 };
 
