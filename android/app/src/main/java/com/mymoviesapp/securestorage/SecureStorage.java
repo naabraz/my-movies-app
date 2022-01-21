@@ -30,7 +30,8 @@ public class SecureStorage extends ReactContextBaseJavaModule {
             }
 
             promise.resolve(key);
-            Log.d("SecureStorage", "Received key: " + key);
+
+            Log.d(MODULE_NAME, "getValue key: " + key);
         } catch (EmptyParameterException e) {
             Log.d(MODULE_NAME, e.getMessage());
             promise.reject(E_EMPTY_PARAMETERS, e);
@@ -48,8 +49,10 @@ public class SecureStorage extends ReactContextBaseJavaModule {
                 throw new EmptyParameterException("- Empty value parameter");
             }
 
-            Log.d("SecureStorage", "Received key: " + key);
-            Log.d("SecureStorage", "Received value: " + value);
+            promise.resolve(true);
+
+            Log.d(MODULE_NAME, "setValue key: " + key);
+            Log.d(MODULE_NAME, "setValue value: " + value);
         } catch (EmptyParameterException e) {
             Log.d(MODULE_NAME, e.getMessage());
             promise.reject(E_EMPTY_PARAMETERS, e);
