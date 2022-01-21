@@ -7,6 +7,7 @@ import com.facebook.react.bridge.ReactMethod;
 import com.mymoviesapp.securestorage.exceptions.EmptyParameterException;
 
 import android.util.Log;
+import androidx.annotation.NonNull;
 
 public class SecureStorage extends ReactContextBaseJavaModule {
     public static final String MODULE_NAME = "SecureStorage";
@@ -16,13 +17,24 @@ public class SecureStorage extends ReactContextBaseJavaModule {
         super(context);
     }
 
+    @NonNull
     public String getName() {
         return MODULE_NAME;
     }
 
     @ReactMethod
-    public void getValue(String key) {
-        Log.d("SecureStorage", "Received key: " + key);
+    public void getValue(String key, Promise promise) {
+        try {
+            if (key == null || key.isEmpty()) {
+                throw new EmptyParameterException("- Empty key parameter");
+            }
+
+            promise.resolve(key);
+            Log.d("SecureStorage", "Received key: " + key);
+        } catch (EmptyParameterException e) {
+            Log.d(MODULE_NAME, e.getMessage());
+            promise.reject(E_EMPTY_PARAMETERS, e);
+        }
     }
 
     @ReactMethod
